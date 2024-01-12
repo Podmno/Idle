@@ -137,19 +137,12 @@
 		5D9A82F92B4EAF370091FD2E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				5DACE9482B4C4A75009BA82C /* DockProgress.swift */,
+				5DACE9492B4C4A75009BA82C /* Utilities.swift */,
 				5D9A82FA2B4EAF400091FD2E /* ConfettiView.bundle */,
 				5D9A82FB2B4EAF400091FD2E /* ConfettiView.swift */,
 			);
 			path = Support;
-			sourceTree = "<group>";
-		};
-		5DACE9472B4C49B1009BA82C /* DockProgress */ = {
-			isa = PBXGroup;
-			children = (
-				5DACE9482B4C4A75009BA82C /* DockProgress.swift */,
-				5DACE9492B4C4A75009BA82C /* Utilities.swift */,
-			);
-			path = DockProgress;
 			sourceTree = "<group>";
 		};
 		5DB12B292B3C87E900224244 = {
@@ -173,7 +166,6 @@
 			children = (
 				5D9A82F92B4EAF370091FD2E /* Support */,
 				5D178C7A2B4D836500654D19 /* Special */,
-				5DACE9472B4C49B1009BA82C /* DockProgress */,
 				5D8DE7BB2B3DC1C300D5315D /* Whatsnew */,
 				5D8C97342B3D04F4009D142D /* Countdown */,
 				5D8C972D2B3D00F8009D142D /* Forest Support */,
