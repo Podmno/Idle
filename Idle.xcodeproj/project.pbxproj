@@ -7,17 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D178C7B2B4D839900654D19 /* VCReachGoal.swift */; };
+		5D178C7E2B4D839900654D19 /* VCReachGoal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D178C7C2B4D839900654D19 /* VCReachGoal.xib */; };
+		5D8C97302B3D01D3009D142D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C972F2B3D01D3009D142D /* Alamofire */; };
+		5D8C97332B3D0205009D142D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C97322B3D0205009D142D /* SwiftyJSON */; };
+		5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97352B3D0505009D142D /* LDMenuIcon.swift */; };
+		5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97362B3D0505009D142D /* LDCoreTimer.swift */; };
+		5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97392B3D0C95009D142D /* VCCountDown.swift */; };
+		5D8DE7B62B3DBB1500D5315D /* VCLinkForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */; };
+		5D8DE7B72B3DBB1500D5315D /* VCLinkForest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */; };
+		5D8DE7C22B3DC1F300D5315D /* VCWhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8DE7C02B3DC1F300D5315D /* VCWhatsNew.swift */; };
+		5D8DE7C32B3DC1F300D5315D /* VCWhatsNew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8DE7C12B3DC1F300D5315D /* VCWhatsNew.xib */; };
+		5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */; };
+		5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97DDF82B4D5B6F00B2E3AE /* LDRecord.swift */; };
+		5D9A82FC2B4EAF400091FD2E /* ConfettiView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A82FA2B4EAF400091FD2E /* ConfettiView.bundle */; };
+		5D9A82FD2B4EAF400091FD2E /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9A82FB2B4EAF400091FD2E /* ConfettiView.swift */; };
+		5D9A82FF2B4ED0030091FD2E /* VCCountDown.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A83012B4ED0030091FD2E /* VCCountDown.xib */; };
+		5D9A83062B4ED25E0091FD2E /* WDTimerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A83082B4ED25E0091FD2E /* WDTimerConfig.xib */; };
+		5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */; };
+		5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */; };
+		5D9F752E2B4EF76300EE0E52 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F75302B4EF76300EE0E52 /* Localizable.strings */; };
+		5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9482B4C4A75009BA82C /* DockProgress.swift */; };
+		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
 		5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB12B352B3C87E900224244 /* AppDelegate.swift */; };
 		5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B372B3C87EB00224244 /* Assets.xcassets */; };
 		5DB12B3B2B3C87EB00224244 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B392B3C87EB00224244 /* MainMenu.xib */; };
+		5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */; };
+		5DB5C9392B4D25A50071CFC4 /* WDTimeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */; };
+		5DB5C93A2B4D25A50071CFC4 /* WDTimeInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DB12B322B3C87E900224244 /* Idle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D178C7B2B4D839900654D19 /* VCReachGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCReachGoal.swift; sourceTree = "<group>"; };
+		5D178C7C2B4D839900654D19 /* VCReachGoal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCReachGoal.xib; sourceTree = "<group>"; };
+		5D8C97352B3D0505009D142D /* LDMenuIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDMenuIcon.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		5D8C97362B3D0505009D142D /* LDCoreTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDCoreTimer.swift; sourceTree = "<group>"; };
+		5D8C97392B3D0C95009D142D /* VCCountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCountDown.swift; sourceTree = "<group>"; };
+		5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLinkForest.swift; sourceTree = "<group>"; };
+		5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCLinkForest.xib; sourceTree = "<group>"; };
+		5D8DE7C02B3DC1F300D5315D /* VCWhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWhatsNew.swift; sourceTree = "<group>"; };
+		5D8DE7C12B3DC1F300D5315D /* VCWhatsNew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCWhatsNew.xib; sourceTree = "<group>"; };
+		5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDNotification.swift; sourceTree = "<group>"; };
+		5D97DDF82B4D5B6F00B2E3AE /* LDRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDRecord.swift; sourceTree = "<group>"; };
+		5D9A82FA2B4EAF400091FD2E /* ConfettiView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ConfettiView.bundle; sourceTree = "<group>"; };
+		5D9A82FB2B4EAF400091FD2E /* ConfettiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		5D9A83002B4ED0030091FD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VCCountDown.xib; sourceTree = "<group>"; };
+		5D9A83072B4ED25E0091FD2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WDTimerConfig.xib; sourceTree = "<group>"; };
+		5D9A830A2B4ED2620091FD2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WDTimerConfig.strings; sourceTree = "<group>"; };
+		5D9A830C2B4ED2620091FD2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WDTimerConfig.strings"; sourceTree = "<group>"; };
+		5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMenuIcon.swift; sourceTree = "<group>"; };
+		5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCMenuIcon.xib; sourceTree = "<group>"; };
+		5D9F752F2B4EF76300EE0E52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5D9F75312B4EF76500EE0E52 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5D9F75352B4EF85D00EE0E52 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
+		5D9F75362B4EF86000EE0E52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		5D9F753A2B4F00DF00EE0E52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/VCCountDown.strings; sourceTree = "<group>"; };
+		5D9F753B2B4F00E100EE0E52 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/VCCountDown.strings"; sourceTree = "<group>"; };
+		5DACE9482B4C4A75009BA82C /* DockProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockProgress.swift; sourceTree = "<group>"; };
+		5DACE9492B4C4A75009BA82C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5DB12B322B3C87E900224244 /* Focus 100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Focus 100.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB12B352B3C87E900224244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DB12B372B3C87EB00224244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DB12B3A2B3C87EB00224244 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5DB12B3C2B3C87EB00224244 /* Idle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Idle.entitlements; sourceTree = "<group>"; };
+		5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTimerConfig.swift; sourceTree = "<group>"; };
+		5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTimeInput.swift; sourceTree = "<group>"; };
+		5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDTimeInput.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,12 +80,78 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8C97332B3D0205009D142D /* SwiftyJSON in Frameworks */,
+				5D8C97302B3D01D3009D142D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D178C7A2B4D836500654D19 /* Special */ = {
+			isa = PBXGroup;
+			children = (
+				5D178C7B2B4D839900654D19 /* VCReachGoal.swift */,
+				5D178C7C2B4D839900654D19 /* VCReachGoal.xib */,
+			);
+			path = Special;
+			sourceTree = "<group>";
+		};
+		5D8C972D2B3D00F8009D142D /* Forest Support */ = {
+			isa = PBXGroup;
+			children = (
+				5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */,
+				5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */,
+			);
+			path = "Forest Support";
+			sourceTree = "<group>";
+		};
+		5D8C97342B3D04F4009D142D /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				5D8C97362B3D0505009D142D /* LDCoreTimer.swift */,
+				5D8C97352B3D0505009D142D /* LDMenuIcon.swift */,
+				5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */,
+				5D97DDF82B4D5B6F00B2E3AE /* LDRecord.swift */,
+				5D8C97392B3D0C95009D142D /* VCCountDown.swift */,
+				5D9A83012B4ED0030091FD2E /* VCCountDown.xib */,
+				5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */,
+				5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */,
+				5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */,
+				5D9A83082B4ED25E0091FD2E /* WDTimerConfig.xib */,
+				5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */,
+				5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */,
+			);
+			path = Countdown;
+			sourceTree = "<group>";
+		};
+		5D8DE7BB2B3DC1C300D5315D /* Whatsnew */ = {
+			isa = PBXGroup;
+			children = (
+				5D8DE7C02B3DC1F300D5315D /* VCWhatsNew.swift */,
+				5D8DE7C12B3DC1F300D5315D /* VCWhatsNew.xib */,
+			);
+			path = Whatsnew;
+			sourceTree = "<group>";
+		};
+		5D9A82F92B4EAF370091FD2E /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				5D9A82FA2B4EAF400091FD2E /* ConfettiView.bundle */,
+				5D9A82FB2B4EAF400091FD2E /* ConfettiView.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		5DACE9472B4C49B1009BA82C /* DockProgress */ = {
+			isa = PBXGroup;
+			children = (
+				5DACE9482B4C4A75009BA82C /* DockProgress.swift */,
+				5DACE9492B4C4A75009BA82C /* Utilities.swift */,
+			);
+			path = DockProgress;
+			sourceTree = "<group>";
+		};
 		5DB12B292B3C87E900224244 = {
 			isa = PBXGroup;
 			children = (
@@ -42,7 +163,7 @@
 		5DB12B332B3C87E900224244 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5DB12B322B3C87E900224244 /* Idle.app */,
+				5DB12B322B3C87E900224244 /* Focus 100.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -50,10 +171,17 @@
 		5DB12B342B3C87E900224244 /* Idle */ = {
 			isa = PBXGroup;
 			children = (
+				5D9A82F92B4EAF370091FD2E /* Support */,
+				5D178C7A2B4D836500654D19 /* Special */,
+				5DACE9472B4C49B1009BA82C /* DockProgress */,
+				5D8DE7BB2B3DC1C300D5315D /* Whatsnew */,
+				5D8C97342B3D04F4009D142D /* Countdown */,
+				5D8C972D2B3D00F8009D142D /* Forest Support */,
 				5DB12B352B3C87E900224244 /* AppDelegate.swift */,
 				5DB12B372B3C87EB00224244 /* Assets.xcassets */,
 				5DB12B392B3C87EB00224244 /* MainMenu.xib */,
 				5DB12B3C2B3C87EB00224244 /* Idle.entitlements */,
+				5D9F75302B4EF76300EE0E52 /* Localizable.strings */,
 			);
 			path = Idle;
 			sourceTree = "<group>";
@@ -74,8 +202,12 @@
 			dependencies = (
 			);
 			name = Idle;
+			packageProductDependencies = (
+				5D8C972F2B3D01D3009D142D /* Alamofire */,
+				5D8C97322B3D0205009D142D /* SwiftyJSON */,
+			);
 			productName = Idle;
-			productReference = 5DB12B322B3C87E900224244 /* Idle.app */;
+			productReference = 5DB12B322B3C87E900224244 /* Focus 100.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,8 +232,14 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 5DB12B292B3C87E900224244;
+			packageReferences = (
+				5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5D8C97312B3D0205009D142D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5D8DE7B82B3DBFA800D5315D /* XCRemoteSwiftPackageReference "DockProgress" */,
+			);
 			productRefGroup = 5DB12B332B3C87E900224244 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -116,8 +254,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9A82FF2B4ED0030091FD2E /* VCCountDown.xib in Resources */,
 				5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */,
+				5D9F752E2B4EF76300EE0E52 /* Localizable.strings in Resources */,
+				5DB5C93A2B4D25A50071CFC4 /* WDTimeInput.xib in Resources */,
+				5D178C7E2B4D839900654D19 /* VCReachGoal.xib in Resources */,
+				5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */,
+				5D8DE7C32B3DC1F300D5315D /* VCWhatsNew.xib in Resources */,
 				5DB12B3B2B3C87EB00224244 /* MainMenu.xib in Resources */,
+				5D9A83062B4ED25E0091FD2E /* WDTimerConfig.xib in Resources */,
+				5D9A82FC2B4EAF400091FD2E /* ConfettiView.bundle in Resources */,
+				5D8DE7B72B3DBB1500D5315D /* VCLinkForest.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,17 +275,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */,
+				5D8DE7B62B3DBB1500D5315D /* VCLinkForest.swift in Sources */,
 				5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */,
+				5D9A82FD2B4EAF400091FD2E /* ConfettiView.swift in Sources */,
+				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
+				5DB5C9392B4D25A50071CFC4 /* WDTimeInput.swift in Sources */,
+				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
+				5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */,
+				5D8DE7C22B3DC1F300D5315D /* VCWhatsNew.swift in Sources */,
+				5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */,
+				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
+				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
+				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
+				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,
+				5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5D9A83012B4ED0030091FD2E /* VCCountDown.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D9A83002B4ED0030091FD2E /* Base */,
+				5D9F753A2B4F00DF00EE0E52 /* en */,
+				5D9F753B2B4F00E100EE0E52 /* zh-Hans */,
+			);
+			name = VCCountDown.xib;
+			sourceTree = "<group>";
+		};
+		5D9A83082B4ED25E0091FD2E /* WDTimerConfig.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D9A83072B4ED25E0091FD2E /* Base */,
+				5D9A830A2B4ED2620091FD2E /* en */,
+				5D9A830C2B4ED2620091FD2E /* zh-Hans */,
+			);
+			name = WDTimerConfig.xib;
+			sourceTree = "<group>";
+		};
+		5D9F75302B4EF76300EE0E52 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D9F752F2B4EF76300EE0E52 /* en */,
+				5D9F75312B4EF76500EE0E52 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5DB12B392B3C87EB00224244 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5DB12B3A2B3C87EB00224244 /* Base */,
+				5D9F75352B4EF85D00EE0E52 /* zh-Hans */,
+				5D9F75362B4EF86000EE0E52 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -150,6 +342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -210,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -265,12 +459,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Idle/Idle.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Focus 100";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -278,9 +475,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.Idle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Focus 100";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -292,12 +490,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Idle/Idle.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Focus 100";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -305,9 +506,10 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.Idle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Focus 100";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -335,6 +537,46 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		5D8C97312B3D0205009D142D /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		5D8DE7B82B3DBFA800D5315D /* XCRemoteSwiftPackageReference "DockProgress" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/DockProgress";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D8C972F2B3D01D3009D142D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		5D8C97322B3D0205009D142D /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D8C97312B3D0205009D142D /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5DB12B2A2B3C87E900224244 /* Project object */;
 }

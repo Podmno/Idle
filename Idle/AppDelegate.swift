@@ -12,9 +12,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet var window: NSWindow!
 
+    let notificationUtil = LDNotification()
+    
+    let menuIcon = LDMenuIcon()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        menuIcon.initCreateIcon()
+        
+        let style = DockProgress.Style.pie(color: .controlAccentColor)
+        DockProgress.style = style
+        
+        
+        notificationUtil.userAuthNotificationPermission()
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

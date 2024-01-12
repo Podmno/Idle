@@ -1,0 +1,93 @@
+
+/* Class = "NSMenuItem"; title = "Progress Bar"; ObjectID = "056-7V-db1"; */
+"056-7V-db1.title" = "Progress Bar";
+
+/* Class = "NSMenu"; title = "Account Region"; ObjectID = "0Kx-Ww-Om8"; */
+"0Kx-Ww-Om8.title" = "Account Region";
+
+/* Class = "NSMenuItem"; title = "3"; ObjectID = "26J-UV-phi"; */
+"26J-UV-phi.title" = "3";
+
+/* Class = "NSMenuItem"; title = "The reliability of this feature is not guaranteed."; ObjectID = "3Sc-qf-U8m"; */
+"3Sc-qf-U8m.title" = "The reliability of this feature is not guaranteed.";
+
+/* Class = "NSTextFieldCell"; title = "Week"; ObjectID = "471-82-5bU"; */
+"471-82-5bU.title" = "Week";
+
+/* Class = "NSMenuItem"; title = "Edit Countdown Timer..."; ObjectID = "4IA-zv-7d2"; */
+"4IA-zv-7d2.title" = "Edit Countdown Timer...";
+
+/* Class = "NSTextFieldCell"; title = "0m"; ObjectID = "Aju-pN-aUD"; */
+"Aju-pN-aUD.title" = "0m";
+
+/* Class = "NSMenuItem"; title = "Log out"; ObjectID = "FjM-n3-L9G"; */
+"FjM-n3-L9G.title" = "Log out";
+
+/* Class = "NSTextFieldCell"; title = "0m"; ObjectID = "G0k-Pq-Gve"; */
+"G0k-Pq-Gve.title" = "0m";
+
+/* Class = "NSTextFieldCell"; title = "0m"; ObjectID = "Kno-Q2-9tQ"; */
+"Kno-Q2-9tQ.title" = "0m";
+
+/* Class = "NSMenuItem"; title = "Account Region"; ObjectID = "QFA-nt-XNr"; */
+"QFA-nt-XNr.title" = "Account Region";
+
+/* Class = "NSTextFieldCell"; title = "Total"; ObjectID = "Rip-f5-CKi"; */
+"Rip-f5-CKi.title" = "Total";
+
+/* Class = "NSMenuItem"; title = "China Mainland"; ObjectID = "Sik-0Q-GCx"; */
+"Sik-0Q-GCx.title" = "China Mainland";
+
+/* Class = "NSMenuItem"; title = "1"; ObjectID = "T01-cS-BIj"; */
+"T01-cS-BIj.title" = "1";
+
+/* Class = "NSTextFieldCell"; title = "Today"; ObjectID = "YnI-dR-dBV"; */
+"YnI-dR-dBV.title" = "Today";
+
+/* Class = "NSMenuItem"; title = "2"; ObjectID = "ZnA-kG-Odv"; */
+"ZnA-kG-Odv.title" = "2";
+
+/* Class = "NSMenuItem"; title = "Sync now"; ObjectID = "a4F-ev-k6f"; */
+"a4F-ev-k6f.title" = "Sync now";
+
+/* Class = "NSMenuItem"; title = "4"; ObjectID = "ayp-vV-9EQ"; */
+"ayp-vV-9EQ.title" = "4";
+
+/* Class = "NSButtonCell"; title = "   Start"; ObjectID = "bYz-Qe-mvN"; */
+"bYz-Qe-mvN.title" = "   Start";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Setup your goal"; ObjectID = "eNs-1k-jCh"; */
+"eNs-1k-jCh.placeholderString" = "Setup your goal";
+
+/* Class = "NSMenuItem"; title = "Global"; ObjectID = "fKO-Ru-z6f"; */
+"fKO-Ru-z6f.title" = "Global";
+
+/* Class = "NSMenuItem"; title = "Log in Forest Account"; ObjectID = "fvt-cy-tJl"; */
+"fvt-cy-tJl.title" = "Log in Forest Account";
+
+/* Class = "NSMenuItem"; title = "Quit Focus 100"; ObjectID = "pRd-Ut-5BB"; */
+"pRd-Ut-5BB.title" = "Quit Focus 100";
+
+/* Class = "NSMenu"; title = "Dock Countdown Style..."; ObjectID = "rxi-Uf-PTx"; */
+"rxi-Uf-PTx.title" = "Dock Countdown Style...";
+
+/* Class = "NSMenuItem"; title = "Dock Countdown Style..."; ObjectID = "s3u-5P-VAJ"; */
+"s3u-5P-VAJ.title" = "Dock Countdown Style...";
+
+/* Class = "NSMenuItem"; title = "Circle"; ObjectID = "uZs-ku-rNH"; */
+"uZs-ku-rNH.title" = "Circle";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "uwG-Jx-udd"; */
+"uwG-Jx-udd.title" = "Text Cell";
+
+/* Class = "NSSegmentedCell"; vFr-Du-rlN.ibShadowedLabels[0] = "Countdown"; ObjectID = "vFr-Du-rlN"; */
+"vFr-Du-rlN.ibShadowedLabels[0]" = "Countdown";
+
+/* Class = "NSSegmentedCell"; vFr-Du-rlN.ibShadowedLabels[1] = "Countup"; ObjectID = "vFr-Du-rlN"; */
+"vFr-Du-rlN.ibShadowedLabels[1]" = "Countup";
+
+/* Class = "NSMenuItem"; title = "5"; ObjectID = "xXy-oD-o7m"; */
+"xXy-oD-o7m.title" = "5";
+
+/* Class = "NSMenuItem"; title = "Reset Settings"; ObjectID = "xne-41-gfe"; */
+"xne-41-gfe.title" = "Reset Settings";

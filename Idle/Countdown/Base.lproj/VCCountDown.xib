@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VCCountDown" customModule="Focus_100" customModuleProvider="target">
+            <connections>
+                <outlet property="btnConfig" destination="v5H-pk-r5O" id="Jir-95-p7J"/>
+                <outlet property="btnStart" destination="Ghs-g5-Fk1" id="V9P-ve-dzO"/>
+                <outlet property="clockMenu1" destination="T01-cS-BIj" id="3Ls-56-Nmd"/>
+                <outlet property="clockMenu2" destination="ZnA-kG-Odv" id="JM1-Ag-3gQ"/>
+                <outlet property="clockMenu3" destination="26J-UV-phi" id="6qj-h4-YaK"/>
+                <outlet property="clockMenu4" destination="ayp-vV-9EQ" id="bAK-MZ-eHT"/>
+                <outlet property="clockMenu5" destination="xXy-oD-o7m" id="GMu-k9-tLu"/>
+                <outlet property="lbToday" destination="Szf-CV-E8d" id="s4r-1R-bqf"/>
+                <outlet property="lbTotal" destination="peR-zL-xZS" id="PJm-Oq-Qcu"/>
+                <outlet property="lbWeek" destination="zED-ZW-Got" id="8f9-Ub-tcA"/>
+                <outlet property="menuConfig" destination="Arj-EP-bi2" id="H9W-JN-SH3"/>
+                <outlet property="menuLink" destination="nRP-OB-yrN" id="YZV-eX-SsB"/>
+                <outlet property="menuPrefDockStyleBar" destination="056-7V-db1" id="Gbd-61-Gx1"/>
+                <outlet property="menuPrefDockStyleCircle" destination="uZs-ku-rNH" id="ySY-ZJ-vAw"/>
+                <outlet property="outlineViewHeader" destination="0dE-bS-2mj" id="MfN-HY-fD2"/>
+                <outlet property="popTimeSelect" destination="usW-jz-cVY" id="WxO-Fr-rYk"/>
+                <outlet property="scCountDown" destination="I7R-uP-Wtr" id="hhe-e0-nDn"/>
+                <outlet property="specialIcon" destination="6bI-QR-OmZ" id="efG-qh-ANd"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="406" height="178"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView focusRingType="none" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="ocV-KM-zXS">
+                    <rect key="frame" x="0.0" y="139" width="486" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="5Vt-IN-WX7">
+                        <rect key="frame" x="0.0" y="0.0" width="486" height="84"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" enabled="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="13" outlineTableColumn="d3C-ty-hi5" id="0dE-bS-2mj">
+                                <rect key="frame" x="0.0" y="0.0" width="486" height="84"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <size key="intercellSpacing" width="3" height="0.0"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="454" minWidth="16" maxWidth="1000" id="d3C-ty-hi5">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" enabled="NO" borderStyle="border">
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" enabled="NO" title="Text Cell" id="uwG-Jx-udd">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                            </outlineView>
+                        </subviews>
+                        <nil key="backgroundColor"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="d9z-1l-q77">
+                        <rect key="frame" x="-100" y="-100" width="238" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Ntf-Fb-ngq">
+                        <rect key="frame" x="-100" y="-100" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-g5-Fk1">
+                    <rect key="frame" x="292" y="137" width="114" height="41"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" title="   Start" bezelStyle="regularSquare" imagePosition="leading" alignment="center" inset="2" id="bYz-Qe-mvN">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="systemLight" size="15"/>
+                        <imageReference key="image" image="stop" symbolScale="default" variableValue="1"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <action selector="btnClickedStart:" target="-2" id="oQf-oI-k9y"/>
+                    </connections>
+                </button>
+                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7R-uP-Wtr">
+                    <rect key="frame" x="6" y="145" width="162" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" alignment="left" style="texturedSquare" trackingMode="selectOne" id="vFr-Du-rlN">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="Countdown" width="76" selected="YES"/>
+                            <segment label="Countup" alignment="left" width="75" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <action selector="clickedSwitchMode:" target="-2" id="TcC-YA-dSe"/>
+                    </connections>
+                </segmentedControl>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0g9-ut-4iK">
+                    <rect key="frame" x="224" y="11" width="25" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="zJz-75-t8z">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="sync" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <action selector="btnClickedLinkForest:" target="-2" id="esg-qR-oWy"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSU-eh-Rq7">
+                    <rect key="frame" x="127" y="11" width="25" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="S8j-gu-o4C">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="clock" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hcL-2W-GS7">
+                    <rect key="frame" x="191" y="11" width="25" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="OEt-K5-YH3">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="calendar" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uol-Hi-Vby">
+                    <rect key="frame" x="29" y="106" width="91" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Today" id="YnI-dR-dBV">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fcj-nM-3su">
+                    <rect key="frame" x="157" y="106" width="93" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Week" id="471-82-5bU">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-Oj-go1">
+                    <rect key="frame" x="278" y="106" width="105" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Total" id="Rip-f5-CKi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szf-CV-E8d">
+                    <rect key="frame" x="15" y="66" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0m" id="Kno-Q2-9tQ">
+                        <font key="font" metaFont="systemThin" size="23"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peR-zL-xZS">
+                    <rect key="frame" x="271" y="66" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0m" id="G0k-Pq-Gve">
+                        <font key="font" metaFont="systemThin" size="23"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zED-ZW-Got">
+                    <rect key="frame" x="144" y="66" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0m" id="Aju-pN-aUD">
+                        <font key="font" metaFont="systemThin" size="23"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usW-jz-cVY">
+                    <rect key="frame" x="174" y="144" width="106" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="bevel" title="1" bezelStyle="regularSquare" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="T01-cS-BIj" id="UhA-XV-g9z">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="c43-hb-Kwd">
+                            <items>
+                                <menuItem title="1" state="on" id="T01-cS-BIj">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="2" id="ZnA-kG-Odv">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="3" id="26J-UV-phi">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem title="4" id="ayp-vV-9EQ">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                                <menuItem isSeparatorItem="YES" id="gd7-1q-xux"/>
+                                <menuItem title="5" id="xXy-oD-o7m">
+                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="clickedSwitchTime:" target="-2" id="1mX-HO-34z"/>
+                    </connections>
+                </popUpButton>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agI-m0-kGI">
+                    <rect key="frame" x="159" y="6" width="25" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="QBA-UB-dL6">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </button>
+                <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bI-QR-OmZ">
+                    <rect key="frame" x="361" y="99" width="27" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="flag.fill" id="wHU-hP-Qax"/>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                </imageView>
+                <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epc-My-seU">
+                    <rect key="frame" x="5" y="39" width="397" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" focusRingType="none" alignment="center" placeholderString="Setup your goal" id="eNs-1k-jCh">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5H-pk-r5O">
+                    <rect key="frame" x="256" y="11" width="25" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="HVs-ei-aQs">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="gear" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <action selector="btnClickedConfig:" target="-2" id="ldf-VF-QLZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="119" y="106"/>
+        </customView>
+        <menu id="Arj-EP-bi2">
+            <items>
+                <menuItem title="Edit Countdown Timer..." keyEquivalent="t" id="4IA-zv-7d2">
+                    <connections>
+                        <action selector="menuClickedEditCountDown:" target="-2" id="Rbt-yt-48o"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Dock Countdown Style..." id="s3u-5P-VAJ">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Dock Countdown Style..." id="rxi-Uf-PTx">
+                        <items>
+                            <menuItem title="Circle" state="on" id="uZs-ku-rNH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="menuClickedDockStyle:" target="-2" id="n22-qS-dZv"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Progress Bar" id="056-7V-db1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="menuClickedDockStyle:" target="-2" id="7YZ-Kx-Nf5"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Reset Settings" id="xne-41-gfe">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="wqx-d6-Ibb"/>
+                <menuItem title="Quit Focus 100" keyEquivalent="q" id="pRd-Ut-5BB">
+                    <connections>
+                        <action selector="menuClickedQuitApp:" target="-2" id="LmM-kx-dih"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="578" y="215"/>
+        </menu>
+        <menu id="nRP-OB-yrN">
+            <items>
+                <menuItem title="Log in Forest Account" id="fvt-cy-tJl">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Account Region" id="QFA-nt-XNr">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Account Region" id="0Kx-Ww-Om8">
+                        <items>
+                            <menuItem title="Global" state="on" id="fKO-Ru-z6f">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="China Mainland" id="Sik-0Q-GCx">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="The reliability of this feature is not guaranteed." enabled="NO" id="3Sc-qf-U8m">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="qLM-Bb-SHD"/>
+                <menuItem title="Sync now" id="a4F-ev-k6f">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Log out" id="FjM-n3-L9G">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="686" y="392"/>
+        </menu>
+    </objects>
+    <resources>
+        <image name="calendar" width="20" height="18"/>
+        <image name="clock" width="20" height="20"/>
+        <image name="flag.fill" width="18" height="19"/>
+        <image name="gear" width="22" height="21"/>
+        <image name="star" catalog="system" width="23" height="20"/>
+        <image name="stop" width="16" height="16"/>
+        <image name="sync" width="24" height="20"/>
+    </resources>
+</document>

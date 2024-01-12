@@ -1,0 +1,9 @@
+"Custom clock is less than 15 minutes" = "Custom clock is less than 15 minutes";
+"The focus record of this focus clock will not be saved." = "The focus record of this focus clock will not be saved.";
+"Timer Stopped" = "Timer Stopped";
+"%lld minutes countdown is over." = "%lld minutes countdown is over.";
+"The duration is not recorded" = "The duration is not recorded";
+"Focus duration is less than 15 minutes and will not be recorded." = "Focus duration is less than 15 minutes and will not be recorded.";
+"Start" = "Start";
+"Stop" = "Stop";
+"%lld minutes are included in the total focus time." = "%lld minutes are included in the total focus time.";

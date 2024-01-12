@@ -1,0 +1,9 @@
+"Custom clock is less than 15 minutes" = "自定义时间少于 15 分钟";
+"The focus record of this focus clock will not be saved." = "此专注时钟的记录不会被保存。";
+"Timer Stopped" = "时间到";
+"%lld minutes countdown is over." = "%lld 分钟倒计时结束。";
+"The duration is not recorded" = "计时未记录";
+"Focus duration is less than 15 minutes and will not be recorded." = "少于 15 分钟的专注记录不会被记录。";
+"Start" = "开始";
+"Stop" = "停止";
+"%lld minutes are included in the total focus time." = "%lld 分钟已计入专注总时长。";
