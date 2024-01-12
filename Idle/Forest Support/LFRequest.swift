@@ -9,19 +9,29 @@ import Cocoa
 
 public class LFRequest : NSObject {
     
-    public func userLogin(username: String, password: String, china_account: Bool) {
+    public var forestAPIBaseURL = "https://c88fef96.forestapp.cc/api/v1"
+    
+    public let domainSignin = "/sessions"
+    
+    public let domainUser = "/users"
+    
+    public let domainSignout = "/sessions/signout"
+    
+    public let domainTags = "/tags"
+    
+    public let domainUnlocked = "/tree_types/unlocked"
+    
+    public let domainAllTrees = "/plants"
+    
+    public func switchToChinaReigon() {
+        print("")
+    }
+    
+    public func userLogin(username: String, password: String) {
         
-        print("LFRequest Login with Username \(username), Password \(password), is_china_account \(china_account)")
+        print("LFRequest Login with Username \(username), Password \(password).")
         
-        if !china_account {
-            
-            
-            
-        } else {
-            
-            
-            
-        }
+        
         
     }
     
