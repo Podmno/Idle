@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D178C7B2B4D839900654D19 /* VCReachGoal.swift */; };
 		5D178C7E2B4D839900654D19 /* VCReachGoal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D178C7C2B4D839900654D19 /* VCReachGoal.xib */; };
+		5D2F39DB2B511E2A00C3D391 /* LFRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */; };
 		5D8C97302B3D01D3009D142D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C972F2B3D01D3009D142D /* Alamofire */; };
 		5D8C97332B3D0205009D142D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C97322B3D0205009D142D /* SwiftyJSON */; };
 		5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97352B3D0505009D142D /* LDMenuIcon.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		5D178C7B2B4D839900654D19 /* VCReachGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCReachGoal.swift; sourceTree = "<group>"; };
 		5D178C7C2B4D839900654D19 /* VCReachGoal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCReachGoal.xib; sourceTree = "<group>"; };
+		5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFRequest.swift; sourceTree = "<group>"; };
 		5D8C97352B3D0505009D142D /* LDMenuIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDMenuIcon.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		5D8C97362B3D0505009D142D /* LDCoreTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDCoreTimer.swift; sourceTree = "<group>"; };
 		5D8C97392B3D0C95009D142D /* VCCountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCountDown.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		5D8C972D2B3D00F8009D142D /* Forest Support */ = {
 			isa = PBXGroup;
 			children = (
+				5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */,
 				5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */,
 				5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */,
 			);
@@ -272,6 +275,7 @@
 				5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */,
 				5D9A82FD2B4EAF400091FD2E /* ConfettiView.swift in Sources */,
 				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
+				5D2F39DB2B511E2A00C3D391 /* LFRequest.swift in Sources */,
 				5DB5C9392B4D25A50071CFC4 /* WDTimeInput.swift in Sources */,
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
 				5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */,
