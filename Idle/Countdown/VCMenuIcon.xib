@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="VCMenuIcon" customModule="Idle" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="VCMenuIcon" customModule="Focus_100" customModuleProvider="target">
             <connections>
                 <outlet property="menuBarIcon" destination="rKy-Xh-54z" id="IWf-zZ-r1i"/>
                 <outlet property="menuBarText" destination="CtB-II-OEe" id="HSx-3o-j7H"/>
