@@ -47,21 +47,13 @@ class LDRecord : NSObject {
             let last_time_interval = TimeInterval(last_record_date)
             let last_time_date = Date(timeIntervalSince1970: last_time_interval)
             
-            if (Calendar.current.isDateInThisWeek(last_time_date)) {
-                print("Record > is this week, skip clear week data")
-                
-            } else {
-                print("Record > not this week. clear week data")
+            if (!Calendar.current.isDateInThisWeek(last_time_date)) {
                 defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
             }
             
-            if (Calendar.current.isDateInToday(last_time_date)) {
-                print("Record > is this day, skip clear day data")
-            } else {
-                print("Record > not this day. clear day data")
+            if (!Calendar.current.isDateInToday(last_time_date)) {
                 defaults.set(0, forKey: "IDLE_DAY_MINUTES")
             }
-            
             let now = Date()
             let timeInterval = now.timeIntervalSince1970
             defaults.set(Int(timeInterval), forKey: "IDLE_LAST_OPEN")

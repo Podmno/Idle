@@ -18,46 +18,29 @@ class VCCountDown: NSViewController {
     public var statusCountDownStarted = false
     public var statusCountDownMinutes: Int = 15
     let wnd = WDTimerConfig(windowNibName: "WDTimerConfig")
+    let wndLinkForest = WDLinkForest(windowNibName: "WDLinkForest")
     let recordUtil = LDRecord()
     
     @IBOutlet weak var clockMenu1: NSMenuItem!
-    
     @IBOutlet weak var clockMenu2: NSMenuItem!
-    
     @IBOutlet weak var clockMenu3: NSMenuItem!
-    
-    
     @IBOutlet weak var clockMenu4: NSMenuItem!
-    
     @IBOutlet weak var clockMenu5: NSMenuItem!
-    
     @IBOutlet var menuConfig: NSMenu!
-    
     @IBOutlet var menuLink: NSMenu!
     @IBOutlet weak var btnConfig: NSButton!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var scCountDown: NSSegmentedControl!
     @IBOutlet weak var popTimeSelect: NSPopUpButton!
-    
     @IBOutlet weak var lbToday: NSTextField!
-    
     @IBOutlet weak var lbWeek: NSTextField!
-    
     @IBOutlet weak var lbTotal: NSTextField!
-    
-    
     @IBOutlet weak var menuPrefDockStyleCircle: NSMenuItem!
-    
     @IBOutlet weak var menuPrefDockStyleBar: NSMenuItem!
-    
-    
     @IBOutlet weak var specialIcon: NSImageView!
-    
-    var vectoryEffect = ConfettiView()
-    
-    
     @IBOutlet weak var outlineViewHeader: NSOutlineView!
     
+    var vectoryEffect = ConfettiView()
     var clocksConfig: [Int] = [15, 30, 45, 60, 120]
     
     
@@ -381,6 +364,17 @@ class VCCountDown: NSViewController {
         NSApp.terminate(self)
     }
     
+    @IBAction func menuClickedLogin(_ sender: Any) {
+        //let wnd_login = VCLinkForest(nibName: "VCLinkForest", bundle: Bundle.main)
+        wndLinkForest.showWindow(nil);
+        wndLinkForest.becomeFirstResponder()
+        
+        
+        
+        
+
+        
+    }
 }
 /*
  

@@ -59,7 +59,7 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
         
         UNUserNotificationCenter.current().add(request) { error in
             if error == nil {
-                print("消息通知已设定: \(identifier)")
+                print("[LDN] Notification Set ID:  \(identifier)")
             }
         }
         
@@ -71,11 +71,11 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
         
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (success, error) in
             if let error = error {
-                print("Error: ", error)
+                print("[LDN] Error: ", error)
                 return
             }
             
-            print("授权成功")
+            print("[LDN] Permission status OK")
             
             
         }
@@ -83,12 +83,16 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
         
     }
     
-    public func userAuthStatusCheck() {
+    public func userAuthStatusCheck() -> Bool {
+        
+        var status = false
+        
         UNUserNotificationCenter.current().getNotificationSettings { settings in
 
             switch settings.authorizationStatus {
             case .authorized:
-                print("已授权，用户允许通知")
+                print("[LDN] User Auth: OK")
+                status = true
                 // do something
             case .notDetermined:
                 //onNotDetermined?()
@@ -96,24 +100,30 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
                     .requestAuthorization(options: [.alert, .sound, .badge]) {
                         (accepted, error) in
                         if !accepted {
-                            print("用户不允许消息通知。")
+                            print("[LDN] User Auth: NOT ALLOWED")
+                            status = false
                             // do something
                         } else {
-                            print("已授权，用户允许通知")
+                            print("[LDN User Auth: OK]")
+                            status = true
                             // do something
                         }
                 }
             case .denied:
-                print("用户不允许消息通知。")
+                print("[LDN] User Auth: NOT ALLOWED")
                 // do something
-
+                status = false
             case .provisional:
+                status = false
                 return
             @unknown default:
+                status = false
                 return
             }
+            
+            
         }
-        
+        return status
         
         
     }

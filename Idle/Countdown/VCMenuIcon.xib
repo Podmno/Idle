@@ -29,7 +29,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="6Ub-ZV-Wbx">
                         <imageReference key="image" image="clock.fill" symbolScale="medium"/>
                     </imageCell>
-                    <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                    <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtB-II-OEe">
                     <rect key="frame" x="18" y="5" width="46" height="20"/>

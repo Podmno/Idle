@@ -1,13 +1,13 @@
 //
-//  VCLinkForest.swift
+//  WDUserPreview.swift
 //  Idle
 //
-//  Created by Ki MNO on 2023/12/28.
+//  Created by Ki MNO on 2024/1/13.
 //
 
 import Cocoa
 
-class VCLinkForest: NSViewController {
+class WDUserPreview: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

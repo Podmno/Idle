@@ -10,13 +10,19 @@
 		5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D178C7B2B4D839900654D19 /* VCReachGoal.swift */; };
 		5D178C7E2B4D839900654D19 /* VCReachGoal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D178C7C2B4D839900654D19 /* VCReachGoal.xib */; };
 		5D2F39DB2B511E2A00C3D391 /* LFRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */; };
+		5D5905252B51922700379066 /* IdleHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = 5D59051E2B51913E00379066 /* IdleHelp.help */; };
+		5D59052F2B51931A00379066 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5D5905312B51931A00379066 /* index.html */; };
+		5D5905352B51988300379066 /* acknowledgement.html in Resources */ = {isa = PBXBuildFile; fileRef = 5D5905332B51988300379066 /* acknowledgement.html */; };
+		5D85BF152B527D900041AFDA /* LFStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85BF142B527D900041AFDA /* LFStorage.swift */; };
+		5D85BF182B52856B0041AFDA /* WDUserPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85BF162B52856A0041AFDA /* WDUserPreview.swift */; };
+		5D85BF192B52856B0041AFDA /* WDUserPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D85BF172B52856B0041AFDA /* WDUserPreview.xib */; };
+		5D8C150F2B52349C00840B17 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C150D2B52349C00840B17 /* Info.plist */; };
+		5D8C15112B52352B00840B17 /* icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C15132B52352B00840B17 /* icon_128x128.png */; };
 		5D8C97302B3D01D3009D142D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C972F2B3D01D3009D142D /* Alamofire */; };
 		5D8C97332B3D0205009D142D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5D8C97322B3D0205009D142D /* SwiftyJSON */; };
 		5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97352B3D0505009D142D /* LDMenuIcon.swift */; };
 		5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97362B3D0505009D142D /* LDCoreTimer.swift */; };
 		5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97392B3D0C95009D142D /* VCCountDown.swift */; };
-		5D8DE7B62B3DBB1500D5315D /* VCLinkForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */; };
-		5D8DE7B72B3DBB1500D5315D /* VCLinkForest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */; };
 		5D8DE7C22B3DC1F300D5315D /* VCWhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8DE7C02B3DC1F300D5315D /* VCWhatsNew.swift */; };
 		5D8DE7C32B3DC1F300D5315D /* VCWhatsNew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8DE7C12B3DC1F300D5315D /* VCWhatsNew.xib */; };
 		5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */; };
@@ -34,19 +40,40 @@
 		5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B372B3C87EB00224244 /* Assets.xcassets */; };
 		5DB12B3B2B3C87EB00224244 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B392B3C87EB00224244 /* MainMenu.xib */; };
 		5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */; };
-		5DB5C9392B4D25A50071CFC4 /* WDTimeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */; };
-		5DB5C93A2B4D25A50071CFC4 /* WDTimeInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */; };
+		5DC3DE722B51462A00428760 /* WDLinkForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3DE702B51462A00428760 /* WDLinkForest.swift */; };
+		5DC3DE752B514FEA00428760 /* LFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC3DE742B514FEA00428760 /* LFManager.swift */; };
+		5DC3DE762B5151D500428760 /* WDLinkForest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC3DE782B5151D500428760 /* WDLinkForest.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D5905232B51922100379066 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DB12B2A2B3C87E900224244 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D59051D2B51913E00379066;
+			remoteInfo = IdleHelp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D178C7B2B4D839900654D19 /* VCReachGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCReachGoal.swift; sourceTree = "<group>"; };
 		5D178C7C2B4D839900654D19 /* VCReachGoal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCReachGoal.xib; sourceTree = "<group>"; };
 		5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFRequest.swift; sourceTree = "<group>"; };
+		5D59051E2B51913E00379066 /* IdleHelp.help */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdleHelp.help; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5905302B51931A00379066 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/index.html; sourceTree = "<group>"; };
+		5D5905342B51988300379066 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/acknowledgement.html; sourceTree = "<group>"; };
+		5D5905362B51988800379066 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/acknowledgement.html"; sourceTree = "<group>"; };
+		5D85BF142B527D900041AFDA /* LFStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFStorage.swift; sourceTree = "<group>"; };
+		5D85BF162B52856A0041AFDA /* WDUserPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDUserPreview.swift; sourceTree = "<group>"; };
+		5D85BF172B52856B0041AFDA /* WDUserPreview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDUserPreview.xib; sourceTree = "<group>"; };
+		5D8C150A2B52341C00840B17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/index.html"; sourceTree = "<group>"; };
+		5D8C150E2B52349C00840B17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
+		5D8C15102B5234A700840B17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		5D8C15122B52352B00840B17 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/icon_128x128.png; sourceTree = "<group>"; };
+		5D8C15142B52352E00840B17 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/icon_128x128.png"; sourceTree = "<group>"; };
 		5D8C97352B3D0505009D142D /* LDMenuIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDMenuIcon.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		5D8C97362B3D0505009D142D /* LDCoreTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LDCoreTimer.swift; sourceTree = "<group>"; };
 		5D8C97392B3D0C95009D142D /* VCCountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCountDown.swift; sourceTree = "<group>"; };
-		5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLinkForest.swift; sourceTree = "<group>"; };
-		5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCLinkForest.xib; sourceTree = "<group>"; };
 		5D8DE7C02B3DC1F300D5315D /* VCWhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWhatsNew.swift; sourceTree = "<group>"; };
 		5D8DE7C12B3DC1F300D5315D /* VCWhatsNew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCWhatsNew.xib; sourceTree = "<group>"; };
 		5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDNotification.swift; sourceTree = "<group>"; };
@@ -73,11 +100,22 @@
 		5DB12B3A2B3C87EB00224244 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5DB12B3C2B3C87EB00224244 /* Idle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Idle.entitlements; sourceTree = "<group>"; };
 		5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTimerConfig.swift; sourceTree = "<group>"; };
-		5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTimeInput.swift; sourceTree = "<group>"; };
-		5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDTimeInput.xib; sourceTree = "<group>"; };
+		5DC3DE702B51462A00428760 /* WDLinkForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDLinkForest.swift; sourceTree = "<group>"; };
+		5DC3DE742B514FEA00428760 /* LFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFManager.swift; sourceTree = "<group>"; };
+		5DC3DE772B5151D500428760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WDLinkForest.xib; sourceTree = "<group>"; };
+		5DC3DE7A2B5151D800428760 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WDLinkForest.strings; sourceTree = "<group>"; };
+		5DC3DE7C2B5151D900428760 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WDLinkForest.strings"; sourceTree = "<group>"; };
+		5DC3DE7E2B515A7300428760 /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D59051B2B51913E00379066 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DB12B2F2B3C87E900224244 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,14 +137,37 @@
 			path = Special;
 			sourceTree = "<group>";
 		};
-		5D8C972D2B3D00F8009D142D /* Forest Support */ = {
+		5D5905262B51925C00379066 /* IdleHelp */ = {
+			isa = PBXGroup;
+			children = (
+				5D8C150D2B52349C00840B17 /* Info.plist */,
+				5D59052C2B51930200379066 /* Resources */,
+			);
+			path = IdleHelp;
+			sourceTree = "<group>";
+		};
+		5D59052C2B51930200379066 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D8C15132B52352B00840B17 /* icon_128x128.png */,
+				5D5905332B51988300379066 /* acknowledgement.html */,
+				5D5905312B51931A00379066 /* index.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D8C972D2B3D00F8009D142D /* ForestSupport */ = {
 			isa = PBXGroup;
 			children = (
 				5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */,
-				5D8DE7B42B3DBB1500D5315D /* VCLinkForest.swift */,
-				5D8DE7B52B3DBB1500D5315D /* VCLinkForest.xib */,
+				5DC3DE742B514FEA00428760 /* LFManager.swift */,
+				5D85BF142B527D900041AFDA /* LFStorage.swift */,
+				5DC3DE702B51462A00428760 /* WDLinkForest.swift */,
+				5DC3DE782B5151D500428760 /* WDLinkForest.xib */,
+				5D85BF162B52856A0041AFDA /* WDUserPreview.swift */,
+				5D85BF172B52856B0041AFDA /* WDUserPreview.xib */,
 			);
-			path = "Forest Support";
+			path = ForestSupport;
 			sourceTree = "<group>";
 		};
 		5D8C97342B3D04F4009D142D /* Countdown */ = {
@@ -122,8 +183,6 @@
 				5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */,
 				5DB5C9332B4D21760071CFC4 /* WDTimerConfig.swift */,
 				5D9A83082B4ED25E0091FD2E /* WDTimerConfig.xib */,
-				5DB5C9372B4D25A40071CFC4 /* WDTimeInput.swift */,
-				5DB5C9382B4D25A50071CFC4 /* WDTimeInput.xib */,
 			);
 			path = Countdown;
 			sourceTree = "<group>";
@@ -151,6 +210,7 @@
 		5DB12B292B3C87E900224244 = {
 			isa = PBXGroup;
 			children = (
+				5D5905262B51925C00379066 /* IdleHelp */,
 				5DB12B342B3C87E900224244 /* Idle */,
 				5DB12B332B3C87E900224244 /* Products */,
 			);
@@ -160,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				5DB12B322B3C87E900224244 /* Focus 100.app */,
+				5D59051E2B51913E00379066 /* IdleHelp.help */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,23 +228,50 @@
 		5DB12B342B3C87E900224244 /* Idle */ = {
 			isa = PBXGroup;
 			children = (
+				5D8C97342B3D04F4009D142D /* Countdown */,
+				5DC3DE7D2B51583900428760 /* Database */,
 				5D9A82F92B4EAF370091FD2E /* Support */,
 				5D178C7A2B4D836500654D19 /* Special */,
 				5D8DE7BB2B3DC1C300D5315D /* Whatsnew */,
-				5D8C97342B3D04F4009D142D /* Countdown */,
-				5D8C972D2B3D00F8009D142D /* Forest Support */,
+				5D8C972D2B3D00F8009D142D /* ForestSupport */,
 				5DB12B352B3C87E900224244 /* AppDelegate.swift */,
 				5DB12B372B3C87EB00224244 /* Assets.xcassets */,
 				5DB12B392B3C87EB00224244 /* MainMenu.xib */,
 				5DB12B3C2B3C87EB00224244 /* Idle.entitlements */,
 				5D9F75302B4EF76300EE0E52 /* Localizable.strings */,
+				5DC3DE7E2B515A7300428760 /* Acknowledgement.md */,
 			);
 			path = Idle;
+			sourceTree = "<group>";
+		};
+		5DC3DE7D2B51583900428760 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5D59051D2B51913E00379066 /* IdleHelp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D59051F2B51913E00379066 /* Build configuration list for PBXNativeTarget "IdleHelp" */;
+			buildPhases = (
+				5D59051A2B51913E00379066 /* Sources */,
+				5D59051B2B51913E00379066 /* Frameworks */,
+				5D59051C2B51913E00379066 /* Resources */,
+				5D5905322B51932800379066 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IdleHelp;
+			productName = IdleHelp;
+			productReference = 5D59051E2B51913E00379066 /* IdleHelp.help */;
+			productType = "com.apple.product-type.bundle";
+		};
 		5DB12B312B3C87E900224244 /* Idle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DB12B3F2B3C87EB00224244 /* Build configuration list for PBXNativeTarget "Idle" */;
@@ -195,6 +283,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5D5905242B51922100379066 /* PBXTargetDependency */,
 			);
 			name = Idle;
 			packageProductDependencies = (
@@ -215,6 +304,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					5D59051D2B51913E00379066 = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					5DB12B312B3C87E900224244 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -240,48 +332,91 @@
 			projectRoot = "";
 			targets = (
 				5DB12B312B3C87E900224244 /* Idle */,
+				5D59051D2B51913E00379066 /* IdleHelp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D59051C2B51913E00379066 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D8C150F2B52349C00840B17 /* Info.plist in Resources */,
+				5D5905352B51988300379066 /* acknowledgement.html in Resources */,
+				5D59052F2B51931A00379066 /* index.html in Resources */,
+				5D8C15112B52352B00840B17 /* icon_128x128.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DB12B302B3C87E900224244 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5905252B51922700379066 /* IdleHelp.help in Resources */,
 				5D9A82FF2B4ED0030091FD2E /* VCCountDown.xib in Resources */,
 				5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */,
 				5D9F752E2B4EF76300EE0E52 /* Localizable.strings in Resources */,
-				5DB5C93A2B4D25A50071CFC4 /* WDTimeInput.xib in Resources */,
 				5D178C7E2B4D839900654D19 /* VCReachGoal.xib in Resources */,
 				5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */,
 				5D8DE7C32B3DC1F300D5315D /* VCWhatsNew.xib in Resources */,
 				5DB12B3B2B3C87EB00224244 /* MainMenu.xib in Resources */,
+				5DC3DE762B5151D500428760 /* WDLinkForest.xib in Resources */,
 				5D9A83062B4ED25E0091FD2E /* WDTimerConfig.xib in Resources */,
+				5D85BF192B52856B0041AFDA /* WDUserPreview.xib in Resources */,
 				5D9A82FC2B4EAF400091FD2E /* ConfettiView.bundle in Resources */,
-				5D8DE7B72B3DBB1500D5315D /* VCLinkForest.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D5905322B51932800379066 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -x\n\ncd \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.help/Contents/Resources\"\n\nfor LANGUAGE in *.lproj;\ndo\n  pushd \"${LANGUAGE}\"\n  hiutil -I corespotlight -Caf \"${PRODUCT_NAME}.cshelpindex\" -vv .\n  hiutil -I lsm -Caf \"${PRODUCT_NAME}.helpindex\" -vv .\n  hiutil -I corespotlight -Tvf \"${PRODUCT_NAME}.cshelpindex\"\n  popd\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		5D59051A2B51913E00379066 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DB12B2E2B3C87E900224244 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */,
-				5D8DE7B62B3DBB1500D5315D /* VCLinkForest.swift in Sources */,
 				5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */,
 				5D9A82FD2B4EAF400091FD2E /* ConfettiView.swift in Sources */,
 				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
 				5D2F39DB2B511E2A00C3D391 /* LFRequest.swift in Sources */,
-				5DB5C9392B4D25A50071CFC4 /* WDTimeInput.swift in Sources */,
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
 				5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */,
+				5DC3DE752B514FEA00428760 /* LFManager.swift in Sources */,
 				5D8DE7C22B3DC1F300D5315D /* VCWhatsNew.swift in Sources */,
+				5DC3DE722B51462A00428760 /* WDLinkForest.swift in Sources */,
+				5D85BF182B52856B0041AFDA /* WDUserPreview.swift in Sources */,
 				5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */,
 				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
+				5D85BF152B527D900041AFDA /* LFStorage.swift in Sources */,
 				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
 				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,
@@ -291,7 +426,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5D5905242B51922100379066 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D59051D2B51913E00379066 /* IdleHelp */;
+			targetProxy = 5D5905232B51922100379066 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5D5905312B51931A00379066 /* index.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D5905302B51931A00379066 /* en */,
+				5D8C150A2B52341C00840B17 /* zh-Hans */,
+			);
+			name = index.html;
+			sourceTree = "<group>";
+		};
+		5D5905332B51988300379066 /* acknowledgement.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D5905342B51988300379066 /* en */,
+				5D5905362B51988800379066 /* zh-Hans */,
+			);
+			name = acknowledgement.html;
+			sourceTree = "<group>";
+		};
+		5D8C150D2B52349C00840B17 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D8C150E2B52349C00840B17 /* zh-Hans */,
+				5D8C15102B5234A700840B17 /* en */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		5D8C15132B52352B00840B17 /* icon_128x128.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D8C15122B52352B00840B17 /* en */,
+				5D8C15142B52352E00840B17 /* zh-Hans */,
+			);
+			name = icon_128x128.png;
+			sourceTree = "<group>";
+		};
 		5D9A83012B4ED0030091FD2E /* VCCountDown.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -331,9 +510,63 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		5DC3DE782B5151D500428760 /* WDLinkForest.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DC3DE772B5151D500428760 /* Base */,
+				5DC3DE7A2B5151D800428760 /* en */,
+				5DC3DE7C2B5151D900428760 /* zh-Hans */,
+			);
+			name = WDLinkForest.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5D5905202B51913E00379066 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FXSVDYCN2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdleHelp/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.IdleHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = Debug;
+		};
+		5D5905212B51913E00379066 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FXSVDYCN2P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdleHelp/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.IdleHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = Release;
+		};
 		5DB12B3D2B3C87EB00224244 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -463,9 +696,10 @@
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Idle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Focus 100";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 TRIStudio";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,9 +729,10 @@
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Idle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Focus 100";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 TRIStudio";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -516,6 +751,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D59051F2B51913E00379066 /* Build configuration list for PBXNativeTarget "IdleHelp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D5905202B51913E00379066 /* Debug */,
+				5D5905212B51913E00379066 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5DB12B2D2B3C87E900224244 /* Build configuration list for PBXProject "Idle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,0 +1,26 @@
+// Class = "NSMenuItem"; title = "Global Server"; ObjectID = "2tf-Lf-Xv5";
+"2tf-Lf-Xv5.title" = "全球服务器";
+
+// Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5";
+"F0z-JX-Cv5.title" = "窗口";
+
+// Class = "NSMenuItem"; title = "China Mainland Server"; ObjectID = "K7H-fl-8HE";
+"K7H-fl-8HE.title" = "中国大陆服务器";
+
+// Class = "NSTextFieldCell"; placeholderString = "Password"; ObjectID = "SpL-wG-FOA";
+"SpL-wG-FOA.placeholderString" = "密码";
+
+// Class = "NSTextFieldCell"; placeholderString = "Username"; ObjectID = "XAW-uS-SFp";
+"XAW-uS-SFp.placeholderString" = "用户名";
+
+// Class = "NSTextFieldCell"; title = "Important Information"; ObjectID = "e3N-QH-aGc";
+"e3N-QH-aGc.title" = "重要信息";
+
+// Class = "NSTextFieldCell"; title = "The reliability of this feature is not guaranteed."; ObjectID = "ldN-bl-0S6";
+"ldN-bl-0S6.title" = "不保证此功能的可用性。";
+
+// Class = "NSButtonCell"; title = "Cancel"; ObjectID = "lns-UJ-tPw";
+"lns-UJ-tPw.title" = "取消";
+
+// Class = "NSButtonCell"; title = "OK"; ObjectID = "v4y-Py-kN9";
+"v4y-Py-kN9.title" = "好";

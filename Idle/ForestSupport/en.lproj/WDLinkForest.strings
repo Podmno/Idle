@@ -1,0 +1,27 @@
+
+/* Class = "NSMenuItem"; title = "Global Server"; ObjectID = "2tf-Lf-Xv5"; */
+"2tf-Lf-Xv5.title" = "Global Server";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "China Mainland Server"; ObjectID = "K7H-fl-8HE"; */
+"K7H-fl-8HE.title" = "China Mainland Server";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Password"; ObjectID = "SpL-wG-FOA"; */
+"SpL-wG-FOA.placeholderString" = "Password";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Username"; ObjectID = "XAW-uS-SFp"; */
+"XAW-uS-SFp.placeholderString" = "Username";
+
+/* Class = "NSTextFieldCell"; title = "Important Information"; ObjectID = "e3N-QH-aGc"; */
+"e3N-QH-aGc.title" = "Important Information";
+
+/* Class = "NSTextFieldCell"; title = "The reliability of this feature is not guaranteed."; ObjectID = "ldN-bl-0S6"; */
+"ldN-bl-0S6.title" = "The reliability of this feature is not guaranteed.";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "lns-UJ-tPw"; */
+"lns-UJ-tPw.title" = "Cancel";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "v4y-Py-kN9"; */
+"v4y-Py-kN9.title" = "OK";

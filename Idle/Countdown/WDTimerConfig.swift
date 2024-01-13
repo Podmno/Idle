@@ -24,8 +24,6 @@ class WDTimerConfig: NSWindowController, NSTextFieldDelegate {
     
     let configHelper = LDRecord()
     
-    let input = WDTimeInput(nibName: "WDTimeInput", bundle: Bundle.main)
-    
     let clocksDict = [15, 30, 45, 60, 75, 90, 105, 120, 150, 180]
 
     override func windowDidLoad() {

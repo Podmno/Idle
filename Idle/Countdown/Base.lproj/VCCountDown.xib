@@ -82,8 +82,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" title="   Start" bezelStyle="regularSquare" imagePosition="leading" alignment="center" inset="2" id="bYz-Qe-mvN">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="systemLight" size="15"/>
+                        <font key="font" metaFont="systemLight" size="16"/>
                         <imageReference key="image" image="stop" symbolScale="default" variableValue="1"/>
+                        <string key="keyEquivalent">r</string>
+                        <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                     </buttonCell>
                     <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
                     <connections>
@@ -110,12 +112,9 @@
                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="zJz-75-t8z">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <imageReference key="image" image="sync" symbolScale="large"/>
+                        <imageReference key="image" image="musichome" symbolScale="large"/>
                     </buttonCell>
                     <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                    <connections>
-                        <action selector="btnClickedLinkForest:" target="-2" id="esg-qR-oWy"/>
-                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSU-eh-Rq7">
                     <rect key="frame" x="127" y="11" width="25" height="18"/>
@@ -260,6 +259,19 @@
                         <action selector="btnClickedConfig:" target="-2" id="ldf-VF-QLZ"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zp1-og-cxp">
+                    <rect key="frame" x="368" y="11" width="25" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" imageScaling="proportionallyDown" inset="2" id="Rpd-FG-2f2">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <imageReference key="image" image="sync" symbolScale="large"/>
+                    </buttonCell>
+                    <color key="contentTintColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                    <connections>
+                        <action selector="btnClickedLinkForest:" target="-2" id="flE-xL-fcv"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="119" y="106"/>
         </customView>
@@ -270,9 +282,9 @@
                         <action selector="menuClickedEditCountDown:" target="-2" id="Rbt-yt-48o"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Dock Countdown Style..." id="s3u-5P-VAJ">
+                <menuItem title="Dock Countdown Style" id="s3u-5P-VAJ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Dock Countdown Style..." id="rxi-Uf-PTx">
+                    <menu key="submenu" title="Dock Countdown Style" id="rxi-Uf-PTx">
                         <items>
                             <menuItem title="Circle" state="on" id="uZs-ku-rNH">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -289,6 +301,19 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Notification Settings" id="Eo2-br-PRf">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Notification Settings" id="11J-4x-e20">
+                        <items>
+                            <menuItem title="On" id="98F-63-TIs">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Off" id="nrD-4G-T1f">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Reset Settings" id="xne-41-gfe">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
@@ -299,25 +324,15 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="578" y="215"/>
+            <point key="canvasLocation" x="607" y="255"/>
         </menu>
         <menu id="nRP-OB-yrN">
             <items>
                 <menuItem title="Log in Forest Account" id="fvt-cy-tJl">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Account Region" id="QFA-nt-XNr">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Account Region" id="0Kx-Ww-Om8">
-                        <items>
-                            <menuItem title="Global" state="on" id="fKO-Ru-z6f">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="China Mainland" id="Sik-0Q-GCx">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <connections>
+                        <action selector="menuClickedLogin:" target="-2" id="HSH-Db-dw6"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="The reliability of this feature is not guaranteed." enabled="NO" id="3Sc-qf-U8m">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -330,7 +345,19 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="686" y="392"/>
+            <point key="canvasLocation" x="665" y="455"/>
+        </menu>
+        <menu id="bx7-JP-PS2">
+            <items>
+                <menuItem title="Download White Noise Resource File" id="VPE-gU-pIh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="8xT-Nu-ZJ0"/>
+                <menuItem title="No sound available." id="0Lp-BR-6Gj">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="112" y="372"/>
         </menu>
     </objects>
     <resources>
@@ -338,6 +365,7 @@
         <image name="clock" width="20" height="20"/>
         <image name="flag.fill" width="18" height="19"/>
         <image name="gear" width="22" height="21"/>
+        <image name="musichome" width="24" height="22"/>
         <image name="star" catalog="system" width="23" height="20"/>
         <image name="stop" width="16" height="16"/>
         <image name="sync" width="24" height="20"/>

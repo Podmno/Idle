@@ -7,3 +7,4 @@
 "Start" = "开始";
 "Stop" = "停止";
 "%lld minutes are included in the total focus time." = "%lld 分钟已计入专注总时长。";
+"Currently, Focus 100 is being linked with Forest App Account. If you want to change the tag option, please do so in Forest App on your phone. When you are done, click \"Sync Now\" in the Sync menu to synchronize your changes." = "当前，Focus 100 正在与 Forest Account 保持联动。如果要修改标签选项，请在手机端的 Forest 中进行修改。修改完成后，点击同步菜单中的“立即同步”来同步修改。";
