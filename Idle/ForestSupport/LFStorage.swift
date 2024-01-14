@@ -63,40 +63,48 @@ public class LFStorage : NSObject {
         return defaults.bool(forKey: "IDLE_FOREST_CHINA_ACCOUNT")
     }
     
-    public func dataStorageTags(data: Data) {
+    public func dataStorageTags(data: String) {
         self.updateLastUpdateTime()
         defaults.set(data, forKey: "IDLE_FOREST_DATA_TAGS")
     }
     
-    public func dataStorageAccount(data: Data) {
+    public func dataStorageAccount(data: String) {
         self.updateLastUpdateTime()
         defaults.set(data, forKey: "IDLE_FOREST_DATA_ACCOUNT")
     }
     
-    public func dataStorageUnlock(data: Data) {
+    public func dataStorageUnlock(data: String) {
         self.updateLastUpdateTime()
         defaults.set(data, forKey: "IDLE_FOREST_DATA_UNLOCK")
     }
     
-    public func dataStorageAllTrees(data: Data) {
+    public func dataStorageAllTrees(data: String) {
         self.updateLastUpdateTime()
         defaults.set(data, forKey: "IDLE_FOREST_DATA_ALL")
     }
     
-    public func dataGetTags() -> Data? {
-        return defaults.data(forKey: "IDLE_FOREST_DATA_TAGS")
+    public func dataGetTags() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_DATA_TAGS") ?? ""
     }
     
-    public func dataGetAccount() -> Data? {
-        return defaults.data(forKey: "IDLE_FOREST_DATA_ACCOUNT")
+    public func dataGetAccount() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_DATA_ACCOUNT") ?? ""
     }
     
-    public func dataGetUnlock() -> Data? {
-        return defaults.data(forKey: "IDLE_FOREST_DATA_UNLOCK")
+    public func dataGetUnlock() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_DATA_UNLOCK") ?? ""
     }
     
-    public func dataGetAllTrees() -> Data? {
-        return defaults.data(forKey: "IDLE_FOREST_DATA_ALL")
+    public func dataGetAllTrees() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_DATA_ALL") ?? ""
+    }
+    
+    public func setLock(lock: Bool) {
+        defaults.set(lock, forKey: "IDLE_FOREST_LOCK")
+    }
+    
+    public func getLock() -> Bool {
+        return defaults.bool(forKey: "IDLE_FOREST_LOCK")
     }
     
 

@@ -190,9 +190,10 @@ class WDLinkForest: NSWindowController {
                 self.lbLoadingInfo.stringValue = "Saving..."
             }
             
-            self.storage.dataStorageTags(data: data_tags.rawValue as! Data)
-            self.storage.dataStorageUnlock(data: data_unlocked_trees.rawValue as! Data)
-            self.storage.dataStorageAccount(data: data_account_info.rawValue as! Data)
+            
+            self.storage.dataStorageTags(data: data_tags.rawString() ?? "")
+            self.storage.dataStorageUnlock(data: data_unlocked_trees.rawString() ?? "")
+            self.storage.dataStorageAccount(data: data_account_info.rawString() ?? "")
 
             DispatchQueue.main.async {
                 self.close()

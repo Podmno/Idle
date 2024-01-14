@@ -23,14 +23,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" topStrut="YES"/>
-            <rect key="contentRect" x="663" y="493" width="338" height="400"/>
+            <rect key="contentRect" x="663" y="493" width="301" height="374"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="338" height="400"/>
+                <rect key="frame" x="0.0" y="0.0" width="301" height="374"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="2sE-Z1-t40">
-                        <rect key="frame" x="-21" y="-18" width="365" height="422"/>
+                        <rect key="frame" x="-21" y="-44" width="365" height="422"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" drawsBackground="NO" id="cPs-uS-n11">
                             <rect key="frame" x="1" y="1" width="363" height="420"/>
@@ -56,7 +56,7 @@
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" id="LHj-vO-Hrj">
-                        <rect key="frame" x="46" y="18" width="122" height="32"/>
+                        <rect key="frame" x="27" y="18" width="122" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lns-UJ-tPw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -70,7 +70,7 @@ Gw
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="Kuk-tP-6wP">
-                        <rect key="frame" x="170" y="14" width="122" height="40"/>
+                        <rect key="frame" x="151" y="14" width="122" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v4y-Py-kN9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -84,7 +84,7 @@ DQ
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="evp-d2-dBb">
-                        <rect key="frame" x="-2" y="251" width="342" height="14"/>
+                        <rect key="frame" x="16" y="228" width="267" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="The reliability of this feature is not guaranteed." id="ldN-bl-0S6">
                             <font key="font" metaFont="smallSystem"/>
@@ -93,7 +93,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lO3-Ah-eo9">
-                        <rect key="frame" x="-2" y="276" width="342" height="16"/>
+                        <rect key="frame" x="8" y="250" width="285" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Important Information" id="e3N-QH-aGc">
                             <font key="font" metaFont="systemBold"/>
@@ -102,17 +102,12 @@ DQ
                         </textFieldCell>
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="L9X-V0-O0S">
-                        <rect key="frame" x="129" y="310" width="70" height="70"/>
+                        <rect key="frame" x="115" y="284" width="70" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Icon" id="h4L-Cn-3ib"/>
                     </imageView>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SWr-aN-AKn">
-                        <rect key="frame" x="161" y="304" width="48" height="48"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSCaution" id="G1W-p2-Iv9"/>
-                    </imageView>
                     <popUpButton verticalHuggingPriority="750" id="9Ac-yc-FMl">
-                        <rect key="frame" x="80" y="210" width="180" height="25"/>
+                        <rect key="frame" x="61" y="188" width="180" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <popUpButtonCell key="cell" type="push" title="Global Server" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2tf-Lf-Xv5" id="NII-JC-cDH">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -126,20 +121,22 @@ DQ
                         </popUpButtonCell>
                     </popUpButton>
                     <progressIndicator hidden="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="EZc-R4-gjF">
-                        <rect key="frame" x="161" y="112" width="16" height="16"/>
+                        <rect key="frame" x="142" y="100" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GVz-6u-G2Y">
-                        <rect key="frame" x="18" y="67" width="302" height="33"/>
+                        <rect key="frame" x="17" y="55" width="267" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" alignment="center" title="View FAQs and software help in Menu Bar &gt; Help &gt; Focus 100 Help." id="dDo-ZG-VZT">
+                        <textFieldCell key="cell" alignment="center" id="dDo-ZG-VZT">
                             <font key="font" metaFont="smallSystem"/>
+                            <string key="title">View FAQs and software help in 
+Menu Bar &gt; Help &gt; Focus 100 Help.</string>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" contentType="username" id="J8Y-mf-eF1">
-                        <rect key="frame" x="20" y="172" width="298" height="21"/>
+                        <rect key="frame" x="19" y="154" width="263" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Email" bezelStyle="round" id="XAW-uS-SFp">
                             <font key="font" usesAppearanceFont="YES"/>
@@ -148,7 +145,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJX-KW-A42">
-                        <rect key="frame" x="20" y="143" width="298" height="21"/>
+                        <rect key="frame" x="19" y="125" width="263" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Password" usesSingleLineMode="YES" bezelStyle="round" id="R7U-Ck-MBX">
                             <font key="font" metaFont="system"/>
@@ -159,12 +156,17 @@ DQ
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                     </secureTextField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SWr-aN-AKn">
+                        <rect key="frame" x="142" y="276" width="48" height="48"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSCaution" id="G1W-p2-Iv9"/>
+                    </imageView>
                 </subviews>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="181" y="126"/>
+            <point key="canvasLocation" x="182.5" y="113"/>
         </window>
     </objects>
     <resources>

@@ -21,8 +21,8 @@ class VCCountDown: NSViewController {
     var wndLinkForest: WDLinkForest?
     let recordUtil = LDRecord()
     
-    let menuControllerSync = LDMenuSync()
-    
+
+    var menuControllerSync: LDMenuSync? = LDMenuSync()
     
     @IBOutlet weak var clockMenu1: NSMenuItem!
     @IBOutlet weak var clockMenu2: NSMenuItem!
@@ -30,7 +30,8 @@ class VCCountDown: NSViewController {
     @IBOutlet weak var clockMenu4: NSMenuItem!
     @IBOutlet weak var clockMenu5: NSMenuItem!
     @IBOutlet var menuConfig: NSMenu!
-    @IBOutlet var menuLink: NSMenu!
+
+    
     @IBOutlet weak var btnConfig: NSButton!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var scCountDown: NSSegmentedControl!
@@ -317,8 +318,12 @@ class VCCountDown: NSViewController {
     }
     
     @IBAction func btnClickedLinkForest(_ sender: AnyObject) {
+        if (menuControllerSync != nil) {
+            menuControllerSync = nil
+            menuControllerSync = LDMenuSync()
+        }
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
-        self.menuControllerSync.contentMenu.popUp(positioning: nil, at: p, in: sender.superview)
+        menuControllerSync!.contentMenu.popUp(positioning: nil, at: p, in: sender.superview)
         //self.menuLink.popUp(positioning: nil, at: p, in: sender.superview)
     }
     
@@ -346,9 +351,10 @@ class VCCountDown: NSViewController {
         // FIXME: 某些情况下 WDTimerConfig 打开后样式奇怪且不在最前面
         
         
+        /*
         wnd.showWindow(nil);
         wnd.becomeFirstResponder()
-    
+    */
         //wnd.window?.makeKey()
     }
     

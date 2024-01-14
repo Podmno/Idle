@@ -316,10 +316,10 @@ public class LFRequest : NSObject {
         
         if (remote_result) {
             storage.setUserInfo(user_name: "", user_id: "", token: "")
-            storage.dataStorageTags(data: Data())
-            storage.dataStorageAccount(data: Data())
-            storage.dataStorageUnlock(data: Data())
-            storage.dataStorageAllTrees(data: Data())
+            storage.dataStorageTags(data: "")
+            storage.dataStorageAccount(data: "")
+            storage.dataStorageUnlock(data: "")
+            storage.dataStorageAllTrees(data: "")
             print("Successfully delete cookie.")
             return true
             
