@@ -33,6 +33,11 @@
 		5D9A83062B4ED25E0091FD2E /* WDTimerConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9A83082B4ED25E0091FD2E /* WDTimerConfig.xib */; };
 		5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */; };
 		5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */; };
+		5D9C8ECC2B52F38C00FC904E /* LDMenuTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ECB2B52F38C00FC904E /* LDMenuTimer.swift */; };
+		5D9C8ECE2B52F3A200FC904E /* LDMenuNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ECD2B52F3A200FC904E /* LDMenuNoise.swift */; };
+		5D9C8ED02B52F3FE00FC904E /* LDMenuTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ECF2B52F3FE00FC904E /* LDMenuTags.swift */; };
+		5D9C8ED22B52F40E00FC904E /* LDMenuAnalyze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ED12B52F40E00FC904E /* LDMenuAnalyze.swift */; };
+		5D9C8ED52B52F42A00FC904E /* LDMenuSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */; };
 		5D9F752E2B4EF76300EE0E52 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F75302B4EF76300EE0E52 /* Localizable.strings */; };
 		5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9482B4C4A75009BA82C /* DockProgress.swift */; };
 		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
@@ -86,6 +91,11 @@
 		5D9A830C2B4ED2620091FD2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/WDTimerConfig.strings"; sourceTree = "<group>"; };
 		5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMenuIcon.swift; sourceTree = "<group>"; };
 		5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCMenuIcon.xib; sourceTree = "<group>"; };
+		5D9C8ECB2B52F38C00FC904E /* LDMenuTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuTimer.swift; sourceTree = "<group>"; };
+		5D9C8ECD2B52F3A200FC904E /* LDMenuNoise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuNoise.swift; sourceTree = "<group>"; };
+		5D9C8ECF2B52F3FE00FC904E /* LDMenuTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuTags.swift; sourceTree = "<group>"; };
+		5D9C8ED12B52F40E00FC904E /* LDMenuAnalyze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuAnalyze.swift; sourceTree = "<group>"; };
+		5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuSync.swift; sourceTree = "<group>"; };
 		5D9F752F2B4EF76300EE0E52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5D9F75312B4EF76500EE0E52 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5D9F75352B4EF85D00EE0E52 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
@@ -177,6 +187,11 @@
 				5D8C97352B3D0505009D142D /* LDMenuIcon.swift */,
 				5D97DDF62B4D5B4E00B2E3AE /* LDNotification.swift */,
 				5D97DDF82B4D5B6F00B2E3AE /* LDRecord.swift */,
+				5D9C8ECB2B52F38C00FC904E /* LDMenuTimer.swift */,
+				5D9C8ECF2B52F3FE00FC904E /* LDMenuTags.swift */,
+				5D9C8ED12B52F40E00FC904E /* LDMenuAnalyze.swift */,
+				5D9C8ECD2B52F3A200FC904E /* LDMenuNoise.swift */,
+				5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */,
 				5D8C97392B3D0C95009D142D /* VCCountDown.swift */,
 				5D9A83012B4ED0030091FD2E /* VCCountDown.xib */,
 				5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */,
@@ -404,11 +419,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */,
+				5D9C8ED22B52F40E00FC904E /* LDMenuAnalyze.swift in Sources */,
 				5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */,
 				5D9A82FD2B4EAF400091FD2E /* ConfettiView.swift in Sources */,
+				5D9C8ED52B52F42A00FC904E /* LDMenuSync.swift in Sources */,
 				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
+				5D9C8ECC2B52F38C00FC904E /* LDMenuTimer.swift in Sources */,
 				5D2F39DB2B511E2A00C3D391 /* LFRequest.swift in Sources */,
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
+				5D9C8ECE2B52F3A200FC904E /* LDMenuNoise.swift in Sources */,
 				5DB5C9352B4D21760071CFC4 /* WDTimerConfig.swift in Sources */,
 				5DC3DE752B514FEA00428760 /* LFManager.swift in Sources */,
 				5D8DE7C22B3DC1F300D5315D /* VCWhatsNew.swift in Sources */,
@@ -417,6 +436,7 @@
 				5D178C7D2B4D839900654D19 /* VCReachGoal.swift in Sources */,
 				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
 				5D85BF152B527D900041AFDA /* LFStorage.swift in Sources */,
+				5D9C8ED02B52F3FE00FC904E /* LDMenuTags.swift in Sources */,
 				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
 				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,

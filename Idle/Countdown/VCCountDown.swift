@@ -18,8 +18,11 @@ class VCCountDown: NSViewController {
     public var statusCountDownStarted = false
     public var statusCountDownMinutes: Int = 15
     let wnd = WDTimerConfig(windowNibName: "WDTimerConfig")
-    let wndLinkForest = WDLinkForest(windowNibName: "WDLinkForest")
+    var wndLinkForest: WDLinkForest?
     let recordUtil = LDRecord()
+    
+    let menuControllerSync = LDMenuSync()
+    
     
     @IBOutlet weak var clockMenu1: NSMenuItem!
     @IBOutlet weak var clockMenu2: NSMenuItem!
@@ -47,11 +50,7 @@ class VCCountDown: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
-        
 
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveStopMessage), name: NSNotification.Name("countDownStop"), object: nil)
         
         popTimeSelect.selectItem(at: 0)
@@ -78,6 +77,16 @@ class VCCountDown: NSViewController {
             self.popTimeSelect.isEnabled = false
         }
         
+        setClockMenus()
+        
+        let last_run = self.recordUtil.getLastSelectClock()
+        
+        print("last_run: \(last_run)")
+        if (last_run == 4) {
+            self.popTimeSelect.selectItem(at: 5)
+            return
+        }
+        self.popTimeSelect.selectItem(at: last_run)
         
         
     }
@@ -138,7 +147,7 @@ class VCCountDown: NSViewController {
             lbTotal.textColor = .controlAccentColor
             let t_minutes = t % 60
             let t_hours = (t - t_minutes) / 60
-            var attr_string = NSMutableAttributedString(string: "\(t_hours)h\(t_minutes)m")
+            let attr_string = NSMutableAttributedString(string: "\(t_hours)h\(t_minutes)m")
             let attr = NSFont.systemFont(ofSize: 23.0)
             let range = NSMakeRange(0, attr_string.length)
             let para = NSMutableParagraphStyle()
@@ -153,7 +162,7 @@ class VCCountDown: NSViewController {
         
         if (t >= 5999940 ) {
             lbTotal.textColor = .controlAccentColor
-            var attr_string = NSMutableAttributedString(string: "99999h")
+            let attr_string = NSMutableAttributedString(string: "99999h")
             let attr = NSFont.systemFont(ofSize: 23.0)
             let para = NSMutableParagraphStyle()
             para.alignment = .center
@@ -178,14 +187,7 @@ class VCCountDown: NSViewController {
         self.clockMenu4.title = "\(clocksConfig[3])min"
         self.clockMenu5.title = "\(clocksConfig[4])min"
         
-        let last_run = self.recordUtil.getLastSelectClock()
-        
-        print("last_run: \(last_run)")
-        if (last_run == 4) {
-            self.popTimeSelect.selectItem(at: 5)
-            return
-        }
-        self.popTimeSelect.selectItem(at: last_run)
+
     }
     
     
@@ -316,7 +318,8 @@ class VCCountDown: NSViewController {
     
     @IBAction func btnClickedLinkForest(_ sender: AnyObject) {
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
-        self.menuLink.popUp(positioning: nil, at: p, in: sender.superview)
+        self.menuControllerSync.contentMenu.popUp(positioning: nil, at: p, in: sender.superview)
+        //self.menuLink.popUp(positioning: nil, at: p, in: sender.superview)
     }
     
     @IBAction func clickedSwitchMode(_ sender: Any) {
@@ -337,6 +340,7 @@ class VCCountDown: NSViewController {
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
         self.menuConfig.popUp(positioning: nil, at: p, in: sender.superview)
     }
+    
     
     @IBAction func menuClickedEditCountDown(_ sender: Any) {
         // FIXME: 某些情况下 WDTimerConfig 打开后样式奇怪且不在最前面
@@ -366,13 +370,13 @@ class VCCountDown: NSViewController {
     
     @IBAction func menuClickedLogin(_ sender: Any) {
         //let wnd_login = VCLinkForest(nibName: "VCLinkForest", bundle: Bundle.main)
-        wndLinkForest.showWindow(nil);
-        wndLinkForest.becomeFirstResponder()
+        if (wndLinkForest != nil) {
+            wndLinkForest = nil
+        }
         
-        
-        
-        
-
+        wndLinkForest = WDLinkForest(windowNibName: "WDLinkForest")
+        wndLinkForest!.showWindow(self);
+        wndLinkForest!.becomeFirstResponder()
         
     }
 }

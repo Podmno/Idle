@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKy-Xh-54z">
-                    <rect key="frame" x="0.0" y="10" width="13" height="13"/>
+                    <rect key="frame" x="0.0" y="10" width="14" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="13" id="7Qx-Ps-LYL"/>
-                        <constraint firstAttribute="height" constant="13" id="XMg-xf-WoM"/>
+                        <constraint firstAttribute="width" constant="14" id="7Qx-Ps-LYL"/>
+                        <constraint firstAttribute="height" constant="14" id="XMg-xf-WoM"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="6Ub-ZV-Wbx">
                         <imageReference key="image" image="clock.fill" symbolScale="medium"/>
@@ -45,10 +45,10 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="7" id="8eb-hH-0t2"/>
+                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="6" id="8eb-hH-0t2"/>
                 <constraint firstAttribute="trailing" secondItem="CtB-II-OEe" secondAttribute="trailing" constant="-3" id="Baw-3J-boJ"/>
                 <constraint firstAttribute="bottom" secondItem="CtB-II-OEe" secondAttribute="bottom" constant="5" id="Pkt-FJ-64l"/>
-                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="bPA-G6-lTN"/>
+                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="4" id="bPA-G6-lTN"/>
                 <constraint firstItem="rKy-Xh-54z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="rbg-6P-8aZ"/>
                 <constraint firstItem="CtB-II-OEe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="yW1-7g-HOH"/>
             </constraints>

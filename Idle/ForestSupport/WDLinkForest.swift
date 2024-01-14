@@ -20,14 +20,21 @@ class WDLinkForest: NSWindowController {
     @IBOutlet weak var btnCancel: NSButton!
     
     let manager = LFRequest()
+    let storage = LFStorage()
     
     override func windowDidLoad() {
         super.windowDidLoad()
-
+        
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        self.window?.becomeKey()
     }
     
+    
+    
+    
     func animationSelfShake() {
+        
+        NSSound.beep()
         
         let window = self.window
 
@@ -63,7 +70,7 @@ class WDLinkForest: NSWindowController {
             btnCancel.isEnabled = false
             piLoading.startAnimation(self)
             piLoading.isHidden = false
-            lbLoadingInfo.isHidden = false
+            lbLoadingInfo.stringValue = "Logging in. Please wait a moment."
             tfUserName.isEnabled = false
             tfPassword.isEnabled = false
             popUpServerReigon.isEnabled = false
@@ -92,6 +99,16 @@ class WDLinkForest: NSWindowController {
 
         // Login Process
         
+        // Reigon Process
+        
+        let is_china_reigon = popUpServerReigon.indexOfSelectedItem
+        
+        if (is_china_reigon == 1) {
+            self.manager.switchToChinaReigon(is_china_reigon: true)
+        } else {
+            self.manager.switchToChinaReigon(is_china_reigon: false)
+        }
+        
         let username = tfUserName.stringValue
         let password = tfPassword.stringValue
         
@@ -103,16 +120,18 @@ class WDLinkForest: NSWindowController {
  
                 if (repo == -403) {
                     DispatchQueue.main.async {
-                        self.lbLoadingInfo.stringValue = "Incorrect Username or Password. （0314）"
+                        self.lbLoadingInfo.stringValue = "Incorrect Username or Password. (0314)"
                         self.uiSwitchLoading(isLoadingNow: false)
+                        self.animationSelfShake()
                     }
                     return
                 }
                 
                 if (repo == -1) {
                     DispatchQueue.main.async {
-                        self.lbLoadingInfo.stringValue = "Can not connect to the server.（0302）"
+                        self.lbLoadingInfo.stringValue = "Can not connect to the server. (0302)"
                         self.uiSwitchLoading(isLoadingNow: false)
+                        self.animationSelfShake()
                     }
                     return
                 }
@@ -120,6 +139,7 @@ class WDLinkForest: NSWindowController {
                 DispatchQueue.main.async {
                     self.lbLoadingInfo.stringValue = "Login Failed. Please try again later."
                     self.uiSwitchLoading(isLoadingNow: false)
+                    self.animationSelfShake()
                 }
                 
                 return
@@ -129,6 +149,53 @@ class WDLinkForest: NSWindowController {
             
             DispatchQueue.main.async {
                 self.lbLoadingInfo.stringValue = "Fetching User Data..."
+            }
+            
+            // Download Account Info
+            let data_account_info = self.manager.getAccountInfo()
+           
+            
+            DispatchQueue.main.async {
+                self.lbLoadingInfo.stringValue = "Get Meta Information..."
+            }
+            
+            let data_boost = self.manager.getBoost()
+            
+            DispatchQueue.main.async {
+                self.lbLoadingInfo.stringValue = "Get Tags Data..."
+            }
+            
+            let data_tags = self.manager.getTags()
+            
+            DispatchQueue.main.async {
+                self.lbLoadingInfo.stringValue = "Get Unlocked Trees..."
+            }
+            
+            let data_unlocked_trees = self.manager.getUnlockedTrees()
+            
+            if (data_account_info.isEmpty || data_boost.isEmpty || data_tags.isEmpty || data_unlocked_trees.isEmpty) {
+                
+                DispatchQueue.main.async {
+                    self.lbLoadingInfo.stringValue = "Connection reset by peer. Please try again later. (0304)"
+                    self.uiSwitchLoading(isLoadingNow: false)
+                    self.animationSelfShake()
+                    return
+                }
+                
+            }
+            
+            
+            
+            DispatchQueue.main.async {
+                self.lbLoadingInfo.stringValue = "Saving..."
+            }
+            
+            self.storage.dataStorageTags(data: data_tags.rawValue as! Data)
+            self.storage.dataStorageUnlock(data: data_unlocked_trees.rawValue as! Data)
+            self.storage.dataStorageAccount(data: data_account_info.rawValue as! Data)
+
+            DispatchQueue.main.async {
+                self.close()
             }
             
         }

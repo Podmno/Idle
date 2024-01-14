@@ -347,18 +347,6 @@
             </items>
             <point key="canvasLocation" x="665" y="455"/>
         </menu>
-        <menu id="bx7-JP-PS2">
-            <items>
-                <menuItem title="Download White Noise Resource File" id="VPE-gU-pIh">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="8xT-Nu-ZJ0"/>
-                <menuItem title="No sound available." id="0Lp-BR-6Gj">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-            </items>
-            <point key="canvasLocation" x="112" y="372"/>
-        </menu>
     </objects>
     <resources>
         <image name="calendar" width="20" height="18"/>
