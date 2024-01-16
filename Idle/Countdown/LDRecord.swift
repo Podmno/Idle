@@ -30,7 +30,7 @@ class LDRecord : NSObject {
             defaults.set(0, forKey: "IDLE_TOTAL_MINUTES")
             defaults.set(0, forKey: "IDLE_DAY_MINUTES")
             defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
-            defaults.set(15, forKey: "IDLE_LAST_FOCUS_TIME")
+            defaults.set(10, forKey: "IDLE_LAST_FOCUS_TIME")
             
             let now = Date()
             let timeInterval = now.timeIntervalSince1970

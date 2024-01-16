@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="WDTimerConfig" customModule="Focus_100" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="WDTimerConfig" customModule="Forest" customModuleProvider="target">
             <connections>
                 <outlet property="clock1" destination="P4n-GQ-I60" id="gwI-5c-8bp"/>
                 <outlet property="clock2" destination="WIV-HF-Ddk" id="45s-Ff-Y8G"/>
@@ -154,94 +154,6 @@ MgA3AEkATABRAFMAXQBjAGwAcwB4AIAAlQCXAJkAmwCdAKUArACxALwAvwDBAMMAxQDKANUA3gDmAOkA
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4n-GQ-I60">
-                        <rect key="frame" x="55" y="122" width="85" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="recessed" title="15m" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="9nz-3s-lpe" id="Ii4-jj-l9h">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                            <font key="font" metaFont="systemBold" size="12"/>
-                            <menu key="menu" id="NpR-3B-Sat">
-                                <items>
-                                    <menuItem title="15m" state="on" id="9nz-3s-lpe"/>
-                                    <menuItem title="30m" id="zgu-9V-vwf"/>
-                                    <menuItem title="45m" id="Lg9-9E-W6P"/>
-                                    <menuItem title="60m" id="P3p-jt-TXW"/>
-                                    <menuItem title="75m" id="EWk-Up-8mK"/>
-                                    <menuItem title="90m" id="5Qa-o3-GyJ"/>
-                                    <menuItem title="105m" id="i2A-Ru-GNo"/>
-                                    <menuItem title="120m" id="Kil-tv-Pw1"/>
-                                    <menuItem title="150m" id="scM-z3-YYh"/>
-                                    <menuItem title="180m" id="zcI-Hr-161"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIV-HF-Ddk">
-                        <rect key="frame" x="172" y="122" width="85" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="recessed" title="30m" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="j4c-bb-eWh" id="WSo-CB-YEB">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                            <font key="font" metaFont="systemBold" size="12"/>
-                            <menu key="menu" id="KHq-3H-zTt">
-                                <items>
-                                    <menuItem title="15m" id="qoG-zK-zFt"/>
-                                    <menuItem title="30m" state="on" id="j4c-bb-eWh"/>
-                                    <menuItem title="45m" id="21h-KD-U0e"/>
-                                    <menuItem title="60m" id="F5M-oi-rvQ"/>
-                                    <menuItem title="75m" id="wt1-bV-XnJ"/>
-                                    <menuItem title="90m" id="N7z-SA-bSg"/>
-                                    <menuItem title="105m" id="CHy-Cq-r2a"/>
-                                    <menuItem title="120m" id="aq6-ZS-qxG"/>
-                                    <menuItem title="150m" id="bnn-we-xid"/>
-                                    <menuItem title="180m" id="57i-sI-3r9"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGm-Rj-yqj">
-                        <rect key="frame" x="300" y="122" width="85" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="recessed" title="45m" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="pDm-ti-Mpp" id="anf-6x-QdC">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                            <font key="font" metaFont="systemBold" size="12"/>
-                            <menu key="menu" id="0M3-eK-gGS">
-                                <items>
-                                    <menuItem title="15m" id="x4S-1j-m68"/>
-                                    <menuItem title="30m" id="ZwN-Px-otU"/>
-                                    <menuItem title="45m" state="on" id="pDm-ti-Mpp"/>
-                                    <menuItem title="60m" id="hcp-ee-XEL"/>
-                                    <menuItem title="75m" id="RNa-dU-V7k"/>
-                                    <menuItem title="90m" id="kDb-hS-oui"/>
-                                    <menuItem title="105m" id="sZf-dF-dZp"/>
-                                    <menuItem title="120m" id="Lgd-Yo-8Jb"/>
-                                    <menuItem title="150m" id="TjP-9D-b4h"/>
-                                    <menuItem title="180m" id="ap9-Pb-nUW"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
-                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5j-Nq-PTp">
-                        <rect key="frame" x="426" y="122" width="85" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <popUpButtonCell key="cell" type="recessed" title="60m" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="qjj-6k-psi" id="oXe-HA-M3V">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                            <font key="font" metaFont="systemBold" size="12"/>
-                            <menu key="menu" id="h9j-KB-EKN">
-                                <items>
-                                    <menuItem title="15m" id="BSE-Oa-yHs"/>
-                                    <menuItem title="30m" id="3S2-v5-RTs"/>
-                                    <menuItem title="45m" id="ZWk-BM-WMp"/>
-                                    <menuItem title="60m" state="on" id="qjj-6k-psi"/>
-                                    <menuItem title="75m" id="VAY-tn-pjc"/>
-                                    <menuItem title="90m" id="uIm-ml-vMp"/>
-                                    <menuItem title="105m" id="9VK-Ss-Pyn"/>
-                                    <menuItem title="120m" id="ygO-lY-WQ9"/>
-                                    <menuItem title="150m" id="hHK-rX-dEt"/>
-                                    <menuItem title="180m" id="PFl-Xd-zji"/>
-                                </items>
-                            </menu>
-                        </popUpButtonCell>
-                    </popUpButton>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-bB-74F">
                         <rect key="frame" x="548" y="124" width="65" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -261,6 +173,94 @@ MgA3AEkATABRAFMAXQBjAGwAcwB4AIAAlQCXAJkAmwCdAKUArACxALwAvwDBAMMAxQDKANUA3gDmAOkA
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P4n-GQ-I60">
+                        <rect key="frame" x="54" y="120" width="85" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="15m" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="9nz-3s-lpe" id="Ii4-jj-l9h">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="NpR-3B-Sat">
+                                <items>
+                                    <menuItem title="15m" state="on" id="9nz-3s-lpe"/>
+                                    <menuItem title="30m" id="zgu-9V-vwf"/>
+                                    <menuItem title="45m" id="Lg9-9E-W6P"/>
+                                    <menuItem title="60m" id="P3p-jt-TXW"/>
+                                    <menuItem title="75m" id="EWk-Up-8mK"/>
+                                    <menuItem title="90m" id="5Qa-o3-GyJ"/>
+                                    <menuItem title="105m" id="i2A-Ru-GNo"/>
+                                    <menuItem title="120m" id="Kil-tv-Pw1"/>
+                                    <menuItem title="150m" id="scM-z3-YYh"/>
+                                    <menuItem title="180m" id="zcI-Hr-161"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIV-HF-Ddk">
+                        <rect key="frame" x="171" y="120" width="85" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="30m" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="j4c-bb-eWh" id="WSo-CB-YEB">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="KHq-3H-zTt">
+                                <items>
+                                    <menuItem title="15m" id="qoG-zK-zFt"/>
+                                    <menuItem title="30m" state="on" id="j4c-bb-eWh"/>
+                                    <menuItem title="45m" id="21h-KD-U0e"/>
+                                    <menuItem title="60m" id="F5M-oi-rvQ"/>
+                                    <menuItem title="75m" id="wt1-bV-XnJ"/>
+                                    <menuItem title="90m" id="N7z-SA-bSg"/>
+                                    <menuItem title="105m" id="CHy-Cq-r2a"/>
+                                    <menuItem title="120m" id="aq6-ZS-qxG"/>
+                                    <menuItem title="150m" id="bnn-we-xid"/>
+                                    <menuItem title="180m" id="57i-sI-3r9"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGm-Rj-yqj">
+                        <rect key="frame" x="299" y="120" width="85" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="45m" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="pDm-ti-Mpp" id="anf-6x-QdC">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="0M3-eK-gGS">
+                                <items>
+                                    <menuItem title="15m" id="x4S-1j-m68"/>
+                                    <menuItem title="30m" id="ZwN-Px-otU"/>
+                                    <menuItem title="45m" state="on" id="pDm-ti-Mpp"/>
+                                    <menuItem title="60m" id="hcp-ee-XEL"/>
+                                    <menuItem title="75m" id="RNa-dU-V7k"/>
+                                    <menuItem title="90m" id="kDb-hS-oui"/>
+                                    <menuItem title="105m" id="sZf-dF-dZp"/>
+                                    <menuItem title="120m" id="Lgd-Yo-8Jb"/>
+                                    <menuItem title="150m" id="TjP-9D-b4h"/>
+                                    <menuItem title="180m" id="ap9-Pb-nUW"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5j-Nq-PTp">
+                        <rect key="frame" x="425" y="120" width="85" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="60m" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="qjj-6k-psi" id="oXe-HA-M3V">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="h9j-KB-EKN">
+                                <items>
+                                    <menuItem title="15m" id="BSE-Oa-yHs"/>
+                                    <menuItem title="30m" id="3S2-v5-RTs"/>
+                                    <menuItem title="45m" id="ZWk-BM-WMp"/>
+                                    <menuItem title="60m" state="on" id="qjj-6k-psi"/>
+                                    <menuItem title="75m" id="VAY-tn-pjc"/>
+                                    <menuItem title="90m" id="uIm-ml-vMp"/>
+                                    <menuItem title="105m" id="9VK-Ss-Pyn"/>
+                                    <menuItem title="120m" id="ygO-lY-WQ9"/>
+                                    <menuItem title="150m" id="hHK-rX-dEt"/>
+                                    <menuItem title="180m" id="PFl-Xd-zji"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
             </view>
             <connections>

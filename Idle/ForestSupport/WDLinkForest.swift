@@ -70,7 +70,7 @@ class WDLinkForest: NSWindowController {
             btnCancel.isEnabled = false
             piLoading.startAnimation(self)
             piLoading.isHidden = false
-            lbLoadingInfo.stringValue = "Logging in. Please wait a moment."
+            lbLoadingInfo.stringValue = "正在登录..."
             tfUserName.isEnabled = false
             tfPassword.isEnabled = false
             popUpServerReigon.isEnabled = false
@@ -89,13 +89,27 @@ class WDLinkForest: NSWindowController {
     
     
     @IBAction func btnClickedOK(_ sender: Any) {
+        
+        print("OKKKK")
+        
 
         if (tfUserName.stringValue.isEmpty || tfPassword.stringValue.isEmpty) {
             animationSelfShake()
             return
         }
         
+        //zlet view = self.window!.contentView!
+
+        
+        //let frame_after = NSRect(x: self.window!.frame.minX, y: self.window!.frame.minY, width: self.window?.frame.width ?? 300, height: (self.window?.frame.height ?? 178) + 30)
+        //self.window?.setFrame(frame_after, display: true, animate: true)
+        
+        let frame = window!.frame
+        let new_frame = NSRect(x: frame.origin.x, y: frame.origin.y - 30, width: frame.width, height: frame.height + 40)
+        self.window?.setFrame(new_frame, display: true, animate: true)
+        
         uiSwitchLoading(isLoadingNow: true)
+
 
         // Login Process
         
@@ -120,7 +134,7 @@ class WDLinkForest: NSWindowController {
  
                 if (repo == -403) {
                     DispatchQueue.main.async {
-                        self.lbLoadingInfo.stringValue = "Incorrect Username or Password. (0314)"
+                        self.lbLoadingInfo.stringValue = "用户名或密码错误。"
                         self.uiSwitchLoading(isLoadingNow: false)
                         self.animationSelfShake()
                     }
@@ -129,7 +143,7 @@ class WDLinkForest: NSWindowController {
                 
                 if (repo == -1) {
                     DispatchQueue.main.async {
-                        self.lbLoadingInfo.stringValue = "Can not connect to the server. (0302)"
+                        self.lbLoadingInfo.stringValue = "无法连接至服务器。"
                         self.uiSwitchLoading(isLoadingNow: false)
                         self.animationSelfShake()
                     }
@@ -137,7 +151,7 @@ class WDLinkForest: NSWindowController {
                 }
                 
                 DispatchQueue.main.async {
-                    self.lbLoadingInfo.stringValue = "Login Failed. Please try again later."
+                    self.lbLoadingInfo.stringValue = "登录失败，请稍后再试。"
                     self.uiSwitchLoading(isLoadingNow: false)
                     self.animationSelfShake()
                 }
@@ -148,7 +162,7 @@ class WDLinkForest: NSWindowController {
             // OK with 200 OK
             
             DispatchQueue.main.async {
-                self.lbLoadingInfo.stringValue = "Fetching User Data..."
+                self.lbLoadingInfo.stringValue = "获取用户资料..."
             }
             
             // Download Account Info
@@ -156,19 +170,19 @@ class WDLinkForest: NSWindowController {
            
             
             DispatchQueue.main.async {
-                self.lbLoadingInfo.stringValue = "Get Meta Information..."
+                self.lbLoadingInfo.stringValue = "获取用户资料..."
             }
             
             let data_boost = self.manager.getBoost()
             
             DispatchQueue.main.async {
-                self.lbLoadingInfo.stringValue = "Get Tags Data..."
+                self.lbLoadingInfo.stringValue = "获取用户资料..."
             }
             
             let data_tags = self.manager.getTags()
             
             DispatchQueue.main.async {
-                self.lbLoadingInfo.stringValue = "Get Unlocked Trees..."
+                self.lbLoadingInfo.stringValue = "获取用户资料..."
             }
             
             let data_unlocked_trees = self.manager.getUnlockedTrees()
@@ -176,7 +190,7 @@ class WDLinkForest: NSWindowController {
             if (data_account_info.isEmpty || data_boost.isEmpty || data_tags.isEmpty || data_unlocked_trees.isEmpty) {
                 
                 DispatchQueue.main.async {
-                    self.lbLoadingInfo.stringValue = "Connection reset by peer. Please try again later. (0304)"
+                    self.lbLoadingInfo.stringValue = "信息获取过程中出现问题，请稍后再试。"
                     self.uiSwitchLoading(isLoadingNow: false)
                     self.animationSelfShake()
                     return
@@ -187,7 +201,7 @@ class WDLinkForest: NSWindowController {
             
             
             DispatchQueue.main.async {
-                self.lbLoadingInfo.stringValue = "Saving..."
+                self.lbLoadingInfo.stringValue = "正在完成..."
             }
             
             

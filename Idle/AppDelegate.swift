@@ -17,6 +17,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let menuIcon = LDMenuIcon()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        let mgr_storage = LFStorage()
+        mgr_storage.setLock(lock: false)
+        
         // Insert code here to initialize your application
         menuIcon.initCreateIcon()
         
@@ -35,7 +39,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
-
-
+    
+    
+    @IBAction func menuClickedAbout(_ sender: Any) {
+        let about = WDAbout(windowNibName: "WDAbout")
+        about.showWindow(self)
+    }
+    
+    
 }
 

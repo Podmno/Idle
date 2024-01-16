@@ -13,8 +13,28 @@ public class LFStorage : NSObject {
     
     public override init() {
         super.init()
+        
+        print("IDLE_FOREST_IS_COUNTUP \(getLastUserTimerOptionCountup())")
+        print("IDLE_FOREST_COUNT_TIME \(getLastUserTimeOptionTime())")
+        
+        if (getLastUserTimerOptionCountup() == false && getLastUserTimeOptionTime() == 0) {
+            // 第一次打开
+            setLastUserTimerOption(is_count_up: false, count_time: 10)
+        }
     }
     
+    public func setLastUserTimerOption(is_count_up: Bool, count_time: Int) {
+        defaults.set(is_count_up, forKey: "IDLE_FOREST_IS_COUNTUP")
+        defaults.set(count_time, forKey: "IDLE_FOREST_COUNT_TIME")
+    }
+    
+    public func getLastUserTimerOptionCountup() -> Bool {
+        return defaults.bool(forKey: "IDLE_FOREST_IS_COUNTUP")
+    }
+    
+    public func getLastUserTimeOptionTime() -> Int {
+        return defaults.integer(forKey: "IDLE_FOREST_COUNT_TIME")
+    }
     
     public func setUserInfo(user_name: String, user_id: String, token: String) {
         
@@ -107,6 +127,56 @@ public class LFStorage : NSObject {
         return defaults.bool(forKey: "IDLE_FOREST_LOCK")
     }
     
-
+    public func setEtag(etag: String) {
+        defaults.set(etag, forKey: "IDLE_FOREST_ETAG")
+        
+    }
+    
+    public func getEtag() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_ETAG") ?? ""
+    }
+    
+    public func storageTempTreeRecord(startTime: String, endTime: String, duration: Int, tree_type: Int, is_success: Bool, tag: Int, note_content: String) {
+        
+        defaults.set(startTime, forKey: "IDLE_FOREST_TMP_STARTTIME")
+        defaults.set(endTime, forKey: "IDLE_FOREST_TMP_ENDTIME")
+        defaults.set(duration, forKey: "IDLE_FOREST_TMP_DURATION")
+        defaults.set(tree_type, forKey: "IDLE_FOREST_TMP_TREETYPE")
+        defaults.set(is_success, forKey: "IDLE_FOREST_TMP_ISSUCCESS")
+        defaults.set(tag, forKey: "IDLE_FOREST_TMP_TAG")
+        defaults.set(note_content, forKey: "IDLE_FOREST_TMP_NOTE")
+        
+    }
+    
+    public func getTempTreeRecordStartTime() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_TMP_STARTTIME") ?? ""
+    }
+    
+    public func getTempTreeRecordEndTime() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_TMP_ENDTIME") ?? ""
+    }
+    
+    public func getTempTreeRecordDuration () -> Int {
+        return defaults.integer(forKey: "IDLE_FOREST_TMP_DURATION")
+    }
+    
+    public func getTempTreeRecordTreeType() -> Int {
+        return defaults.integer(forKey: "IDLE_FOREST_TMP_TREETYPE")
+    }
+    
+    public func getTempTreeRecordIsSuccess() -> Bool {
+        return defaults.bool(forKey: "IDLE_FOREST_TMP_ISSUCCESS")
+    }
+    
+    public func getTempTreeRecordTag() -> Int {
+        return defaults.integer(forKey: "IDLE_FOREST_TMP_TAG")
+    }
+    
+    public func getTempTreeRecordNoteContent() -> String {
+        return defaults.string(forKey: "IDLE_FOREST_TMP_NOTE") ?? ""
+    }
+    
+    
+    
     
 }

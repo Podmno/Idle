@@ -26,26 +26,30 @@ public class LDMenuSync : NSObject {
         
         
         if(storage.getLock()) {
-            let menu_loading = NSMenuItem(title: "Updating. Please proceed later.", action: nil, keyEquivalent: "")
+            let menu_loading = NSMenuItem(title: "正在更新账户信息，请稍候。", action: nil, keyEquivalent: "")
             contentMenu.addItem(menu_loading)
             
 
             return
         }
         
-        menu_main_login = NSMenuItem(title: "Log in Forest Account", action: #selector(onClickedLoginForestAccount), keyEquivalent: "")
+        menu_main_login = NSMenuItem(title: "登录", action: #selector(onClickedLoginForestAccount), keyEquivalent: "")
         menu_main_login!.target = self
-        let menu_main_service_alert = NSMenuItem(title: "The reliability of this feature is not guaranteed.", action: nil, keyEquivalent: "")
-        menu_main_service_alert.target = self
+        //let menu_main_service_alert = NSMenuItem(title: "The reliability of this feature is not guaranteed.", action: nil, keyEquivalent: "")
+        //menu_main_service_alert.target = self
         let menu_separator = NSMenuItem.separator()
+        var title_sync = "立即同步"
+        if (!storage.getTempTreeRecordStartTime().isEmpty) {
+            title_sync = "立即同步 | 有未同步记录"
+        }
         
-        let menu_main_sync_now = NSMenuItem(title: "Sync now", action: #selector(onClickedSyncNow), keyEquivalent: "")
+        let menu_main_sync_now = NSMenuItem(title: title_sync, action: #selector(onClickedSyncNow), keyEquivalent: "")
         menu_main_sync_now.target = self
-        menu_main_log_out = NSMenuItem(title: "Log out", action: #selector(onClickedLogOut), keyEquivalent: "")
+        menu_main_log_out = NSMenuItem(title: "退出登录", action: #selector(onClickedLogOut), keyEquivalent: "")
         menu_main_log_out!.target = self
         
         contentMenu.addItem(menu_main_login!)
-        contentMenu.addItem(menu_main_service_alert)
+        //contentMenu.addItem(menu_main_service_alert)
         contentMenu.addItem(menu_separator)
         contentMenu.addItem(menu_main_sync_now)
         contentMenu.addItem(menu_main_log_out!)
@@ -70,14 +74,55 @@ public class LDMenuSync : NSObject {
         }
         print("Menu > Log in already")
         let account_name = account_info_json["name"].stringValue
-        let account_email = account_info_json["email"].stringValue
+        //let account_email = account_info_json["email"].stringValue
         
-        let account_description = account_name + " / " + account_email
+        let account_description = "账户：" + account_name
         menu_main_login!.title = account_description
         menu_main_login!.isEnabled = false
         menu_main_login!.target = nil
         menu_main_log_out!.isEnabled = true
         menu_main_log_out!.target = self
+    }
+    
+    func uploadTreeFromTemp() {
+        let treeUtil = LFManager()
+        let startDate = storage.getTempTreeRecordStartTime()
+        let endDate = storage.getTempTreeRecordEndTime()
+        let duration = storage.getTempTreeRecordDuration()
+        let tree_type = storage.getTempTreeRecordTreeType()
+        let is_success = storage.getTempTreeRecordIsSuccess()
+        let tag = storage.getTempTreeRecordTag()
+        let note = storage.getTempTreeRecordNoteContent()
+        
+        
+    
+        let update_time = treeUtil.getUTCDate(date: Date())
+        print("Tree Information: \n")
+        print("Start time : \(startDate)")
+        print("End time : \(endDate))")
+        print("Update time : \(update_time)")
+        
+        print("Duration : \(duration)")
+        
+        print("Tree type : \(tree_type)")
+        
+        print("Is Success : \(is_success)")
+        
+        print("Note : \(note)")
+        
+        print("Tag : \(tag)")
+
+        let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
+        queue.async {
+            let mgr = LFRequest()
+            let repo = mgr.updateTree(startTime: startDate, endTime: endDate, duration: duration, tree_type: tree_type, is_success: is_success, tag: tag, note_content: note)
+            if (repo == 0) {
+                // 成功同步了
+                // LFRequest 会直接同步好其他的数据
+                self.storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
+            }
+            self.storage.setLock(lock: false)
+        }
     }
     
     @objc func onClickedLoginForestAccount(_ : NSMenuItem) {
@@ -95,15 +140,40 @@ public class LDMenuSync : NSObject {
     
     @objc func onClickedSyncNow(_ : NSMenuItem) {
         
+        print("perform sync now.")
+        storage.setLock(lock: true)
+        if (!storage.getTempTreeRecordStartTime().isEmpty) {
+            // 有暂存资料的同步请求
+            print("perform temp record upload.")
+            uploadTreeFromTemp()
+        } else {
+            // 没有暂存资料
+            let queue = DispatchQueue(label: "studio.tri.idle.sync.queue")
+            
+            queue.async {
+                let network = LFRequest()
+                let data_account_info = network.getAccountInfo()
+                _ = network.getBoost()
+                let data_tags = network.getTags()
+                let data_unlocked_trees = network.getUnlockedTrees()
+                
+                self.storage.dataStorageTags(data: data_tags.rawString() ?? "")
+                self.storage.dataStorageUnlock(data: data_unlocked_trees.rawString() ?? "")
+                self.storage.dataStorageAccount(data: data_account_info.rawString() ?? "")
+                self.storage.setLock(lock: false)
+            }
+
+        }
+        
     }
     
     @objc func onClickedLogOut(_ : NSMenuItem) {
         
         let alert = NSAlert()
-        alert.messageText = "Logging out?"
-        alert.informativeText = "The synchronization status will be released."
-        alert.addButton(withTitle: "Cancel")
-        alert.addButton(withTitle: "OK")
+        alert.messageText = "退出登录？"
+        alert.informativeText = ""
+        alert.addButton(withTitle: "否")
+        alert.addButton(withTitle: "是")
         
         alert.alertStyle = .critical
         
@@ -129,8 +199,8 @@ public class LDMenuSync : NSObject {
                     DispatchQueue.main.async {
                         let alert = NSAlert()
                         alert.alertStyle = .critical
-                        alert.messageText = "Logout Successful"
-                        alert.informativeText = "The record has been cleared. You can log back in at any time."
+                        alert.messageText = "登出完成。"
+                        alert.informativeText = ""
                         alert.runModal()
                         self.storage.setLock(lock: false)
                     }
@@ -140,8 +210,8 @@ public class LDMenuSync : NSObject {
                     DispatchQueue.main.async {
                         let alert = NSAlert()
                         alert.alertStyle = .critical
-                        alert.messageText = "Logout Failed"
-                        alert.informativeText = "Please try again later."
+                        alert.messageText = "登出失败。"
+                        alert.informativeText = "请稍后再试。"
                         alert.runModal()
                         self.storage.setLock(lock: false)
                     }

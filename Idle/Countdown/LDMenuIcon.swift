@@ -19,7 +19,7 @@ class LDMenuIcon : NSObject {
     
     var setM: Int = 0
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: 60)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 65)
     
     let numberFormatterSecond = NumberFormatter()
     
@@ -46,6 +46,7 @@ class LDMenuIcon : NSObject {
 
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStart), name: NSNotification.Name("countDownStart"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStop), name: NSNotification.Name("countDownStop"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveUserChange), name: NSNotification.Name("countDownUserChange"), object: nil)
         
     }
         
@@ -63,8 +64,9 @@ class LDMenuIcon : NSObject {
             
             
             let last_focus_time = recordUtil.getLastFocusTime()
+            print("Menu_Last_Time \(last_focus_time)")
             if (last_focus_time <= 0) {
-                setMenuBarIconText(text: "00:00")
+                setMenuBarIconText(text: "0:00")
             } else {
                 setMenuBarIconText(text: "\(last_focus_time):00")
             }
@@ -85,6 +87,10 @@ class LDMenuIcon : NSObject {
     }
     
     func updateMenuBarIcon() {
+        let post_obj = [0 : self.timerM, 1: self.timerS, 2: self.setM]
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "count"), object: post_obj)
+        
         if(timerM == 0 && timerS == 0) {
             if(setM < 0) {
                 setMenuBarIconText(text: "0:00")
@@ -99,7 +105,7 @@ class LDMenuIcon : NSObject {
             return
         }
        
-        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "Idle")"
+        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "0:00")"
         setMenuBarIconText(text: timer_string)
         DispatchQueue.main.async {
             self.updateDockProgress()
@@ -114,7 +120,11 @@ class LDMenuIcon : NSObject {
             let progress: Double = Double(timerM + 1) / 120
             DockProgress.progress = progress
             
-            if (timerM == 0) {
+            //if (timerM == 0) {
+            //    print("Countup: Reset Dock Progress")
+            //    DockProgress.resetProgress()
+            //}
+            if (timerM == 0 && timerS == 0) {
                 print("Countup: Reset Dock Progress")
                 DockProgress.resetProgress()
             }
@@ -201,15 +211,12 @@ class LDMenuIcon : NSObject {
     
     func sendTimerStopNotification() {
         
-        
-        
-        
         // 向 macOS 通知中心发送通知
         if (setM <= 0) {
             // 正计时逻辑
             print("CountUpMLog \(countUpMLog)")
             
-            if (countUpMLog >= 15) {
+            if (countUpMLog >= 10) {
                 notificationUtil.sendCountupTimeStopNotification(timerM: countUpMLog)
             } else {
                 notificationUtil.sendTimeNotRecordNotification()
@@ -225,7 +232,7 @@ class LDMenuIcon : NSObject {
             return
         }
         
-        if (setM < 15) {
+        if (setM < 10) {
             notificationUtil.sendTimeNotRecordNotification()
             return
         }
@@ -282,6 +289,9 @@ class LDMenuIcon : NSObject {
             self.updateMenuBarIcon()
             //print("update countUpMLog \(countUpMLog)")
             self.countUpMLog = timerM
+            
+
+            
             return
         }
         
@@ -293,7 +303,8 @@ class LDMenuIcon : NSObject {
             sendTimerStopNotification()
             userDefaultsAddTime()
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownStop"), object: nil)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownStop"), object: 0)
             return
         }
         
@@ -323,7 +334,15 @@ class LDMenuIcon : NSObject {
     @objc func timerReceiveStart(sender: Notification) {
         
         let info = sender.object as! Dictionary<String, Any>
-
+        let mode = info["mode"] as! LDCountDownMode
+        if (mode == .countup) {
+            setCountDownTime(minutes: -1)
+            debugPrint("LDMenuIcon > Started as Count Up")
+            self.countUpMLog = 0
+            startTimer()
+            return
+        }
+        
         setCountDownTime(minutes: info["time"] as! Int)
         debugPrint("LDMenuIcon > Started ! Param : \(info["time"] as! Int)")
         self.countUpMLog = 0
@@ -332,5 +351,23 @@ class LDMenuIcon : NSObject {
     
     @objc func timerReceiveStop(sender: Notification) {
         stopTimer()
+    }
+    
+    @objc func timerReceiveUserChange(sender: Notification) {
+        let info = sender.object as! Dictionary<String, Any>
+        let minutes = info["time"] as! Int
+        let mode = info["mode"] as! LDCountDownMode
+        debugPrint("LDMenuIcon > Receive UI Change \(minutes)")
+        if (mode == .countup) {
+            let text = "0:00"
+            setMenuBarIconText(text: text)
+        } else {
+            let text = String(minutes) + ":00"
+            setMenuBarIconText(text: text)
+        }
+        
+        
+        
+        
     }
 }
