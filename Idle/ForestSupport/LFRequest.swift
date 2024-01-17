@@ -210,7 +210,7 @@ public class LFRequest : NSObject {
 
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.getBoost")
-        let boost_domain = forestAPIBaseURL + domainUser + "/" + user_id + "/" + domainBoost + "?seekrua=extension_chrome-6.1.0"
+        let boost_domain = forestAPIBaseURL + domainUser + "/" + user_id + domainBoost + "?seekrua=extension_chrome-6.1.0"
         let header = HTTPHeaders(getForestHeader())
         queue.async {
             
@@ -393,6 +393,8 @@ public class LFRequest : NSObject {
                     
                     // OK
                     return_code = 0
+                } else {
+                    return_code = -2
                 }
                 
                 semaphore.signal()
@@ -404,7 +406,7 @@ public class LFRequest : NSObject {
         
         
         
-        if (return_code != 0) {
+        if (return_code == -1) {
             
             print("Sync failed. Storage temp.")
             
@@ -412,6 +414,12 @@ public class LFRequest : NSObject {
             storage.storageTempTreeRecord(startTime: startTime, endTime: endTime, duration: duration, tree_type: tree_type, is_success: is_success, tag: tag, note_content: note_content)
             self.storage.setLock(lock: false)
             return -1
+        }
+        
+        if (return_code == -2) {
+            
+            self.storage.setLock(lock: false)
+            return -2
         }
         
         // 与 Chrome 扩展执行一致动作

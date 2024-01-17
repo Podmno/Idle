@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class WDLinkForest: NSWindowController {
+class WDLinkForest: NSWindowController, NSWindowDelegate{
     
     
     @IBOutlet weak var popUpServerReigon: NSPopUpButton!
@@ -19,6 +19,10 @@ class WDLinkForest: NSWindowController {
     
     @IBOutlet weak var btnCancel: NSButton!
     
+    var windowAlreadyExtended = false
+    
+    var isOpened = false
+    
     let manager = LFRequest()
     let storage = LFStorage()
     
@@ -27,9 +31,14 @@ class WDLinkForest: NSWindowController {
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         self.window?.becomeKey()
+        
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        isOpened = true
     }
     
-    
+    func windowWillClose(_ notification: Notification) {
+        isOpened = false
+    }
     
     
     func animationSelfShake() {
@@ -104,9 +113,14 @@ class WDLinkForest: NSWindowController {
         //let frame_after = NSRect(x: self.window!.frame.minX, y: self.window!.frame.minY, width: self.window?.frame.width ?? 300, height: (self.window?.frame.height ?? 178) + 30)
         //self.window?.setFrame(frame_after, display: true, animate: true)
         
-        let frame = window!.frame
-        let new_frame = NSRect(x: frame.origin.x, y: frame.origin.y - 30, width: frame.width, height: frame.height + 40)
-        self.window?.setFrame(new_frame, display: true, animate: true)
+        
+        if (!windowAlreadyExtended) {
+            let frame = window!.frame
+            let new_frame = NSRect(x: frame.origin.x, y: frame.origin.y - 30, width: frame.width, height: frame.height + 40)
+            self.window?.setFrame(new_frame, display: true, animate: true)
+            windowAlreadyExtended = true
+        }
+        
         
         uiSwitchLoading(isLoadingNow: true)
 

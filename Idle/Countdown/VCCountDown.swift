@@ -77,6 +77,7 @@ class VCCountDown: NSViewController {
     
     @IBOutlet weak var btnGear: NSButton!
     
+    @IBOutlet weak var btnBallImage: NSButton!
     @IBOutlet weak var btnEdit: NSButton!
     @IBOutlet weak var scCountDown: NSSegmentedControl!
 
@@ -102,9 +103,10 @@ class VCCountDown: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelEnterMessage), name: NSNotification.Name("largeTitleEnter"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelExitMessage), name: NSNotification.Name("largeTitleExit"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveCount), name: NSNotification.Name("count"), object: nil)
-        
         lbLargeTimeTitle.addTrackingRect(lbLargeTimeTitle.bounds, owner: delegateLargeTitleView, userData: nil, assumeInside: false)
         
+        (self.btnTreePicture.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
+        (self.btnBallImage.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
         
         let last_time = recordUtil.getLastFocusTime()
         if (last_time == -1) {
@@ -165,18 +167,26 @@ class VCCountDown: NSViewController {
         let storage = LFStorage()
         let data_starttime = storage.getTempTreeRecordStartTime()
         
+        if (storage.getUserToken().isEmpty) {
+            let alert = NSAlert()
+            alert.messageText = "请登录。"
+
+            alert.addButton(withTitle: "好")
+            alert.runModal()
+            return
+        }
+        
+        
         if (!data_starttime.isEmpty) {
             
             let alert = NSAlert()
-            alert.messageText = "因为上次同步失败，还有暂存的记录未被同步。未同步的状态下进行专注将清除上次的记录。确定要继续吗？"
+            alert.messageText = "因为上次同步失败，还有暂存的记录未被同步。在完成数据同步后才可以进行新的专注。"
             alert.informativeText = "点击左上角的齿轮图标，再点击 “立即同步” 来上传未同步的记录。"
             
-            alert.addButton(withTitle: "取消")
-            alert.addButton(withTitle: "清除记录后继续")
-            let repo = alert.runModal()
-            if (repo == .alertFirstButtonReturn) {
-                return
-            }
+            alert.addButton(withTitle: "好")
+            alert.runModal()
+            return
+            
         }
         
         self.focusStatus = true
@@ -430,6 +440,10 @@ class VCCountDown: NSViewController {
     @IBAction func btnClickedEdit(_ sender: AnyObject) {
         
         if wndTagEditor != nil {
+            if wndTagEditor?.isOpened == true {
+                return
+            }
+            
             wndTagEditor = nil; wndTagEditor = WDTreeEdit(windowNibName: "WDTreeEdit")
         }
         

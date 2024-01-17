@@ -9,6 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VCCountDown" customModule="Forest" customModuleProvider="target">
             <connections>
+                <outlet property="btnBallImage" destination="Po8-Sh-d3b" id="X9C-EQ-VoN"/>
                 <outlet property="btnEdit" destination="STW-uZ-1bs" id="d3g-fJ-baB"/>
                 <outlet property="btnGear" destination="pwy-sU-2sf" id="OdM-wX-I2g"/>
                 <outlet property="btnTimeLeftArrow" destination="rSX-xC-pFI" id="phk-Rd-0jX"/>

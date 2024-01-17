@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKy-Xh-54z">
-                    <rect key="frame" x="0.0" y="8" width="18" height="18"/>
+                    <rect key="frame" x="0.0" y="8" width="19" height="19"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="18" id="7Qx-Ps-LYL"/>
-                        <constraint firstAttribute="height" constant="18" id="XMg-xf-WoM"/>
+                        <constraint firstAttribute="width" constant="19" id="7Qx-Ps-LYL"/>
+                        <constraint firstAttribute="height" constant="19" id="XMg-xf-WoM"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="6Ub-ZV-Wbx">
                         <imageReference key="image" image="forest_title_bar" symbolScale="medium"/>
@@ -38,17 +38,17 @@
                         <constraint firstAttribute="height" constant="20" id="mhv-Uy-onu"/>
                     </constraints>
                     <textFieldCell key="cell" alignment="center" title="120:00" usesSingleLineMode="YES" id="k9r-FE-oaG">
-                        <font key="font" size="13" name="SFCompactDisplay-Medium"/>
+                        <font key="font" metaFont="systemMedium" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="5" id="8eb-hH-0t2"/>
+                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="4" id="8eb-hH-0t2"/>
                 <constraint firstAttribute="trailing" secondItem="CtB-II-OEe" secondAttribute="trailing" id="Baw-3J-boJ"/>
                 <constraint firstAttribute="bottom" secondItem="CtB-II-OEe" secondAttribute="bottom" constant="5" id="Pkt-FJ-64l"/>
-                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="2" id="bPA-G6-lTN"/>
+                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="1" id="bPA-G6-lTN"/>
                 <constraint firstItem="rKy-Xh-54z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="rbg-6P-8aZ"/>
                 <constraint firstItem="CtB-II-OEe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="yW1-7g-HOH"/>
             </constraints>

@@ -13,20 +13,23 @@ public class LFManager : NSObject {
     
     public func countForCoins(focusTime: Int) -> Int {
         
-        if focusTime <= 0 {
+        let mult = focusTime / 5
+        let adjust_time = 5 * mult
+        
+        if adjust_time <= 0 {
             return 0
         }
         
-        if ( (focusTime >= 10) && (focusTime <= 20)  ) {
+        if ( (adjust_time >= 10) && (adjust_time <= 20)  ) {
             
         }
         
-        var alt = (focusTime - 30) / 30
+        var alt = (adjust_time - 30) / 30
         if alt < 1 {
             alt = 0
         }
         
-        let coins = 4 + focusTime/5 + alt * 5
+        let coins = 4 + adjust_time/5 + alt * 5
         return coins
     }
     

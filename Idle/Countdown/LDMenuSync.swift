@@ -16,7 +16,7 @@ public class LDMenuSync : NSObject {
     
     var menu_main_login: NSMenuItem?
     var menu_main_log_out: NSMenuItem?
-    
+    var menu_main_sync_now: NSMenuItem?
     var window_login: WDLinkForest?
     
     public override init() {
@@ -38,20 +38,23 @@ public class LDMenuSync : NSObject {
         //let menu_main_service_alert = NSMenuItem(title: "The reliability of this feature is not guaranteed.", action: nil, keyEquivalent: "")
         //menu_main_service_alert.target = self
         let menu_separator = NSMenuItem.separator()
+        menu_main_log_out = NSMenuItem(title: "退出登录", action: #selector(onClickedLogOut), keyEquivalent: "")
+        menu_main_log_out!.target = self
         var title_sync = "立即同步"
         if (!storage.getTempTreeRecordStartTime().isEmpty) {
             title_sync = "立即同步 | 有未同步记录"
+            menu_main_log_out?.title = "同步未同步记录后才可以退出登录"
+            menu_main_log_out?.action = nil
         }
         
-        let menu_main_sync_now = NSMenuItem(title: title_sync, action: #selector(onClickedSyncNow), keyEquivalent: "")
-        menu_main_sync_now.target = self
-        menu_main_log_out = NSMenuItem(title: "退出登录", action: #selector(onClickedLogOut), keyEquivalent: "")
-        menu_main_log_out!.target = self
+        menu_main_sync_now = NSMenuItem(title: title_sync, action: #selector(onClickedSyncNow), keyEquivalent: "")
+        menu_main_sync_now?.target = self
+
         
         contentMenu.addItem(menu_main_login!)
         //contentMenu.addItem(menu_main_service_alert)
         contentMenu.addItem(menu_separator)
-        contentMenu.addItem(menu_main_sync_now)
+        contentMenu.addItem(menu_main_sync_now!)
         contentMenu.addItem(menu_main_log_out!)
         
         initAccountSettings()
@@ -70,6 +73,8 @@ public class LDMenuSync : NSObject {
             menu_main_log_out!.isEnabled = false
             menu_main_login!.target = self
             menu_main_log_out!.target = nil
+            menu_main_sync_now?.isEnabled = false
+            menu_main_sync_now?.target = nil
             return
         }
         print("Menu > Log in already")
@@ -119,7 +124,29 @@ public class LDMenuSync : NSObject {
             if (repo == 0) {
                 // 成功同步了
                 // LFRequest 会直接同步好其他的数据
+                
                 self.storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                    alert.messageText = "同步完成。"
+                    alert.runModal()
+                }
+            } else {
+                
+                if (repo == -2) {
+                    self.storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
+                    let alert = NSAlert()
+                    alert.messageText = "推送数据被服务端拒绝。"
+                    alert.runModal()
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                    alert.messageText = "同步失败。请稍后再试。"
+                    alert.runModal()
+                    return
+                }
             }
             self.storage.setLock(lock: false)
         }
@@ -129,6 +156,11 @@ public class LDMenuSync : NSObject {
         
         
         if window_login == nil {
+            
+            if window_login?.isOpened == true {
+                return
+            }
+            
             window_login = nil
             window_login = WDLinkForest(windowNibName: "WDLinkForest")
         }
