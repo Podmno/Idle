@@ -179,12 +179,27 @@ public class LDMenuSync : NSObject {
             print("perform temp record upload.")
             uploadTreeFromTemp()
         } else {
+            // FIXME: 网络连接功能：失败时显示提示
+            
             // 没有暂存资料
             let queue = DispatchQueue(label: "studio.tri.idle.sync.queue")
             
             queue.async {
                 let network = LFRequest()
                 let data_account_info = network.getAccountInfo()
+                
+                if data_account_info.isEmpty {
+                    
+                    DispatchQueue.main.async {
+                        let alert = NSAlert()
+                        alert.messageText = "同步失败。请稍后再试。"
+                        alert.runModal()
+                    }
+                    self.storage.setLock(lock: false)
+                    
+                    return
+                }
+                
                 _ = network.getBoost()
                 let data_tags = network.getTags()
                 let data_unlocked_trees = network.getUnlockedTrees()

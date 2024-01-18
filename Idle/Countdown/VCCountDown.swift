@@ -523,7 +523,7 @@ class VCCountDown: NSViewController {
             
             // 回到主界面与上传准备
             var start_time = treeUtil.getUTCDate(date: forestRecordStartTime!)
-            var end_time = treeUtil.getUTCDate(date: forestRecordEndTime!)
+            let end_time = treeUtil.getUTCDate(date: forestRecordEndTime!)
             let update_time = treeUtil.getUTCDate(date: Date())
             
             // 如果是正计时：进行时间修正

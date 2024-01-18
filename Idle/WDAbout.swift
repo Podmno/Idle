@@ -15,4 +15,7 @@ class WDAbout: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
     
+    @IBAction func btnClickedVersion(_ sender: Any) {
+        print(GLOBAL_APP_VERSION)
+    }
 }

@@ -7,6 +7,8 @@
 
 import Cocoa
 
+let GLOBAL_APP_VERSION = "1.0 (11)"
+
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -15,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notificationUtil = LDNotification()
     
     let menuIcon = LDMenuIcon()
-
+    let wndAbout = WDAbout(windowNibName: "WDAbout")
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         let mgr_storage = LFStorage()
@@ -42,8 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func menuClickedAbout(_ sender: Any) {
-        let about = WDAbout(windowNibName: "WDAbout")
-        about.showWindow(self)
+        
+        wndAbout.showWindow(self)
     }
     
     

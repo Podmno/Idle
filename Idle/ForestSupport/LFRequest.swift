@@ -38,7 +38,7 @@ public class LFRequest : NSObject {
         }
         
     }
-    
+
     public func getForestHeader() -> Dictionary<String, String> {
         var header: Dictionary<String, String> = Dictionary()
         header["Accept"] = "application/json, text/plain, */*"
@@ -80,10 +80,7 @@ public class LFRequest : NSObject {
             
         }
         
-        
-        
-        
-        
+
     }
     
     public func userLogin(username: String, password: String) -> Int {
@@ -177,16 +174,18 @@ public class LFRequest : NSObject {
                     debugPrint(re.data as Any)
                     let json_data = JSON(re.data as Any)
                     
-                    if(!json_data.isEmpty) {
+                    if(re.response?.statusCode == 200) {
                         debugPrint(json_data)
                         data_json = json_data
                     } else {
                         print("[!] ACCOUNT DATA FAILURE")
+                        data_json = JSON()
                     }
                     
                     
                 } else {
                     debugPrint(re.error as Any)
+                    data_json = JSON()
                 }
                 
                 semaphore.signal()

@@ -25,10 +25,10 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
     
     public func sendTimeNotRecordNotification() {
         return
-        let title = "时长未被记录"
-        let body = "小于 10 分钟的专注时长不会被记录。"
+        //let title = "时长未被记录"
+        //let body = "小于 10 分钟的专注时长不会被记录。"
 
-        sendGeneralNotification(title: title, message: body)
+        //sendGeneralNotification(title: title, message: body)
         
     }
     
