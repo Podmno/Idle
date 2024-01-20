@@ -176,6 +176,14 @@ class VCCountDown: NSViewController {
             return
         }
         
+        if (storage.getLock()) {
+            let alert = NSAlert()
+            alert.messageText = "正在进行数据同步，请稍等片刻。"
+
+            alert.addButton(withTitle: "好")
+            alert.runModal()
+            return
+        }
         
         if (!data_starttime.isEmpty) {
             
