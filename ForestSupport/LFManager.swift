@@ -225,7 +225,7 @@ public class LFManager : NSObject {
         return 0
     }
     
-    func convertLocalDate(from UTCDate: String) -> String {
+    public func convertLocalDate(from UTCDate: String) -> String {
             
         let dateFormatter = DateFormatter.init()
 
@@ -246,7 +246,7 @@ public class LFManager : NSObject {
         return dateString
     }
     
-    func getUTCDate(date: Date) -> String {
+    public func getUTCDate(date: Date) -> String {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let utcTimeZone = TimeZone(abbreviation: "UTC")
@@ -256,7 +256,7 @@ public class LFManager : NSObject {
     }
 
     /// 调整正计时专注时间至整数
-    func countUpFocusTimeAdjust(focusTime: Int) -> Int {
+    public func countUpFocusTimeAdjust(focusTime: Int) -> Int {
         if (focusTime < 10) {
             return 0
         }

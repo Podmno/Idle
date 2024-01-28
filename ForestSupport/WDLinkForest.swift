@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class WDLinkForest: NSWindowController, NSWindowDelegate{
+public class WDLinkForest: NSWindowController, NSWindowDelegate{
     
     
     @IBOutlet weak var popUpServerReigon: NSPopUpButton!
@@ -19,14 +19,14 @@ class WDLinkForest: NSWindowController, NSWindowDelegate{
     
     @IBOutlet weak var btnCancel: NSButton!
     
-    var windowAlreadyExtended = false
+    public var windowAlreadyExtended = false
     
-    var isOpened = false
+    public var isOpened = false
     
     let manager = LFRequest()
     let storage = LFStorage()
     
-    override func windowDidLoad() {
+    public override func windowDidLoad() {
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
@@ -36,7 +36,7 @@ class WDLinkForest: NSWindowController, NSWindowDelegate{
         isOpened = true
     }
     
-    func windowWillClose(_ notification: Notification) {
+    public func windowWillClose(_ notification: Notification) {
         isOpened = false
     }
     

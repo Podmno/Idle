@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import ForestSupport
 
 public enum LDCountDownMode {
     case countdown
@@ -471,6 +472,11 @@ class VCCountDown: NSViewController {
     }
     
     @IBAction func btnClickedTimeL(_ sender: Any) {
+        
+        if (self.statusCountDownMode == .countup) {
+            return
+        }
+        
         if self.focusTimeCurrent == 0 {
             self.focusTimeCurrent = focusTimeArray.count - 1
         } else {
@@ -484,6 +490,10 @@ class VCCountDown: NSViewController {
     }
     
     @IBAction func btnClickedTimeR(_ sender: Any) {
+        if (self.statusCountDownMode == .countup) {
+            return
+        } 
+        
         if (self.focusTimeCurrent == focusTimeArray.count - 1) {
             self.focusTimeCurrent = 0
         } else {

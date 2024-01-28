@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftyJSON
+import ForestSupport
 
 public class LDMenuSync : NSObject {
     

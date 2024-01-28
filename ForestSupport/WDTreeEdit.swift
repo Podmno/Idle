@@ -7,26 +7,26 @@
 
 import Cocoa
 import SwiftyJSON
-class WDTreeEdit: NSWindowController, NSWindowDelegate {
+public class WDTreeEdit: NSWindowController, NSWindowDelegate {
     
     @IBOutlet weak var popTagEdit: NSPopUpButton!
-    let storage = LFStorage()
+    public let storage = LFStorage()
     
-    var tagIDArray: [Int] = []
-    var tagTitleArray: [String] = []
+    public var tagIDArray: [Int] = []
+    public var tagTitleArray: [String] = []
     
-    var lastSelectTagID = 0
-    var lastInfoContent = ""
+    public var lastSelectTagID = 0
+    public var lastInfoContent = ""
     
-    var isOpened = false
+    public var isOpened = false
     
-    var handleSendBackTreeEdit: (Int, String) -> Void = {_,_ in
+    public var handleSendBackTreeEdit: (Int, String) -> Void = {_,_ in
         print("nothing happend.")
     }
     
     @IBOutlet weak var tfContent: NSTextField!
     
-    override func windowDidLoad() {
+    public override func windowDidLoad() {
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
@@ -38,14 +38,14 @@ class WDTreeEdit: NSWindowController, NSWindowDelegate {
     
     
     
-    func windowWillClose(_ notification: Notification) {
+    public func windowWillClose(_ notification: Notification) {
         print("window will close!")
         isOpened = false
     }
     
     
     
-    func setupAllTags() {
+    public func setupAllTags() {
         
         self.tfContent.stringValue = lastInfoContent
         
