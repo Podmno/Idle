@@ -55,6 +55,16 @@
                         <action selector="btnClickedTimeL:" target="-2" id="mNW-m0-BRx"/>
                     </connections>
                 </button>
+                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFQ-Wr-Hlb">
+                    <rect key="frame" x="34" y="154" width="20" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="chevron.left" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="vTM-Fl-FKk">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <color key="bezelColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </button>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lph-E7-ZiJ">
                     <rect key="frame" x="243" y="44" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -156,6 +166,16 @@
                     <connections>
                         <action selector="btnClickedXMark:" target="-2" id="iej-jA-I5S"/>
                     </connections>
+                </button>
+                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPs-GN-tHE">
+                    <rect key="frame" x="243" y="154" width="20" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="chevron.right" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bLd-go-CsO">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <color key="bezelColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </button>
             </subviews>
             <point key="canvasLocation" x="63.5" y="184.5"/>

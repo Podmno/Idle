@@ -16,6 +16,12 @@ class WDAbout: NSWindowController {
     }
     
     @IBAction func btnClickedVersion(_ sender: Any) {
+        #if DEBUG
+        let alert = NSAlert()
+        alert.messageText = ""
+        alert.informativeText = GLOBAL_APP_VERSION
+        alert.runModal()
+        #endif
         print(GLOBAL_APP_VERSION)
     }
 }
