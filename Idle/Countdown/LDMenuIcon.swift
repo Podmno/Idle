@@ -52,8 +52,6 @@ class LDMenuIcon : NSObject {
         
     func initCreateIcon() {
 
-        
-        
         if let button = statusItem.button {
             //statusItem.button?.window?.contentViewController = vcMenuBarIcon
             button.addSubview(vcMenuBarIcon.view)

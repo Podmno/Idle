@@ -12,6 +12,8 @@
                 <outlet property="btnBallImage" destination="Po8-Sh-d3b" id="X9C-EQ-VoN"/>
                 <outlet property="btnEdit" destination="STW-uZ-1bs" id="d3g-fJ-baB"/>
                 <outlet property="btnGear" destination="pwy-sU-2sf" id="OdM-wX-I2g"/>
+                <outlet property="btnPlantLeftArrow" destination="cFQ-Wr-Hlb" id="IjY-VW-BK1"/>
+                <outlet property="btnPlantRightArrow" destination="pPs-GN-tHE" id="1kD-uM-93W"/>
                 <outlet property="btnTimeLeftArrow" destination="rSX-xC-pFI" id="phk-Rd-0jX"/>
                 <outlet property="btnTimeRightArrow" destination="lph-E7-ZiJ" id="Cyt-GM-ghm"/>
                 <outlet property="btnTreePicture" destination="FyY-OA-nmI" id="0LE-xI-Nxa"/>
@@ -28,11 +30,15 @@
             <rect key="frame" x="0.0" y="0.0" width="295" height="335"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <colorWell fixedFrame="YES" bordered="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDs-4e-Ge0">
-                    <rect key="frame" x="-78" y="-49" width="414" height="475"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-qe-dag">
+                    <rect key="frame" x="-12" y="-12" width="316" height="400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="color" name="AccentColor"/>
-                </colorWell>
+                    <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="vTe-bi-cfF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                    </textFieldCell>
+                </textField>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njy-9Q-yMf">
                     <rect key="frame" x="16" y="27" width="262" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>

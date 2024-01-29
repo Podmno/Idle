@@ -8,7 +8,7 @@
 import Cocoa
 import ForestSupport
 
-let GLOBAL_APP_VERSION = "1.0 (18)"
+let GLOBAL_APP_VERSION = "1.1 (19)"
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {

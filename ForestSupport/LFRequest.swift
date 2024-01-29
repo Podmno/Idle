@@ -83,6 +83,21 @@ public class LFRequest : NSObject {
 
     }
     
+    public func isUserLogin() -> Bool {
+        // 检查 User Login 状态，防止发送错误信息
+        
+        let repo = storage.getUserToken()
+        
+        if repo.isEmpty {
+            print("[User Login Status] False")
+            return false
+        } else {
+            print("[User Login Status] True")
+            return true
+        }
+        
+    }
+    
     public func userLogin(username: String, password: String) -> Int {
         
         print("LFRequest Login with Username \(username), Password \(password).")
@@ -318,6 +333,11 @@ public class LFRequest : NSObject {
         
         if duration < 10 {
             print("POST WARNING: less than 10 minutes. Skip upload.")
+            return -1
+        }
+        
+        if (!self.isUserLogin()) {
+            print("User seems not login. Skip upload.")
             return -1
         }
         

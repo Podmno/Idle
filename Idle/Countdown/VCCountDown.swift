@@ -23,6 +23,7 @@ class VCCountDown: NSViewController {
     
     public var statusCountDownMinutes: Int = 10
     
+    /// 当前的树等级
     public var statusCurrentTreeGrade: Int = 4
     
     public var statusIsSuccess: Bool = false
@@ -30,8 +31,13 @@ class VCCountDown: NSViewController {
     
     public var focusRecordCountUpTime: Int = 0
     
+    /// 从计时器同步过来的时间分钟数
     var sync_timerM: Int = 0
+    
+    /// 从计时器同步过来的时间秒数
     var sync_timerS: Int = 0
+    
+    /// 倒计时专用：同步过来的时钟分钟数
     var sync_setM: Int = 0
     
     var wndLinkForest: WDLinkForest?
@@ -46,6 +52,8 @@ class VCCountDown: NSViewController {
     let focusQuote = ["现在就开始工作吧！","不要再逛网页了！","不要一直看我，人家会害羞","加油，时间快到了！","一分一秒，皆是您专注的时光","赶快去做事","别放弃啊！","就在眼前，撑下去！","种一棵树，心无旁骛","加油，时间快到了！","专注！专注！","加油，您做得到的！","赶快做事，认真生活"]
     
     let delegateLargeTitleView = ViewLargeTimeLabel()
+    
+    let delegateLargePlantView = ViewLargePlantIcon()
     
     var menuControllerSync: LDMenuSync? = LDMenuSync()
     
@@ -95,6 +103,10 @@ class VCCountDown: NSViewController {
     
     @IBOutlet weak var btnTimeRightArrow: NSButton!
     
+    
+    @IBOutlet weak var btnPlantLeftArrow: NSButton!
+    @IBOutlet weak var btnPlantRightArrow: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -103,8 +115,18 @@ class VCCountDown: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelEnterMessage), name: NSNotification.Name("largeTitleEnter"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelExitMessage), name: NSNotification.Name("largeTitleExit"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantEnterMessage), name: NSNotification.Name("largePlantEnter"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantExitMessage), name: NSNotification.Name("largePlantExit"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveCount), name: NSNotification.Name("count"), object: nil)
         lbLargeTimeTitle.addTrackingRect(lbLargeTimeTitle.bounds, owner: delegateLargeTitleView, userData: nil, assumeInside: false)
+        
+        var button_bounds = btnBallImage.bounds
+        // 扩大监测区域
+        button_bounds.size.width = button_bounds.width + 100
+        button_bounds.center.x = button_bounds.center.x - 50
+        btnBallImage.addTrackingRect(button_bounds, owner: delegateLargePlantView, userData: nil, assumeInside: false)
         
         (self.btnTreePicture.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
         (self.btnBallImage.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
@@ -315,13 +337,6 @@ class VCCountDown: NSViewController {
         btnXMark.image = NSImage(named: "return")
         self.forestRecordEndTime = Date()
     }
-    
-    func recordFocus() {
-        
-        // 核心：记录此次的专注记录
-        
-        
-    }
 
 
     @objc func onReceiveStopMessage(sender: Notification) {
@@ -387,6 +402,42 @@ class VCCountDown: NSViewController {
         }, completionHandler: { [self] in
             self.btnTimeLeftArrow.isHidden = true
             self.btnTimeRightArrow.isHidden = true
+        })
+    }
+    
+    /// 鼠标移动进入树种图标
+    @objc func onReceiveLargePlantEnterMessage(sender: Notification) {
+        // countup 不影响
+        
+        if (self.focusStatus == true) {
+            return
+        }
+        
+        
+        NSAnimationContext.runAnimationGroup({ [self] context in
+            context.duration = 0.15
+            context.timingFunction = CAMediaTimingFunction(name: .easeIn)
+            self.btnPlantLeftArrow.isHidden = false
+            self.btnPlantRightArrow.isHidden = false
+            btnPlantLeftArrow.animator().alphaValue = 1
+            btnPlantRightArrow.animator().alphaValue = 1
+        })
+
+    }
+    
+    /// 鼠标移动退出树种图标
+    @objc func onReceiveLargePlantExitMessage(sender: Notification) {
+
+        
+        NSAnimationContext.runAnimationGroup({ [self] context in
+            context.duration = 0.15
+            context.timingFunction = CAMediaTimingFunction(name: .easeOut)
+            btnPlantLeftArrow.animator().alphaValue = 0
+            btnPlantRightArrow.animator().alphaValue = 0
+            
+        }, completionHandler: { [self] in
+            self.btnPlantLeftArrow.isHidden = true
+            self.btnPlantRightArrow.isHidden = true
         })
     }
     
@@ -569,22 +620,17 @@ class VCCountDown: NSViewController {
             print("Start time : \(start_time)")
             print("End time : \(end_time))")
             print("Update time : \(update_time)")
-
-            
             print("Duration : \(duration)")
-            
             print("Tree type : \(forestRecordTreeType)")
-            
             print("Is Success : \(statusIsSuccess)")
-            
             print("Note : \(forestRecordInfo)")
-            
             print("Tag : \(forestRecordTag)")
+            
             
             let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
             queue.async { [self]  in
                 let mgr = LFRequest()
-                mgr.updateTree(startTime: start_time, endTime: end_time, duration: duration, tree_type: self.forestRecordTreeType, is_success: self.statusIsSuccess, tag: self.forestRecordTag, note_content: self.forestRecordInfo)
+                _ = mgr.updateTree(startTime: start_time, endTime: end_time, duration: duration, tree_type: self.forestRecordTreeType, is_success: self.statusIsSuccess, tag: self.forestRecordTag, note_content: self.forestRecordInfo)
                 
             }
             
@@ -626,13 +672,23 @@ class VCCountDown: NSViewController {
 class ViewLargeTimeLabel : NSObject {
     @objc(mouseEntered:) func mouseEntered(with event: NSEvent) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "largeTitleEnter"), object: nil)
-      }
+    }
 
-      @objc(mouseExited:) func mouseExited(with event: NSEvent) {
+    @objc(mouseExited:) func mouseExited(with event: NSEvent) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "largeTitleExit"), object: nil)
+    }
+}
 
-          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "largeTitleExit"), object: nil)
-      }
-    
+
+class ViewLargePlantIcon: NSObject {
+    @objc(mouseEntered:) func mouseEntered(with event: NSEvent) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "largePlantEnter"), object: nil)
+    }
+
+    @objc(mouseExited:) func mouseExited(with event: NSEvent) {
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "largePlantExit"), object: nil)
+    }
     
     
 }
