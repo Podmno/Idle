@@ -19,6 +19,7 @@ class LDMenuIcon : NSObject {
     
     var setM: Int = 0
     
+    // 默认 65
     let statusItem = NSStatusBar.system.statusItem(withLength: 65)
     
     let numberFormatterSecond = NumberFormatter()
@@ -202,7 +203,7 @@ class LDMenuIcon : NSObject {
         
         if (setM < 0) {
             sendTimerStopNotification()
-            userDefaultsAddTime()
+            //userDefaultsAddTime()
         }
     }
     
@@ -239,6 +240,7 @@ class LDMenuIcon : NSObject {
         
     }
     
+    @available(*, deprecated, message: "不再由 MenuIcon 增加 recordTime，单独使用 LDRecord 增加时间。")
     func userDefaultsAddTime() {
         
         // 向 UserDefaults 追加时间信息
@@ -299,7 +301,7 @@ class LDMenuIcon : NSObject {
             print("timer stoped.")
            
             sendTimerStopNotification()
-            userDefaultsAddTime()
+            //userDefaultsAddTime()
             
             
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownStop"), object: 0)

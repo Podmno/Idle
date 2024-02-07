@@ -27,11 +27,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="295" height="335"/>
+            <rect key="frame" x="0.0" y="0.0" width="295" height="367"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-qe-dag">
-                    <rect key="frame" x="-12" y="-12" width="316" height="400"/>
+                    <rect key="frame" x="-12" y="-32" width="316" height="452"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="vTe-bi-cfF">
                         <font key="font" metaFont="system"/>
@@ -62,7 +62,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFQ-Wr-Hlb">
-                    <rect key="frame" x="34" y="154" width="20" height="23"/>
+                    <rect key="frame" x="33" y="163" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="chevron.left" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="vTM-Fl-FKk">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -85,7 +85,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwy-sU-2sf">
-                    <rect key="frame" x="12" y="288" width="35" height="35"/>
+                    <rect key="frame" x="12" y="320" width="35" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="settings" imagePosition="only" alignment="center" imageScaling="axesIndependently" inset="2" id="j4r-ng-kjo">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -97,17 +97,8 @@
                         <action selector="btnClickedLinkForest:" target="-2" id="ZJT-WU-PQQ"/>
                     </connections>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-xH-d28">
-                    <rect key="frame" x="10" y="237" width="276" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="点击树木图片开始种植" id="nV9-jK-qrX">
-                        <font key="font" metaFont="system" size="17"/>
-                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <popUpButton focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ODn-kw-9Ua">
-                    <rect key="frame" x="86" y="289" width="117" height="32"/>
+                    <rect key="frame" x="86" y="321" width="117" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="bevel" title="倒计时" bezelStyle="regularSquare" alignment="center" lineBreakMode="truncatingTail" state="on" focusRingType="none" imageScaling="proportionallyDown" inset="2" selectedItem="dsd-D4-ab8" id="4VU-gA-8cx">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -126,7 +117,7 @@
                     </connections>
                 </popUpButton>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Po8-Sh-d3b">
-                    <rect key="frame" x="83" y="101" width="129" height="129"/>
+                    <rect key="frame" x="82" y="110" width="129" height="129"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="plant-ball" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="zWK-g6-KDu">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -137,7 +128,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FyY-OA-nmI">
-                    <rect key="frame" x="110" y="140" width="75" height="75"/>
+                    <rect key="frame" x="109" y="149" width="75" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="t4" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="BUD-Bu-ery">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -148,7 +139,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STW-uZ-1bs">
-                    <rect key="frame" x="249" y="288" width="35" height="35"/>
+                    <rect key="frame" x="249" y="320" width="35" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="edit2" imagePosition="only" alignment="center" imageScaling="axesIndependently" inset="2" id="IOu-Ef-9MM">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -161,7 +152,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-Nc-oEg">
-                    <rect key="frame" x="12" y="288" width="35" height="35"/>
+                    <rect key="frame" x="12" y="320" width="35" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="return" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="i73-tC-Cud">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -174,7 +165,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPs-GN-tHE">
-                    <rect key="frame" x="243" y="154" width="20" height="23"/>
+                    <rect key="frame" x="242" y="163" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="chevron.right" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="bLd-go-CsO">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -183,8 +174,17 @@
                     <color key="bezelColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </button>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-xH-d28">
+                    <rect key="frame" x="10" y="247" width="276" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" alignment="center" title="点击树木图片开始种植" id="nV9-jK-qrX">
+                        <font key="font" metaFont="system" size="17"/>
+                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
-            <point key="canvasLocation" x="63.5" y="184.5"/>
+            <point key="canvasLocation" x="63.5" y="200.5"/>
         </customView>
     </objects>
     <resources>

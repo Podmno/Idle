@@ -8,7 +8,7 @@
 import Cocoa
 import ForestSupport
 
-let GLOBAL_APP_VERSION = "1.1 (19)"
+let GLOBAL_APP_VERSION = "1.1 (21)"
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -20,6 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let menuIcon = LDMenuIcon()
     let wndAbout = WDAbout(windowNibName: "WDAbout")
     
+    let wndDemo = WDForestViewer(windowNibName: "WDForestViewer")
+
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         let mgr_storage = LFStorage()
@@ -30,9 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let style = DockProgress.Style.pie(color: .controlAccentColor)
         DockProgress.style = style
-        
+
         
         notificationUtil.userAuthNotificationPermission()
+        
+        //wndDemo.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
     }
 

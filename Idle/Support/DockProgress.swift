@@ -11,7 +11,6 @@ public enum DockProgress {
 	private static var finishedObserver: NSKeyValueObservation?
 	private static var elapsedTimeSinceLastRefresh = 0.0
 
-	// TODO: Use `CADisplayLink` on macOS 14.
 	private static var displayLinkObserver = DisplayLinkObserver { displayLinkObserver, refreshPeriod in
 		DispatchQueue.main.async {
 			let speed = 1.0
@@ -64,7 +63,6 @@ public enum DockProgress {
 				return
 			}
 
-			// TODO: Use AsyncSequence when targeting macOS 12.
 			progressObserver = progressInstance.observe(\.fractionCompleted) { sender, _ in
 				Task { @MainActor in
 					guard
@@ -224,7 +222,6 @@ public enum DockProgress {
 			
 			NSApp.applicationIconImage?.draw(in: bounds)
 			
-			// TODO: If the `progress` is 1, draw the full circle, then schedule another draw in n milliseconds to hide it
 			guard
 				displayedProgress > 0,
 				displayedProgress < 1

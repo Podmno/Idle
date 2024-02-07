@@ -90,6 +90,12 @@ class LDRecord : NSObject {
         defaults.set(timesave_day, forKey: "IDLE_DAY_MINUTES")
     }
     
+    func resetTimeData() {
+        defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
+        defaults.set(0, forKey: "IDLE_DAY_MINUTES")
+        defaults.set(0, forKey: "IDLE_TOTAL_MINUTES")
+    }
+    
     func getTotalMinutes() -> Int {
         return defaults.integer(forKey: "IDLE_TOTAL_MINUTES")
     }
@@ -127,7 +133,26 @@ class LDRecord : NSObject {
         return defaults.integer(forKey: "IDLE_LAST_SELECT_CLOCK")
     }
     
+    func getFocusTimeDayStringDescribing() -> String {
+        let d_total_minutes = getDayMinutes()
+        return convertMinutesToStringDescribing(min: d_total_minutes)
+    }
     
+    func getFocusTimeWeekStringDescribing() -> String {
+        let w_total_minutes = getWeekMinutes()
+        return convertMinutesToStringDescribing(min: w_total_minutes)
+    }
+    
+    func convertMinutesToStringDescribing(min: Int) -> String {
+        let hours = min / 60
+        let minutes = min - hours * 60
+        
+        if (hours == 0) {
+            return "\(minutes) 分钟"
+        } else {
+            return "\(hours) 小时 \(minutes) 分钟"
+        }
+    }
     
 }
 

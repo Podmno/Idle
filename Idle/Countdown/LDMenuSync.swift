@@ -13,6 +13,8 @@ public class LDMenuSync : NSObject {
     
     public var contentMenu: NSMenu!
     
+    let recordUtil = LDRecord()
+    
     var storage = LFStorage()
     
     var menu_main_login: NSMenuItem?
@@ -24,7 +26,6 @@ public class LDMenuSync : NSObject {
         super.init()
         
         contentMenu = NSMenu()
-        
         
         if(storage.getLock()) {
             let menu_loading = NSMenuItem(title: "正在更新账户信息，请稍候。", action: nil, keyEquivalent: "")
@@ -40,6 +41,7 @@ public class LDMenuSync : NSObject {
         //menu_main_service_alert.target = self
         let menu_separator = NSMenuItem.separator()
         menu_main_log_out = NSMenuItem(title: "退出登录", action: #selector(onClickedLogOut), keyEquivalent: "")
+
         menu_main_log_out!.target = self
         var title_sync = "立即同步"
         if (!storage.getTempTreeRecordStartTime().isEmpty) {
@@ -58,8 +60,51 @@ public class LDMenuSync : NSObject {
         contentMenu.addItem(menu_main_sync_now!)
         contentMenu.addItem(menu_main_log_out!)
         
+        addMenuTimeRecord()
+        addMenuApplicationExit()
+        
         initAccountSettings()
     }
+    
+    func addMenuTimeRecord() {
+
+        let menu_info = NSMenuItem()
+        let attributes = [NSAttributedString.Key.font: NSFont.systemFont(ofSize: 10, weight: .bold)]
+        let attr_string = NSAttributedString(string: "此 Mac 上的专注时间", attributes: attributes)
+        menu_info.attributedTitle = attr_string
+        
+        
+        let d_string = "今日专注：" + recordUtil.getFocusTimeDayStringDescribing()
+        let w_string = "本周专注：" + recordUtil.getFocusTimeWeekStringDescribing()
+        
+        let menu_separator = NSMenuItem.separator()
+        
+        let menu_d = NSMenuItem(title: d_string, action: nil, keyEquivalent: "")
+        let menu_w = NSMenuItem(title: w_string, action: nil, keyEquivalent: "")
+        
+        contentMenu.addItem(menu_separator)
+        contentMenu.addItem(menu_info)
+        contentMenu.addItem(menu_d)
+        contentMenu.addItem(menu_w)
+    }
+    
+    
+    var menu_main_exit: NSMenuItem?
+    func addMenuApplicationExit() {
+        let menu_separator = NSMenuItem.separator()
+        menu_main_exit = NSMenuItem(title: "退出 Forest", action: #selector(onClickedApplicationExit), keyEquivalent: "q")
+        menu_main_exit?.keyEquivalentModifierMask = .command
+        menu_main_exit?.target = self
+        contentMenu.addItem(menu_separator)
+        contentMenu.addItem(menu_main_exit!)
+        
+    }
+    
+    
+    @objc func onClickedApplicationExit(_ : NSMenuItem) {
+        exit(0)
+    }
+    
     
     func initAccountSettings() {
         
@@ -166,6 +211,8 @@ public class LDMenuSync : NSObject {
             window_login = WDLinkForest(windowNibName: "WDLinkForest")
         }
         
+        let record_util = LDRecord()
+        record_util.resetTimeData()
         window_login!.showWindow(self);
         
         
@@ -242,6 +289,8 @@ public class LDMenuSync : NSObject {
                 let network = LFRequest()
                 let repo = network.userSignOut()
                 
+                
+                
                 if (repo == true) {
                     
                     DispatchQueue.main.async {
@@ -251,6 +300,9 @@ public class LDMenuSync : NSObject {
                         alert.informativeText = ""
                         alert.runModal()
                         self.storage.setLock(lock: false)
+                        
+                        let record_util = LDRecord()
+                        record_util.resetTimeData()
                     }
                     
                 } else {

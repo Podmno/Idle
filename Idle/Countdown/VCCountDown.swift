@@ -8,27 +8,40 @@
 import Cocoa
 import ForestSupport
 
+/// FLAG: 开启切换树种功能
+let FLAG_ENABLE_TRUE_TYPE_SWITCH = false
+
 public enum LDCountDownMode {
     case countdown
     case countup
 }
 
-class VCCountDown: NSViewController {
+// TODO: 修复在鼠标指向开始专注大图标时，选择树种指针并不会消失的问题
 
-    public var statusCountDownMode = LDCountDownMode.countdown
-    public var statusCountDownStarted = false
-    public var statusCountDownSucceed = false
+class VCCountDown: NSViewController {
     
+    /// Plant Resource Service
+    let plantService = LFPlantManager()
+
+    /// 当前的倒计时模式
+    public var statusCountDownMode = LDCountDownMode.countdown
+    
+    /// 是否已经开启了倒计时
+    public var statusCountDownStarted = false
+    
+    /// 是否展示提醒标语
     public var statusShowQuote = false
     
+    /// 当前设定的倒计时时间（分钟）
     public var statusCountDownMinutes: Int = 10
     
     /// 当前的树等级
     public var statusCurrentTreeGrade: Int = 4
     
+    /// 判断是否成功（上传时使用）
     public var statusIsSuccess: Bool = false
     
-    
+    /// 正计时时间记录
     public var focusRecordCountUpTime: Int = 0
     
     /// 从计时器同步过来的时间分钟数
@@ -44,19 +57,32 @@ class VCCountDown: NSViewController {
     let recordUtil = LDRecord()
     let treeUtil = LFManager()
     
-    let numberFormatterSecond = NumberFormatter()
+    /// 秒数规格化
+    var numberFormatterSecond : NumberFormatter {
+        let n = NumberFormatter()
+        n.minimumIntegerDigits = 2
+        return n
+    }
     
+    /// 可供选择的倒计时
     let focusTimeArray = [10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115,120]
+    
+    /// 当前选择的倒计时 Index
     var focusTimeCurrent = 0
     
+    /// 专注标语
     let focusQuote = ["现在就开始工作吧！","不要再逛网页了！","不要一直看我，人家会害羞","加油，时间快到了！","一分一秒，皆是您专注的时光","赶快去做事","别放弃啊！","就在眼前，撑下去！","种一棵树，心无旁骛","加油，时间快到了！","专注！专注！","加油，您做得到的！","赶快做事，认真生活"]
     
+    /// 用于检测鼠标是否指向时间大标题
     let delegateLargeTitleView = ViewLargeTimeLabel()
     
+    /// 树种选择检测
     let delegateLargePlantView = ViewLargePlantIcon()
     
+    /// 同步 Menu Controller
     var menuControllerSync: LDMenuSync? = LDMenuSync()
     
+    /// Tag Editor
     var wndTagEditor: WDTreeEdit? = WDTreeEdit(windowNibName: "WDTreeEdit")
     
     /// 当前是否处于专注状态
@@ -83,53 +109,31 @@ class VCCountDown: NSViewController {
     @IBOutlet var menuConfig: NSMenu!
 
     @IBOutlet weak var btnXMark: NSButton!
-    
     @IBOutlet weak var btnGear: NSButton!
-    
     @IBOutlet weak var btnBallImage: NSButton!
     @IBOutlet weak var btnEdit: NSButton!
     @IBOutlet weak var scCountDown: NSSegmentedControl!
-
     @IBOutlet weak var btnTreePicture: NSButton!
-    @IBOutlet weak var lbMainInfo: NSTextField!
+   
     @IBOutlet weak var menuPrefDockStyleCircle: NSMenuItem!
     @IBOutlet weak var menuPrefDockStyleBar: NSMenuItem!
-    
+    @IBOutlet weak var lbMainInfo: NSTextField!
     @IBOutlet weak var lbLargeTimeTitle: NSTextField!
     
     @IBOutlet weak var popCountType: NSPopUpButton!
     
     @IBOutlet weak var btnTimeLeftArrow: NSButton!
-    
     @IBOutlet weak var btnTimeRightArrow: NSButton!
-    
     
     @IBOutlet weak var btnPlantLeftArrow: NSButton!
     @IBOutlet weak var btnPlantRightArrow: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
-        numberFormatterSecond.minimumIntegerDigits = 2
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveStopMessage), name: NSNotification.Name("countDownStop"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelEnterMessage), name: NSNotification.Name("largeTitleEnter"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelExitMessage), name: NSNotification.Name("largeTitleExit"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantEnterMessage), name: NSNotification.Name("largePlantEnter"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantExitMessage), name: NSNotification.Name("largePlantExit"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveCount), name: NSNotification.Name("count"), object: nil)
-        lbLargeTimeTitle.addTrackingRect(lbLargeTimeTitle.bounds, owner: delegateLargeTitleView, userData: nil, assumeInside: false)
-        
-        var button_bounds = btnBallImage.bounds
-        // 扩大监测区域
-        button_bounds.size.width = button_bounds.width + 100
-        button_bounds.center.x = button_bounds.center.x - 50
-        btnBallImage.addTrackingRect(button_bounds, owner: delegateLargePlantView, userData: nil, assumeInside: false)
-        
-        (self.btnTreePicture.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
-        (self.btnBallImage.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
+
+        setupNotificationObserver()
+        setupViewTrackingArea()
+        uiSetRecordFocusTime()
         
         let last_time = recordUtil.getLastFocusTime()
         if (last_time == -1) {
@@ -146,6 +150,39 @@ class VCCountDown: NSViewController {
 
     }
     
+    // MARK: - 用户界面配置
+    
+    private func setupNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveStopMessage), name: NSNotification.Name("countDownStop"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelEnterMessage), name: NSNotification.Name("largeTitleEnter"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelExitMessage), name: NSNotification.Name("largeTitleExit"), object: nil)
+        
+        if (FLAG_ENABLE_TRUE_TYPE_SWITCH) {
+            NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantEnterMessage), name: NSNotification.Name("largePlantEnter"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantExitMessage), name: NSNotification.Name("largePlantExit"), object: nil)
+        }
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveCount), name: NSNotification.Name("count"), object: nil)
+    }
+    
+    private func setupViewTrackingArea() {
+        lbLargeTimeTitle.addTrackingRect(lbLargeTimeTitle.bounds, owner: delegateLargeTitleView, userData: nil, assumeInside: false)
+        
+        if(FLAG_ENABLE_TRUE_TYPE_SWITCH) {
+            var button_bounds = btnBallImage.bounds
+            // 扩大监测区域
+            button_bounds.size.width = button_bounds.width + 100
+            button_bounds.center.x = button_bounds.center.x - 50
+            btnBallImage.addTrackingRect(button_bounds, owner: delegateLargePlantView, userData: nil, assumeInside: false)
+        }
+        (self.btnTreePicture.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
+        (self.btnBallImage.cell! as! NSButtonCell).highlightsBy = NSCell.StyleMask(rawValue: 0)
+        
+        
+    }
+    
     // MARK: Overrides
     
     override func viewDidAppear() {
@@ -159,8 +196,9 @@ class VCCountDown: NSViewController {
         uiGenerateRandomQuote()
     }
     
-    // MARK: Functions
+    // MARK: UI 与状态切换
     
+    /// 更新时间选择
     func uiUpdateCurrentTimeSelection() {
         
         if (statusCountDownMode == .countup) {
@@ -168,18 +206,13 @@ class VCCountDown: NSViewController {
             sendUserTimerChangeMessage()
             statusCountDownMinutes = -1
             recordUtil.setLastFocusTime(time: -1)
-            
         } else {
             self.lbLargeTimeTitle.stringValue = String(statusCountDownMinutes) + ":00"
             sendUserTimerChangeMessage()
             recordUtil.setLastFocusTime(time: statusCountDownMinutes)
             recordUtil.setLastSelectClock(clock: focusTimeCurrent)
         }
-        
-        
     }
-    
-
     
     /// UI 准备开始专注
     func uiReadyStart() {
@@ -220,6 +253,28 @@ class VCCountDown: NSViewController {
             
         }
         
+        uiStatusSetCurrentFocusTrue()
+        
+        storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
+        
+        mainStartFocus()
+    }
+    
+    /// 设定 UI 为结束专注
+    func uiStatusSetCurrentFocusFalse() {
+        self.focusStatus = false
+        self.btnGear.isHidden = false
+        self.btnEdit.isHidden = true
+        self.btnXMark.isHidden = true
+        self.btnXMark.image = NSImage(named: "remove")
+        self.popCountType.isHidden = false
+        self.lbMainInfo.stringValue = "点击树木图片开始种植"
+        self.focusRecordCountUpTime = 0
+        uiUpdateCurrentTimeSelection()
+    }
+    
+    /// 设定 UI 为正在专注
+    func uiStatusSetCurrentFocusTrue() {
         self.focusStatus = true
         self.btnGear.isHidden = true
         self.btnEdit.isHidden = false
@@ -230,27 +285,10 @@ class VCCountDown: NSViewController {
         self.btnTimeRightArrow.isHidden = true
         self.forestRecordInfo = ""
         uiGenerateRandomQuote()
-        
-        storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
-        
-        mainStartFocus()
     }
     
-    /// UI 结束专注
-    func uiRestoreToDefault() {
-        self.focusStatus = false
-        self.btnGear.isHidden = false
-        self.btnEdit.isHidden = true
-        self.btnXMark.isHidden = true
-        self.btnXMark.image = NSImage(named: "remove")
-        self.popCountType.isHidden = false
-        self.lbMainInfo.stringValue = "点击树木图片开始种植"
-        
-        
-        self.focusRecordCountUpTime = 0
-        uiUpdateCurrentTimeSelection()
-    }
     
+    /// 随机激励标语
     func uiGenerateRandomQuote() {
         
         if self.statusShowQuote != true {
@@ -262,11 +300,8 @@ class VCCountDown: NSViewController {
         
     }
     
-
-    func uiUpdateTreeStatus() {
-        
-
-        
+    /// 更新树种图片
+    func uiUpdateTreePicture() {
         if statusCountDownMode == .countup {
             let f = forestTreePictureAttr + "4"
             self.btnTreePicture.image = NSImage(named: f)
@@ -295,13 +330,13 @@ class VCCountDown: NSViewController {
     }
     
     
-    // MARK: Notification Send & Receive
+    // MARK: 主要倒计时函数
     
 
     func sendUserTimerChangeMessage() {
         let count_down_dict = ["mode": statusCountDownMode, "time": statusCountDownMinutes] as [String : Any]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownUserChange"), object: count_down_dict)
-        uiUpdateTreeStatus()
+        uiUpdateTreePicture()
         
     }
     
@@ -338,8 +373,25 @@ class VCCountDown: NSViewController {
         self.forestRecordEndTime = Date()
     }
 
+    /// 读取今日专注时间，设置 UI 为「今日共专注 ？？ 分钟」
+    func uiSetRecordFocusTime() {
+        
+        let record_util = LDRecord()
+        let d_focus_time = record_util.getDayMinutes()
+        if d_focus_time == 0 {
+            self.lbMainInfo.stringValue = "点击树木图片开始种植"
+            
+        } else {
+            self.lbMainInfo.stringValue = "你今天已经专心了\n" + record_util.getFocusTimeDayStringDescribing()
+        }
+        
+        
+    }
 
     @objc func onReceiveStopMessage(sender: Notification) {
+        
+        // 接收到计时器结束消息
+        
         print("VCCountDown > Receive Stop Message")
         
         let repo_status = sender.object as! Int
@@ -361,6 +413,45 @@ class VCCountDown: NSViewController {
         self.btnTreePicture.image = NSImage(named: pic_name)
         btnXMark.image = NSImage(named: "return")
     }
+    
+    @objc func onReceiveCount(sender: Notification) {
+        let info = sender.object as! Dictionary<Int, Int>
+        let timerM = info[0] ?? 0
+        let timerS = info[1] ?? 0
+        let setM = info[2] ?? 0
+        
+        sync_timerM = timerM
+        sync_timerS = timerS
+        sync_setM = setM
+        
+        if (focusRecordCountUpTime < sync_timerM) {
+            focusRecordCountUpTime = sync_timerM
+        }
+        
+        if(timerM == 0 && timerS == 0) {
+            if(setM < 0) {
+                lbLargeTimeTitle.stringValue = "0:00"
+            } else {
+                lbLargeTimeTitle.stringValue = "\(setM):00"
+            }
+            return
+        }
+       
+        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "0:00")"
+        lbLargeTimeTitle.stringValue = timer_string
+
+        if focusStatus == true {
+            // 树的成长状态处理
+            let current_grade = treeUtil.getTreeGradePicture(currentM: sync_timerM, setM: sync_setM)
+            let tree_pic_name = forestTreePictureAttr + String(current_grade)
+            self.btnTreePicture.image = NSImage(named: tree_pic_name)
+            //print(tree_pic_name)
+        }
+        
+
+    }
+    
+    // MARK: - 用户光标浮动检测
     
     @objc func onReceiveLargeLabelEnterMessage(sender: Notification) {
         
@@ -441,42 +532,7 @@ class VCCountDown: NSViewController {
         })
     }
     
-    @objc func onReceiveCount(sender: Notification) {
-        let info = sender.object as! Dictionary<Int, Int>
-        let timerM = info[0] ?? 0
-        let timerS = info[1] ?? 0
-        let setM = info[2] ?? 0
-        
-        sync_timerM = timerM
-        sync_timerS = timerS
-        sync_setM = setM
-        
-        if (focusRecordCountUpTime < sync_timerM) {
-            focusRecordCountUpTime = sync_timerM
-        }
-        
-        if(timerM == 0 && timerS == 0) {
-            if(setM < 0) {
-                lbLargeTimeTitle.stringValue = "0:00"
-            } else {
-                lbLargeTimeTitle.stringValue = "\(setM):00"
-            }
-            return
-        }
-       
-        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "0:00")"
-        lbLargeTimeTitle.stringValue = timer_string
-
-        if focusStatus == true {
-            // 树的成长状态处理
-            let current_grade = treeUtil.getTreeGradePicture(currentM: sync_timerM, setM: sync_setM)
-            let tree_pic_name = forestTreePictureAttr + String(current_grade)
-            self.btnTreePicture.image = NSImage(named: tree_pic_name)
-            //print(tree_pic_name)
-        }
-        
-
-    }
+    
 
     // MARK: IBAction
     
@@ -634,17 +690,16 @@ class VCCountDown: NSViewController {
                 
             }
             
+            let record = LDRecord()
+            record.addTimeData(timerM: duration)
             
-            uiRestoreToDefault()
+            uiStatusSetCurrentFocusFalse()
+            uiSetRecordFocusTime()
         }
     }
     
     
     @IBAction func btnClickedTree(_ sender: Any) {
-        
-
-        
-        
         uiReadyStart()
     }
     

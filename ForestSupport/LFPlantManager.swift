@@ -8,6 +8,19 @@
 import Cocoa
 import SwiftyJSON
 
+/// 对应的树种对象
+public class LFPlant: NSObject {
+    
+    /// 树种的上传 ID
+    public var plantID: UInt = 0
+    
+    /// 树种的图片目录
+    public var plantImageBaseFolderPath: String = ""
+    
+    
+    
+}
+
 /// Forest 核心 Plant 资源管理
 public class LFPlantManager: NSObject {
     

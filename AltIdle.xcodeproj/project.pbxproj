@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */; };
+		5D4B3C902B739226000B9DAE /* WDForestViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */; };
+		5D4B3C922B73A26D000B9DAE /* SUForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C912B73A26C000B9DAE /* SUForest.swift */; };
 		5D853AE62B5413FB00A018C4 /* WDTreeEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D853AE42B5413FB00A018C4 /* WDTreeEdit.xib */; };
 		5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97352B3D0505009D142D /* LDMenuIcon.swift */; };
 		5D8C97382B3D0505009D142D /* LDCoreTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C97362B3D0505009D142D /* LDCoreTimer.swift */; };
@@ -20,6 +23,9 @@
 		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
 		5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB12B352B3C87E900224244 /* AppDelegate.swift */; };
 		5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B372B3C87EB00224244 /* Assets.xcassets */; };
+		5DBFE6262B6A51AC0023818B /* LFPlantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */; };
+		5DBFE62F2B6A532C0023818B /* plants in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFE6232B6A516E0023818B /* plants */; };
+		5DBFE6342B6A59720023818B /* PlantResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFE62B2B6A530A0023818B /* PlantResource.bundle */; };
 		5DC2D38B2B55311E004103E9 /* WDAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2D3892B55311E004103E9 /* WDAbout.swift */; };
 		5DC2D38C2B55311E004103E9 /* WDAbout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC2D38A2B55311E004103E9 /* WDAbout.xib */; };
 		5DD24C8E2B62AA7900D23F6A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD24C902B62AA7900D23F6A /* MainMenu.xib */; };
@@ -63,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFRequest.swift; sourceTree = "<group>"; };
+		5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDForestViewer.swift; sourceTree = "<group>"; };
+		5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDForestViewer.xib; sourceTree = "<group>"; };
+		5D4B3C912B73A26C000B9DAE /* SUForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUForest.swift; sourceTree = "<group>"; };
 		5D853AE32B5413FB00A018C4 /* WDTreeEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTreeEdit.swift; sourceTree = "<group>"; };
 		5D853AE42B5413FB00A018C4 /* WDTreeEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDTreeEdit.xib; sourceTree = "<group>"; };
 		5D85BF142B527D900041AFDA /* LFStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFStorage.swift; sourceTree = "<group>"; };
@@ -80,6 +89,9 @@
 		5DB12B352B3C87E900224244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DB12B372B3C87EB00224244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DB12B3C2B3C87EB00224244 /* Idle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Idle.entitlements; sourceTree = "<group>"; };
+		5DBFE6232B6A516E0023818B /* plants */ = {isa = PBXFileReference; lastKnownFileType = folder; path = plants; sourceTree = "<group>"; };
+		5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFPlantManager.swift; sourceTree = "<group>"; };
+		5DBFE62B2B6A530A0023818B /* PlantResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC2D3892B55311E004103E9 /* WDAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDAbout.swift; sourceTree = "<group>"; };
 		5DC2D38A2B55311E004103E9 /* WDAbout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDAbout.xib; sourceTree = "<group>"; };
 		5DC3DE702B51462A00428760 /* WDLinkForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDLinkForest.swift; sourceTree = "<group>"; };
@@ -101,6 +113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DBFE6282B6A530A0023818B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DF502A32B638A0B00A33CE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,6 +132,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D4B3C8C2B739203000B9DAE /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */,
+				5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */,
+				5D4B3C912B73A26C000B9DAE /* SUForest.swift */,
+			);
+			path = Viewer;
+			sourceTree = "<group>";
+		};
 		5D8C97342B3D04F4009D142D /* Countdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +181,7 @@
 			children = (
 				5DB12B322B3C87E900224244 /* Forest.app */,
 				5DF502A62B638A0B00A33CE8 /* ForestSupport.framework */,
+				5DBFE62B2B6A530A0023818B /* PlantResource.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,8 +189,10 @@
 		5DB12B342B3C87E900224244 /* Idle */ = {
 			isa = PBXGroup;
 			children = (
-				5D8C97342B3D04F4009D142D /* Countdown */,
 				5DF502A72B638A0B00A33CE8 /* ForestSupport */,
+				5D4B3C8C2B739203000B9DAE /* Viewer */,
+				5DBFE6222B6A514F0023818B /* PlantsResource */,
+				5D8C97342B3D04F4009D142D /* Countdown */,
 				5D9A82F92B4EAF370091FD2E /* Support */,
 				5DB12B352B3C87E900224244 /* AppDelegate.swift */,
 				5DB12B372B3C87EB00224244 /* Assets.xcassets */,
@@ -173,12 +205,21 @@
 			path = Idle;
 			sourceTree = "<group>";
 		};
+		5DBFE6222B6A514F0023818B /* PlantsResource */ = {
+			isa = PBXGroup;
+			children = (
+				5DBFE6232B6A516E0023818B /* plants */,
+			);
+			path = PlantsResource;
+			sourceTree = "<group>";
+		};
 		5DF502A72B638A0B00A33CE8 /* ForestSupport */ = {
 			isa = PBXGroup;
 			children = (
 				5DC3DE742B514FEA00428760 /* LFManager.swift */,
 				5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */,
 				5D85BF142B527D900041AFDA /* LFStorage.swift */,
+				5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */,
 				5DDC7B152B66891B00D75063 /* WDLinkForest.xib */,
 				5DC3DE702B51462A00428760 /* WDLinkForest.swift */,
 				5D853AE32B5413FB00A018C4 /* WDTreeEdit.swift */,
@@ -231,6 +272,23 @@
 			productReference = 5DB12B322B3C87E900224244 /* Forest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5DBFE62A2B6A530A0023818B /* PlantResource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DBFE62C2B6A530A0023818B /* Build configuration list for PBXNativeTarget "PlantResource" */;
+			buildPhases = (
+				5DBFE6272B6A530A0023818B /* Sources */,
+				5DBFE6282B6A530A0023818B /* Frameworks */,
+				5DBFE6292B6A530A0023818B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantResource;
+			productName = PlantResource;
+			productReference = 5DBFE62B2B6A530A0023818B /* PlantResource.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		5DF502A52B638A0B00A33CE8 /* ForestSupport */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DF502AE2B638A0B00A33CE8 /* Build configuration list for PBXNativeTarget "ForestSupport" */;
@@ -265,6 +323,10 @@
 				TargetAttributes = {
 					5DB12B312B3C87E900224244 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1520;
+					};
+					5DBFE62A2B6A530A0023818B = {
+						CreatedOnToolsVersion = 15.2;
 					};
 					5DF502A52B638A0B00A33CE8 = {
 						CreatedOnToolsVersion = 15.2;
@@ -290,6 +352,7 @@
 			targets = (
 				5DB12B312B3C87E900224244 /* Idle */,
 				5DF502A52B638A0B00A33CE8 /* ForestSupport */,
+				5DBFE62A2B6A530A0023818B /* PlantResource */,
 			);
 		};
 /* End PBXProject section */
@@ -299,12 +362,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DBFE6342B6A59720023818B /* PlantResource.bundle in Resources */,
 				5D853AE62B5413FB00A018C4 /* WDTreeEdit.xib in Resources */,
 				5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */,
+				5D4B3C902B739226000B9DAE /* WDForestViewer.xib in Resources */,
 				5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */,
 				5DC2D38C2B55311E004103E9 /* WDAbout.xib in Resources */,
 				5DD24C962B62AB6800D23F6A /* VCCountDown.xib in Resources */,
 				5DD24C8E2B62AA7900D23F6A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DBFE6292B6A530A0023818B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DBFE62F2B6A532C0023818B /* plants in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +403,20 @@
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
 				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
 				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
+				5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */,
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
 				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,
+				5DBFE6262B6A51AC0023818B /* LFPlantManager.swift in Sources */,
 				5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */,
+				5D4B3C922B73A26D000B9DAE /* SUForest.swift in Sources */,
 				5DC2D38B2B55311E004103E9 /* WDAbout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DBFE6272B6A530A0023818B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,12 +575,49 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Idle/Idle.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
+				DEVELOPMENT_TEAM = FXSVDYCN2P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Idle/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Forest;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Developed by Kimno";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.idle.alt;
+				PRODUCT_NAME = Forest;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5DB12B412B3C87EB00224244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Idle/Idle.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -518,39 +638,53 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
-			name = Debug;
+			name = Release;
 		};
-		5DB12B412B3C87EB00224244 /* Release */ = {
+		5DBFE62D2B6A530A0023818B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Idle/Idle.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = FXSVDYCN2P;
-				ENABLE_HARDENED_RUNTIME = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Idle/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Forest;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Developed by Kimno";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.osx.idle.alt;
-				PRODUCT_NAME = Forest;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.cocoa.PlantResource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		5DBFE62E2B6A530A0023818B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.cocoa.PlantResource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -652,6 +786,15 @@
 			buildConfigurations = (
 				5DB12B402B3C87EB00224244 /* Debug */,
 				5DB12B412B3C87EB00224244 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DBFE62C2B6A530A0023818B /* Build configuration list for PBXNativeTarget "PlantResource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DBFE62D2B6A530A0023818B /* Debug */,
+				5DBFE62E2B6A530A0023818B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

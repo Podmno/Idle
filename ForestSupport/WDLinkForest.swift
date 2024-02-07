@@ -222,6 +222,7 @@ public class WDLinkForest: NSWindowController, NSWindowDelegate{
             self.storage.dataStorageTags(data: data_tags.rawString() ?? "")
             self.storage.dataStorageUnlock(data: data_unlocked_trees.rawString() ?? "")
             self.storage.dataStorageAccount(data: data_account_info.rawString() ?? "")
+            
 
             DispatchQueue.main.async {
                 self.close()
