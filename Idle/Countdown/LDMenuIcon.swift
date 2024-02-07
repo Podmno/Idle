@@ -43,7 +43,7 @@ class LDMenuIcon : NSObject {
         popover.behavior = .transient
         //popover.contentSize = NSSize(width: 500, height: 300)
         popover.contentViewController = vcCountDown
-        
+
 
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStart), name: NSNotification.Name("countDownStart"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStop), name: NSNotification.Name("countDownStop"), object: nil)

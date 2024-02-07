@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="755" height="411"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="umi-wg-Mmm">
+                    <visualEffectView blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="umi-wg-Mmm">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="411"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gKX-hx-UZA">
