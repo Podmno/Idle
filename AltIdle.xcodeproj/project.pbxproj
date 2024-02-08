@@ -23,6 +23,7 @@
 		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
 		5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB12B352B3C87E900224244 /* AppDelegate.swift */; };
 		5DB12B382B3C87EB00224244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DB12B372B3C87EB00224244 /* Assets.xcassets */; };
+		5DBD1C522B74BC0C00A5F999 /* SUMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD1C512B74BC0C00A5F999 /* SUMenuIcon.swift */; };
 		5DBFE6262B6A51AC0023818B /* LFPlantManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */; };
 		5DBFE62F2B6A532C0023818B /* plants in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFE6232B6A516E0023818B /* plants */; };
 		5DBFE6342B6A59720023818B /* PlantResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFE62B2B6A530A0023818B /* PlantResource.bundle */; };
@@ -89,6 +90,7 @@
 		5DB12B352B3C87E900224244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DB12B372B3C87EB00224244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DB12B3C2B3C87EB00224244 /* Idle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Idle.entitlements; sourceTree = "<group>"; };
+		5DBD1C512B74BC0C00A5F999 /* SUMenuIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUMenuIcon.swift; sourceTree = "<group>"; };
 		5DBFE6232B6A516E0023818B /* plants */ = {isa = PBXFileReference; lastKnownFileType = folder; path = plants; sourceTree = "<group>"; };
 		5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFPlantManager.swift; sourceTree = "<group>"; };
 		5DBFE62B2B6A530A0023818B /* PlantResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +156,7 @@
 				5DD24C952B62AB6800D23F6A /* VCCountDown.xib */,
 				5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */,
 				5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */,
+				5DBD1C512B74BC0C00A5F999 /* SUMenuIcon.swift */,
 			);
 			path = Countdown;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
 				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,
 				5DBFE6262B6A51AC0023818B /* LFPlantManager.swift in Sources */,
+				5DBD1C522B74BC0C00A5F999 /* SUMenuIcon.swift in Sources */,
 				5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */,
 				5D4B3C922B73A26D000B9DAE /* SUForest.swift in Sources */,
 				5DC2D38B2B55311E004103E9 /* WDAbout.swift in Sources */,
@@ -581,7 +585,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -617,7 +621,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;

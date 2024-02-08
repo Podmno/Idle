@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 
 class LDMenuIcon : NSObject {
@@ -28,6 +29,11 @@ class LDMenuIcon : NSObject {
     let vcCountDown = VCCountDown(nibName: "VCCountDown", bundle: Bundle.main)
     let vcMenuBarIcon = VCMenuIcon(nibName: "VCMenuIcon", bundle: Bundle.main)
     
+
+    var swiftuiMenuBarIcon: Any? = nil
+    var swiftuiHostingView: Any? = nil
+    
+    
     let popover = NSPopover()
     
     var coreTimer: LDCoreTimer!
@@ -49,13 +55,29 @@ class LDMenuIcon : NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStop), name: NSNotification.Name("countDownStop"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveUserChange), name: NSNotification.Name("countDownUserChange"), object: nil)
         
+        if #available(macOS 14, *) {
+            swiftuiMenuBarIcon = SUMenuIcon(model: SUMenuIconModel(currentTime: "120:00"))
+            swiftuiHostingView = NSHostingView(rootView: swiftuiMenuBarIcon as! SUMenuIcon)
+            
+        }
+        
     }
         
     func initCreateIcon() {
 
         if let button = statusItem.button {
             //statusItem.button?.window?.contentViewController = vcMenuBarIcon
-            button.addSubview(vcMenuBarIcon.view)
+            
+            if #available(macOS 14, *) {
+                
+                let s_view = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+                s_view.frame = button.frame
+                button.addSubview(s_view)
+            } else {
+                button.addSubview(vcMenuBarIcon.view)
+            }
+            
+            
             print("Already set button action")
             // 重要！！ 没有这一句没有反应的
             button.target = self
@@ -66,8 +88,12 @@ class LDMenuIcon : NSObject {
             print("Menu_Last_Time \(last_focus_time)")
             if (last_focus_time <= 0) {
                 setMenuBarIconText(text: "0:00")
+                
+                
             } else {
                 setMenuBarIconText(text: "\(last_focus_time):00")
+                
+
             }
             
         }
@@ -75,8 +101,16 @@ class LDMenuIcon : NSObject {
     
     func setMenuBarIconText(text: String) {
         
+        if #available(macOS 14, *) {
+            let s = swiftuiMenuBarIcon as! SUMenuIcon
+            s.model.currentTime = text
+            let s_v = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+            s_v.rootView = s
+        } else {
+            vcMenuBarIcon.setMenuBarText(string: text)
+        }
 
-        vcMenuBarIcon.setMenuBarText(string: text)
+        
         return
         
         //if let button = statusItem.button {

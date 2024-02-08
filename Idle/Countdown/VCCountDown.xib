@@ -39,6 +39,15 @@
                         <color key="backgroundColor" name="AccentColor"/>
                     </textFieldCell>
                 </textField>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njy-9Q-yMf">
+                    <rect key="frame" x="17" y="21" width="262" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="120:00" id="yIc-Tz-39S">
+                        <font key="font" metaFont="systemSemibold" size="48"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSX-xC-pFI">
                     <rect key="frame" x="34" y="38" width="20" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -174,15 +183,6 @@
                     <color key="bezelColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="contentTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </button>
-                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njy-9Q-yMf">
-                    <rect key="frame" x="17" y="21" width="262" height="57"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="120:00" id="yIc-Tz-39S">
-                        <font key="font" metaFont="systemSemibold" size="48"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
             <point key="canvasLocation" x="63.5" y="192.5"/>
         </customView>

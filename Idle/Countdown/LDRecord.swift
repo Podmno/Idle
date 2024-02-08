@@ -44,6 +44,7 @@ class LDRecord : NSObject {
             // 并不是第一次打开了
             
             let last_record_date = defaults.integer(forKey: "IDLE_LAST_OPEN")
+            print("IDLE_LAST_OPEN Updated: \(last_record_date)")
             let last_time_interval = TimeInterval(last_record_date)
             let last_time_date = Date(timeIntervalSince1970: last_time_interval)
             
@@ -57,9 +58,13 @@ class LDRecord : NSObject {
             let now = Date()
             let timeInterval = now.timeIntervalSince1970
             defaults.set(Int(timeInterval), forKey: "IDLE_LAST_OPEN")
+            
+            print("IDLE_LAST_OPEN Updated: \(timeInterval)")
         }
         
-
+        print("IDLE_DAY_MINUTES: \(getDayMinutes())")
+        print("IDLE_WEEK_MINUTES: \(getWeekMinutes())")
+        
         
     }
     
