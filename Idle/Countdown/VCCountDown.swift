@@ -690,8 +690,13 @@ class VCCountDown: NSViewController {
                 
             }
             
-            let record = LDRecord()
-            record.addTimeData(timerM: duration)
+            if (statusIsSuccess) {
+                // 只有成功的记录才会被计入
+                let record = LDRecord()
+                record.addTimeData(timerM: duration)
+            }
+            
+            
             
             uiStatusSetCurrentFocusFalse()
             uiSetRecordFocusTime()

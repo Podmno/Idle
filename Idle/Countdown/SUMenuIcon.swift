@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 13.0, *)
+@available(macOS 14.0, *)
 class SUMenuIconModel: ObservableObject {
     
     @Published var currentTime: String = ""
@@ -21,7 +21,7 @@ class SUMenuIconModel: ObservableObject {
     
 }
 
-@available(macOS 13.0, *)
+@available(macOS 14.0, *)
 struct SUMenuIcon: View {
     
     @ObservedObject var model: SUMenuIconModel
@@ -31,17 +31,17 @@ struct SUMenuIcon: View {
             Image("forest_title_bar")
                 .resizable().frame(width: 18,height: 18)
             Text("\(model.currentTime)")
-                .contentTransition(.numericText())
-                .frame(width: 42)
-                .font(.system(.callout, design: .rounded, weight: .medium))
-                .offset(y: -0.5)
-        }.animation(.default).lineSpacing(0)
+                .contentTransition(.interpolate)
+                .frame(width: 42,height: 18)
+                
+                .font(.system(size: 12))
+        }.animation(.linear(duration: 0.1))
     }
     
 
 }
 
-@available(macOS 13.0, *)
+@available(macOS 14.0, *)
 #Preview {
 
     SUMenuIcon(model: SUMenuIconModel(currentTime: "120:00"))
