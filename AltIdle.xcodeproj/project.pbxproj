@@ -19,6 +19,7 @@
 		5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */; };
 		5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */; };
 		5D9C8ED52B52F42A00FC904E /* LDMenuSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */; };
+		5D9E82032B7628660075F681 /* SUForestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E82022B7628660075F681 /* SUForestUtil.swift */; };
 		5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9482B4C4A75009BA82C /* DockProgress.swift */; };
 		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
 		5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB12B352B3C87E900224244 /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 		5D9BA9312B4E28DB00675DA8 /* VCMenuIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMenuIcon.swift; sourceTree = "<group>"; };
 		5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCMenuIcon.xib; sourceTree = "<group>"; };
 		5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuSync.swift; sourceTree = "<group>"; };
+		5D9E82022B7628660075F681 /* SUForestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUForestUtil.swift; sourceTree = "<group>"; };
 		5DACE9482B4C4A75009BA82C /* DockProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockProgress.swift; sourceTree = "<group>"; };
 		5DACE9492B4C4A75009BA82C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5DB12B322B3C87E900224244 /* Forest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */,
 				5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */,
 				5D4B3C912B73A26C000B9DAE /* SUForest.swift */,
+				5D9E82022B7628660075F681 /* SUForestUtil.swift */,
 			);
 			path = Viewer;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
 				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
+				5D9E82032B7628660075F681 /* SUForestUtil.swift in Sources */,
 				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
 				5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */,
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
@@ -585,7 +589,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -621,7 +625,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;

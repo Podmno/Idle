@@ -31,8 +31,9 @@ struct SUMenuIcon: View {
             Image("forest_title_bar")
                 .resizable().frame(width: 18,height: 18)
             Text("\(model.currentTime)")
-                .contentTransition(.interpolate)
+                .contentTransition(.identity)
                 .frame(width: 42,height: 18)
+                .offset(y: -0.5)
                 
                 .font(.system(size: 12))
         }.animation(.linear(duration: 0.1))

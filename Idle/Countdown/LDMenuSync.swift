@@ -13,7 +13,7 @@ public class LDMenuSync : NSObject {
     
     public var contentMenu: NSMenu!
     
-    let recordUtil = LDRecord()
+    lazy var recordUtil = LDRecord()
     
     var storage = LFStorage()
     

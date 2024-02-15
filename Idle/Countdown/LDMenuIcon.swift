@@ -38,7 +38,7 @@ class LDMenuIcon : NSObject {
     
     var coreTimer: LDCoreTimer!
     let notificationUtil = LDNotification()
-    let recordUtil = LDRecord()
+    lazy var recordUtil = LDRecord()
     
     override init() {
         super.init()

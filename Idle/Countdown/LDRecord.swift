@@ -7,6 +7,9 @@
 
 import Cocoa
 
+
+// TODO: 更新：记录部分使用 CoreData 重写，非常容易触发时间重置 / 时间计算是按照 UTC 来的，需要修正为当地的时间
+
 class LDRecord : NSObject {
     
     let defaults = UserDefaults.standard
@@ -49,10 +52,12 @@ class LDRecord : NSObject {
             let last_time_date = Date(timeIntervalSince1970: last_time_interval)
             
             if (!Calendar.current.isDateInThisWeek(last_time_date)) {
+                print("Record > Update Week Record")
                 defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
             }
             
             if (!Calendar.current.isDateInToday(last_time_date)) {
+                print("Record > Update DAY Record")
                 defaults.set(0, forKey: "IDLE_DAY_MINUTES")
             }
             let now = Date()

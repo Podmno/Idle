@@ -54,7 +54,7 @@ class VCCountDown: NSViewController {
     var sync_setM: Int = 0
     
     var wndLinkForest: WDLinkForest?
-    let recordUtil = LDRecord()
+    lazy var recordUtil = LDRecord()
     let treeUtil = LFManager()
     
     /// 秒数规格化

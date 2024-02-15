@@ -15,7 +15,6 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
     
     
     public func sendTimeUpNotification(timerM: Int) {
-        
 
         let title = "你的树长大了！"
         let coins = forest_helper.countForCoins(focusTime: timerM)
