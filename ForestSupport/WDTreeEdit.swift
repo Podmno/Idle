@@ -33,7 +33,14 @@ public class WDTreeEdit: NSWindowController, NSWindowDelegate {
         tfContent.formatter = CustomTextFieldFormatter(maxLength: 150, isUppercased: false)
         setupAllTags()
         isOpened = true
-        NSApplication.shared.activate(ignoringOtherApps: true)
+        
+
+        // TODO: BUG 修复：在应用程序在非焦点的情况下弹出窗口，窗口无法被聚焦
+        if (!NSApp.isActive) {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+        
+        
     }
     
     

@@ -41,6 +41,10 @@ class LDRecord : NSObject {
             let clocks = [15, 30, 45, 60, 120]
             defaults.set(clocks, forKey: "IDLE_CLOCKS")
             defaults.set(0, forKey: "IDLE_LAST_SELECT_CLOCK")
+            
+            // IDLE_FOCUS_RECORD: JSON 格式的专注记录保存，最多保存 1500 条记录，
+            defaults.set("", forKey: "IDLE_FOCUS_RECORD")
+            
         } else {
             
             
@@ -51,6 +55,7 @@ class LDRecord : NSObject {
             let last_time_interval = TimeInterval(last_record_date)
             let last_time_date = Date(timeIntervalSince1970: last_time_interval)
             
+            // 日期重置
             if (!Calendar.current.isDateInThisWeek(last_time_date)) {
                 print("Record > Update Week Record")
                 defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
@@ -77,6 +82,7 @@ class LDRecord : NSObject {
         defaults.set(false, forKey: "IDLE_INIT_STATUS")
     }
     
+    @available(*, deprecated, renamed: "addStorageTimeData", message: "addTimeData is deprecated. Use addStorageTimeData to get data from Storage.")
     func addTimeData(timerM: Int) {
        
         var timesave_total = defaults.integer(forKey: "IDLE_TOTAL_MINUTES")
@@ -98,6 +104,10 @@ class LDRecord : NSObject {
         
         defaults.set(timesave_week, forKey: "IDLE_WEEK_MINUTES")
         defaults.set(timesave_day, forKey: "IDLE_DAY_MINUTES")
+    }
+    
+    func addStorageTimeData(timerM: Int) {
+        
     }
     
     func resetTimeData() {

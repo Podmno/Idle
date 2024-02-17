@@ -187,11 +187,15 @@ class VCCountDown: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-
+        
+        
+ 
         //specialAnimationAdd()
         if !self.focusStatus {
             uiUpdateCurrentTimeSelection()
         }
+        
+        
         
         uiGenerateRandomQuote()
     }
@@ -574,7 +578,10 @@ class VCCountDown: NSViewController {
             
         }
         
+        
+  
         wndTagEditor?.showWindow(self)
+        //wndTagEditor?.showWindow(self)
         
     }
     

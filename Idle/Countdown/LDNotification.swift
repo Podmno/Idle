@@ -74,6 +74,7 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
         
         let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
         
+        
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (success, error) in
             if let error = error {
                 print("[LDN] Error: ", error)

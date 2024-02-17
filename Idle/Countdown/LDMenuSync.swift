@@ -213,6 +213,9 @@ public class LDMenuSync : NSObject {
         
         let record_util = LDRecord()
         record_util.resetTimeData()
+        
+        
+        
         window_login!.showWindow(self);
         
         

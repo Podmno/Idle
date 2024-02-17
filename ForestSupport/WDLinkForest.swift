@@ -30,11 +30,13 @@ public class WDLinkForest: NSWindowController, NSWindowDelegate{
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        self.window?.becomeKey()
         
-        NSApplication.shared.activate(ignoringOtherApps: true)
+        
+        //self.window?.orderFrontRegardless()
+        
         isOpened = true
     }
+
     
     public func windowWillClose(_ notification: Notification) {
         isOpened = false

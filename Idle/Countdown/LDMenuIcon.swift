@@ -354,6 +354,9 @@ class LDMenuIcon : NSObject {
     
     @objc func toggleMenuIcon(_sender: AnyObject) {
 
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        
+        
         if let button = self.statusItem.button {
             if self.popover.isShown {
                 self.popover.performClose(self)
