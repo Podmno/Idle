@@ -7,16 +7,16 @@
 
 import Cocoa
 import ForestSupport
+import SwiftyJSON
 
 /// FLAG: 开启切换树种功能
-let FLAG_ENABLE_TRUE_TYPE_SWITCH = false
+let FLAG_ENABLE_TRUE_TYPE_SWITCH = true
 
 public enum LDCountDownMode {
     case countdown
     case countup
 }
 
-// TODO: 修复在鼠标指向开始专注大图标时，选择树种指针并不会消失的问题
 
 class VCCountDown: NSViewController {
     
@@ -56,6 +56,10 @@ class VCCountDown: NSViewController {
     var wndLinkForest: WDLinkForest?
     lazy var recordUtil = LDRecord()
     let treeUtil = LFManager()
+    
+    let plantResources = LFPlantResource()
+    var plantResourcesData: [Int:LFPlantResourceInfo] = [:]
+    var plantResourcesAvailableList: [Int] = []
     
     /// 秒数规格化
     var numberFormatterSecond : NumberFormatter {
@@ -147,7 +151,40 @@ class VCCountDown: NSViewController {
             popCountType.selectItem(at: 0)
             focusTimeCurrent = recordUtil.getLastSelectClock()
         }
+        
+        
+        loadAvailableTreeID()
 
+    }
+    
+    
+    func loadAvailableTreeID() {
+        let all_res = plantResources.getAllPlantsResource()
+        let storage_util = LFStorage()
+        let account_info = storage_util.dataGetUnlock()
+        let account_json = JSON(parseJSON: account_info)
+        
+        if (account_json.isEmpty) {
+            plantResourcesData[0] = all_res[0]
+            return
+        }
+        
+        for (_,data_content) in account_json {
+            
+            let tree_id = data_content["gid"].intValue
+            
+            if (!all_res.keys.contains(tree_id)) {
+                // 如果资源包 bundle 没有更新，那么跳过这个新的树种
+                continue
+            }
+            
+            plantResourcesAvailableList.append(tree_id)
+            plantResourcesData[tree_id] = all_res[tree_id]
+            
+        }
+        plantResourcesAvailableList.sort()
+        print(plantResourcesData)
+        
     }
     
     // MARK: - 用户界面配置
@@ -187,9 +224,6 @@ class VCCountDown: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        
-        
- 
         //specialAnimationAdd()
         if !self.focusStatus {
             uiUpdateCurrentTimeSelection()
@@ -261,6 +295,9 @@ class VCCountDown: NSViewController {
         
         storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
         
+        self.btnPlantLeftArrow.isHidden = true
+        self.btnPlantRightArrow.isHidden = true
+        
         mainStartFocus()
     }
     
@@ -307,16 +344,28 @@ class VCCountDown: NSViewController {
     /// 更新树种图片
     func uiUpdateTreePicture() {
         if statusCountDownMode == .countup {
-            let f = forestTreePictureAttr + "4"
-            self.btnTreePicture.image = NSImage(named: f)
+            let tree_path = plantResourcesData[forestRecordTreeType]?.plantGradePicturePath[4]
+            if (tree_path == nil) {
+                // 异常情况：使用资源包里携带的默认 tree 图片
+                let tree_pic_name = forestTreePictureAttr + "4"
+                self.btnTreePicture.image = NSImage(named: tree_pic_name)
+                return
+            }
+            self.btnTreePicture.image = NSImage(contentsOfFile: tree_path!)
             return
         }
 
         let tree_status = treeUtil.getTreePhaseGrade(currentMinuts: statusCountDownMinutes)
         
-        let tree_pic_name = forestTreePictureAttr + String(tree_status)
+        let tree_path = plantResourcesData[forestRecordTreeType]?.plantGradePicturePath[tree_status]
+        if (tree_path == nil) {
+            // 异常情况：使用资源包里携带的默认 tree 图片
+            let tree_pic_name = forestTreePictureAttr + String(tree_status)
+            self.btnTreePicture.image = NSImage(named: tree_pic_name)
+            return
+        }
 
-        self.btnTreePicture.image = NSImage(named: tree_pic_name)
+        self.btnTreePicture.image = NSImage(contentsOfFile: tree_path!)
         
     }
     
@@ -377,7 +426,7 @@ class VCCountDown: NSViewController {
         self.forestRecordEndTime = Date()
     }
 
-    /// 读取今日专注时间，设置 UI 为「今日共专注 ？？ 分钟」
+    /// 读取今日专注时间，设置 UI 为 今日共专注 ？？ 分钟
     func uiSetRecordFocusTime() {
         
         let record_util = LDRecord()
@@ -413,11 +462,22 @@ class VCCountDown: NSViewController {
         self.forestRecordEndTime = Date()
         let final_m = sync_setM
         let t_pic = treeUtil.getTreePhaseGrade(currentMinuts: final_m)
-        let pic_name = forestTreePictureAttr + String(t_pic)
-        self.btnTreePicture.image = NSImage(named: pic_name)
+        
+        let tree_path = plantResourcesData[forestRecordTreeType]?.plantGradePicturePath[t_pic]
+        if (tree_path == nil) {
+            // 异常情况：使用资源包里携带的默认 tree 图片
+            let tree_pic_name = forestTreePictureAttr + String(t_pic)
+            self.btnTreePicture.image = NSImage(named: tree_pic_name)
+            
+        } else {
+            self.btnTreePicture.image = NSImage(contentsOfFile: tree_path!)
+        }
+        //let pic_name = forestTreePictureAttr + String(t_pic)
+        //self.btnTreePicture.image = NSImage(named: pic_name)
         btnXMark.image = NSImage(named: "return")
     }
     
+
     @objc func onReceiveCount(sender: Notification) {
         let info = sender.object as! Dictionary<Int, Int>
         let timerM = info[0] ?? 0
@@ -507,7 +567,6 @@ class VCCountDown: NSViewController {
         if (self.focusStatus == true) {
             return
         }
-        
         
         NSAnimationContext.runAnimationGroup({ [self] context in
             context.duration = 0.15
@@ -619,6 +678,33 @@ class VCCountDown: NSViewController {
         uiUpdateCurrentTimeSelection()
     }
     
+    var currentSelectTreeTypeIndex = 0
+    @IBAction func btnSwitchPlantL(_ sender: Any) {
+        print(plantResourcesAvailableList)
+        
+        if (currentSelectTreeTypeIndex == 0) {
+            currentSelectTreeTypeIndex = plantResourcesAvailableList.count - 1
+        } else {
+            currentSelectTreeTypeIndex -= 1
+        }
+        
+        forestRecordTreeType = plantResourcesAvailableList[currentSelectTreeTypeIndex]
+        
+        uiUpdateTreePicture()
+    }
+    
+    @IBAction func btnSwitchPlantR(_ sender: Any) {
+        print(plantResourcesAvailableList)
+        if (currentSelectTreeTypeIndex == plantResourcesAvailableList.count - 1) {
+            currentSelectTreeTypeIndex = 0
+        } else {
+            currentSelectTreeTypeIndex += 1
+        }
+        
+        forestRecordTreeType = plantResourcesAvailableList[currentSelectTreeTypeIndex]
+        
+        uiUpdateTreePicture()
+    }
     
     @IBAction func btnClickedXMark(_ sender: Any) {
         
@@ -649,6 +735,9 @@ class VCCountDown: NSViewController {
             
             if (repo == .alertSecondButtonReturn) {
                 sendStopMessage()
+                
+                self.btnPlantLeftArrow.isHidden = false
+                self.btnPlantRightArrow.isHidden = false
             }
 
         } else {
@@ -703,12 +792,14 @@ class VCCountDown: NSViewController {
                 record.addTimeData(timerM: duration)
             }
             
-            
+            self.btnPlantLeftArrow.isHidden = false
+            self.btnPlantRightArrow.isHidden = false
             
             uiStatusSetCurrentFocusFalse()
             uiSetRecordFocusTime()
         }
     }
+    
     
     
     @IBAction func btnClickedTree(_ sender: Any) {

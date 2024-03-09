@@ -82,7 +82,6 @@ class LDRecord : NSObject {
         defaults.set(false, forKey: "IDLE_INIT_STATUS")
     }
     
-    @available(*, deprecated, renamed: "addStorageTimeData", message: "addTimeData is deprecated. Use addStorageTimeData to get data from Storage.")
     func addTimeData(timerM: Int) {
        
         var timesave_total = defaults.integer(forKey: "IDLE_TOTAL_MINUTES")

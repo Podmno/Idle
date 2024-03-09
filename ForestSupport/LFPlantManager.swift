@@ -56,7 +56,6 @@ public class LFPlantManager: NSObject {
     
     /// 从 plant 文件夹加载导入树种文件
     private func loadTreeList(plantDirPath: String) {
-        let manager = FileManager.default
         
     }
 

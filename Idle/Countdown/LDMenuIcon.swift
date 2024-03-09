@@ -8,6 +8,9 @@
 import Cocoa
 import SwiftUI
 
+// FLAG: 开启 MenuIcon 的 SwiftUI 视图
+let flagEnableSwiftUIMenuIcon = false
+
 
 class LDMenuIcon : NSObject {
     
@@ -56,8 +59,11 @@ class LDMenuIcon : NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveUserChange), name: NSNotification.Name("countDownUserChange"), object: nil)
         
         if #available(macOS 14, *) {
-            swiftuiMenuBarIcon = SUMenuIcon(model: SUMenuIconModel(currentTime: "120:00"))
-            swiftuiHostingView = NSHostingView(rootView: swiftuiMenuBarIcon as! SUMenuIcon)
+            if (flagEnableSwiftUIMenuIcon) {
+                swiftuiMenuBarIcon = SUMenuIcon(model: SUMenuIconModel(currentTime: "120:00"))
+                swiftuiHostingView = NSHostingView(rootView: swiftuiMenuBarIcon as! SUMenuIcon)
+            }
+            
             
         }
         
@@ -70,9 +76,14 @@ class LDMenuIcon : NSObject {
             
             if #available(macOS 14, *) {
                 
-                let s_view = swiftuiHostingView as! NSHostingView<SUMenuIcon>
-                s_view.frame = button.frame
-                button.addSubview(s_view)
+                if (flagEnableSwiftUIMenuIcon) {
+                    let s_view = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+                    s_view.frame = button.frame
+                    button.addSubview(s_view)
+                } else {
+                    button.addSubview(vcMenuBarIcon.view)
+                }
+                
             } else {
                 button.addSubview(vcMenuBarIcon.view)
             }
@@ -102,10 +113,16 @@ class LDMenuIcon : NSObject {
     func setMenuBarIconText(text: String) {
         
         if #available(macOS 14, *) {
-            let s = swiftuiMenuBarIcon as! SUMenuIcon
-            s.model.currentTime = text
-            let s_v = swiftuiHostingView as! NSHostingView<SUMenuIcon>
-            s_v.rootView = s
+            if flagEnableSwiftUIMenuIcon {
+                let s = swiftuiMenuBarIcon as! SUMenuIcon
+                s.model.currentTime = text
+                let s_v = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+                s_v.rootView = s
+            } else {
+                vcMenuBarIcon.setMenuBarText(string: text)
+            }
+            
+            
         } else {
             vcMenuBarIcon.setMenuBarText(string: text)
         }
@@ -273,36 +290,7 @@ class LDMenuIcon : NSObject {
         notificationUtil.sendTimeUpNotification(timerM: setM)
         
     }
-    
-    @available(*, deprecated, message: "不再由 MenuIcon 增加 recordTime，单独使用 LDRecord 增加时间。")
-    func userDefaultsAddTime() {
-        
-        // 向 UserDefaults 追加时间信息
-        
-        
-        
-        
-        if (setM <= 0) {
-            
-            if (countUpMLog >= 15) {
-                recordUtil.addTimeData(timerM: countUpMLog)
-            }
-            
-            return
-        }
-        
-        if (timerM > 0 || timerS > 3) {
-            // 自己手动停止不计入
-            return
-        }
-        
-        if (setM < 15) {
-            return
-        }
-        
-        recordUtil.addTimeData(timerM: setM)
-        
-    }
+
     
     @objc func timerChangeAction() {
         if(setM <= 0) {
@@ -324,7 +312,6 @@ class LDMenuIcon : NSObject {
             //print("update countUpMLog \(countUpMLog)")
             self.countUpMLog = timerM
             
-
             
             return
         }
@@ -408,3 +395,34 @@ class LDMenuIcon : NSObject {
         
     }
 }
+
+/*
+ 
+ 
+ @available(*, deprecated, message: "不再由 MenuIcon 增加 recordTime，单独使用 LDRecord 增加时间。")
+ func userDefaultsAddTime() {
+     
+     // 向 UserDefaults 追加时间信息
+     
+     if (setM <= 0) {
+         
+         if (countUpMLog >= 15) {
+             recordUtil.addTimeData(timerM: countUpMLog)
+         }
+         
+         return
+     }
+     
+     if (timerM > 0 || timerS > 3) {
+         // 自己手动停止不计入
+         return
+     }
+     
+     if (setM < 15) {
+         return
+     }
+     
+     recordUtil.addTimeData(timerM: setM)
+     
+ }
+ */
