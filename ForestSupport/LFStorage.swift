@@ -176,7 +176,12 @@ public class LFStorage : NSObject {
         return defaults.string(forKey: "IDLE_FOREST_TMP_NOTE") ?? ""
     }
     
+    public func storageTempTreeAdd() {
+        
+    }
     
-    
+    public func storageTempTreeGet() {
+        
+    }
     
 }

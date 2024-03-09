@@ -497,6 +497,7 @@ public class LFRequest : NSObject {
             storage.dataStorageAllTrees(data: "")
             storage.setEtag(etag: "")
             storage.storageTempTreeRecord(startTime: "", endTime: "", duration: 0, tree_type: 0, is_success: false, tag: 0, note_content: "")
+            
             print("Successfully delete cookie.")
             return true
             

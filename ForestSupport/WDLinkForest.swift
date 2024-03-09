@@ -227,6 +227,7 @@ public class WDLinkForest: NSWindowController, NSWindowDelegate{
             
 
             DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userSignIn"), object: nil)
                 self.close()
             }
             

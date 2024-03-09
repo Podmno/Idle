@@ -9,6 +9,8 @@ import Cocoa
 import SwiftyJSON
 import ForestSupport
 
+let flagEnableForestViewer = false
+
 public class LDMenuSync : NSObject {
     
     public var contentMenu: NSMenu!
@@ -21,6 +23,8 @@ public class LDMenuSync : NSObject {
     var menu_main_log_out: NSMenuItem?
     var menu_main_sync_now: NSMenuItem?
     var window_login: WDLinkForest?
+    
+    var window_forestviewer = WDForestViewer(windowNibName: "WDForestViewer")
     
     public override init() {
         super.init()
@@ -53,12 +57,21 @@ public class LDMenuSync : NSObject {
         menu_main_sync_now = NSMenuItem(title: title_sync, action: #selector(onClickedSyncNow), keyEquivalent: "")
         menu_main_sync_now?.target = self
 
-        
+        let menu_treeviewer = NSMenuItem(title: "种植记录", action: #selector(onClickedForestViewer), keyEquivalent: "")
+        menu_treeviewer.target = self
         contentMenu.addItem(menu_main_login!)
+        
+        if (flagEnableForestViewer) {
+            contentMenu.addItem(menu_treeviewer)
+        }
+        
+        
         //contentMenu.addItem(menu_main_service_alert)
         contentMenu.addItem(menu_separator)
         contentMenu.addItem(menu_main_sync_now!)
         contentMenu.addItem(menu_main_log_out!)
+        
+        
         
         addMenuTimeRecord()
         addMenuApplicationExit()
@@ -265,6 +278,10 @@ public class LDMenuSync : NSObject {
         
     }
     
+    @objc func onClickedForestViewer(_ : NSMenuItem) {
+        window_forestviewer.showWindow(self)
+    }
+    
     @objc func onClickedLogOut(_ : NSMenuItem) {
         
         let alert = NSAlert()
@@ -306,6 +323,7 @@ public class LDMenuSync : NSObject {
                         
                         let record_util = LDRecord()
                         record_util.resetTimeData()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "userSignOut"), object: nil)
                     }
                     
                 } else {

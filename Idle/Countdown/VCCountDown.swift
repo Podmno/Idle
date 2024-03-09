@@ -109,6 +109,7 @@ class VCCountDown: NSViewController {
     
     /// Forest 记录：资源文件中树的前缀
     var forestTreePictureAttr: String = "t"
+    
 
     @IBOutlet var menuConfig: NSMenu!
 
@@ -152,13 +153,12 @@ class VCCountDown: NSViewController {
             focusTimeCurrent = recordUtil.getLastSelectClock()
         }
         
-        
         loadAvailableTreeID()
-
     }
     
     
     func loadAvailableTreeID() {
+        
         let all_res = plantResources.getAllPlantsResource()
         let storage_util = LFStorage()
         let account_info = storage_util.dataGetUnlock()
@@ -166,6 +166,7 @@ class VCCountDown: NSViewController {
         
         if (account_json.isEmpty) {
             plantResourcesData[0] = all_res[0]
+            
             return
         }
         
@@ -183,8 +184,28 @@ class VCCountDown: NSViewController {
             
         }
         plantResourcesAvailableList.sort()
-        print(plantResourcesData)
+    }
+    
+    @objc func userSignInToggle() {
+        print("VC > !! toggle userSignIn")
+        forestRecordTreeType = 0
+        plantResourcesData.removeAll()
+        plantResourcesAvailableList.removeAll()
         
+        loadAvailableTreeID()
+        
+        uiUpdateTreePicture()
+    }
+    
+    @objc func userSignOutToggle() {
+        print("VC > !! toggle userSignOut")
+        forestRecordTreeType = 0
+        plantResourcesData.removeAll()
+        plantResourcesAvailableList.removeAll()
+        
+        loadAvailableTreeID()
+        
+        uiUpdateTreePicture()
     }
     
     // MARK: - 用户界面配置
@@ -194,6 +215,8 @@ class VCCountDown: NSViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelEnterMessage), name: NSNotification.Name("largeTitleEnter"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargeLabelExitMessage), name: NSNotification.Name("largeTitleExit"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userSignOutToggle), name: NSNotification.Name("userSignOut"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userSignOutToggle), name: NSNotification.Name("userSignIn"), object: nil)
         
         if (FLAG_ENABLE_TRUE_TYPE_SWITCH) {
             NotificationCenter.default.addObserver(self, selector: #selector(onReceiveLargePlantEnterMessage), name: NSNotification.Name("largePlantEnter"), object: nil)
@@ -228,8 +251,7 @@ class VCCountDown: NSViewController {
         if !self.focusStatus {
             uiUpdateCurrentTimeSelection()
         }
-        
-        
+
         
         uiGenerateRandomQuote()
     }
@@ -564,6 +586,12 @@ class VCCountDown: NSViewController {
     @objc func onReceiveLargePlantEnterMessage(sender: Notification) {
         // countup 不影响
         
+        if (self.plantResourcesData.count == 1) {
+            self.btnPlantLeftArrow.isHidden = true
+            self.btnPlantRightArrow.isHidden = true
+            return
+        }
+        
         if (self.focusStatus == true) {
             return
         }
@@ -581,7 +609,12 @@ class VCCountDown: NSViewController {
     
     /// 鼠标移动退出树种图标
     @objc func onReceiveLargePlantExitMessage(sender: Notification) {
-
+        
+        if (self.plantResourcesData.count == 1) {
+            self.btnPlantLeftArrow.isHidden = true
+            self.btnPlantRightArrow.isHidden = true
+            return
+        }
         
         NSAnimationContext.runAnimationGroup({ [self] context in
             context.duration = 0.15
