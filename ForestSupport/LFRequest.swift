@@ -9,6 +9,31 @@ import Cocoa
 import Alamofire
 import SwiftyJSON
 
+public class LFTree : NSObject {
+    var startTime: String = ""
+    var endTime: String = ""
+    var duration: Int = 0
+    var tree_type: Int = 0
+    var is_success: Bool = true
+    var tag: Int = 0
+    var note_content: String = ""
+    
+    public init(startTime: String, endTime: String, duration: Int, tree_type: Int, is_success: Bool, tag: Int, note_content: String) {
+        super.init()
+        self.startTime = startTime
+        self.endTime = endTime
+        self.duration = duration
+        self.tree_type = tree_type
+        self.is_success = is_success
+        self.tag = tag
+        self.note_content = note_content
+    }
+    
+    public override init() {
+        super.init()
+    }
+}
+
 public class LFRequest : NSObject {
     
     public var forestAPIBaseURL = "https://c88fef96.forestapp.cc/api/v1"
@@ -328,8 +353,17 @@ public class LFRequest : NSObject {
         return result_json
     }
     
+    // TODO: 累次数据的同步：分多次请求进行同步
     /// POST：更新植树信息
-    public func updateTree(startTime: String, endTime: String, duration: Int, tree_type: Int, is_success: Bool, tag: Int, note_content: String) -> Int {
+    public func updateTree(tree: LFTree) -> Int {
+
+        let startTime = tree.startTime
+        let endTime = tree.endTime
+        let duration = tree.duration
+        let tree_type = tree.tree_type
+        let is_success = tree.is_success
+        let tag = tree.tag
+        let note_content = tree.note_content
         
         if duration < 10 {
             print("POST WARNING: less than 10 minutes. Skip upload.")
@@ -338,7 +372,7 @@ public class LFRequest : NSObject {
         
         if (!self.isUserLogin()) {
             print("User seems not login. Skip upload.")
-            return -1
+            return 0
         }
         
         
@@ -452,7 +486,6 @@ public class LFRequest : NSObject {
         self.storage.dataStorageAccount(data: data_account_info.rawString() ?? "")
         self.storage.setLock(lock: false)
         return 0
-        
         
     }
     

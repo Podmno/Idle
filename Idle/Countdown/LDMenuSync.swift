@@ -9,7 +9,7 @@ import Cocoa
 import SwiftyJSON
 import ForestSupport
 
-let flagEnableForestViewer = false
+let flagEnableForestViewer = true
 
 public class LDMenuSync : NSObject {
     
@@ -179,7 +179,9 @@ public class LDMenuSync : NSObject {
         let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
         queue.async {
             let mgr = LFRequest()
-            let repo = mgr.updateTree(startTime: startDate, endTime: endDate, duration: duration, tree_type: tree_type, is_success: is_success, tag: tag, note_content: note)
+            let tree_sturct = LFTree(startTime: startDate, endTime: endDate, duration: duration, tree_type: tree_type, is_success: is_success, tag: tag, note_content: note)
+            
+            let repo = mgr.updateTree(tree: tree_sturct)
             if (repo == 0) {
                 // 成功同步了
                 // LFRequest 会直接同步好其他的数据
@@ -279,7 +281,7 @@ public class LDMenuSync : NSObject {
     }
     
     @objc func onClickedForestViewer(_ : NSMenuItem) {
-        window_forestviewer.showWindow(self)
+        window_forestviewer.showWindow(nil)
     }
     
     @objc func onClickedLogOut(_ : NSMenuItem) {

@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SwiftyJSON
 
 public class LFStorage : NSObject {
     
@@ -176,12 +177,21 @@ public class LFStorage : NSObject {
         return defaults.string(forKey: "IDLE_FOREST_TMP_NOTE") ?? ""
     }
     
+    // New: 保存
     public func storageTempTreeAdd() {
+        
         
     }
     
+    // New: 获取
     public func storageTempTreeGet() {
         
     }
+    
+}
+
+
+public struct LFTreeData {
+    
     
 }

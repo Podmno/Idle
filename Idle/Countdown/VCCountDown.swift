@@ -254,6 +254,15 @@ class VCCountDown: NSViewController {
 
         
         uiGenerateRandomQuote()
+        
+        if #available(macOS 14.0, *) {
+            NSApp.activate()
+            
+            print("macOS 14: Current App Active Status: \(NSApp.isActive)")
+        } else {
+            // Fallback on earlier versions
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
     
     // MARK: UI 与状态切换
@@ -283,6 +292,7 @@ class VCCountDown: NSViewController {
         let storage = LFStorage()
         let data_starttime = storage.getTempTreeRecordStartTime()
         
+        /* 未登录用户组织专注：解除限制
         if (storage.getUserToken().isEmpty) {
             let alert = NSAlert()
             alert.messageText = "请登录。"
@@ -290,7 +300,7 @@ class VCCountDown: NSViewController {
             alert.addButton(withTitle: "好")
             alert.runModal()
             return
-        }
+        }*/
         
         if (storage.getLock()) {
             let alert = NSAlert()
@@ -486,6 +496,10 @@ class VCCountDown: NSViewController {
         let t_pic = treeUtil.getTreePhaseGrade(currentMinuts: final_m)
         
         let tree_path = plantResourcesData[forestRecordTreeType]?.plantGradePicturePath[t_pic]
+        
+        self.btnPlantLeftArrow.isHidden = true
+        self.btnPlantRightArrow.isHidden = true
+        
         if (tree_path == nil) {
             // 异常情况：使用资源包里携带的默认 tree 图片
             let tree_pic_name = forestTreePictureAttr + String(t_pic)
@@ -628,8 +642,6 @@ class VCCountDown: NSViewController {
         })
     }
     
-    
-
     // MARK: IBAction
     
     @IBAction func btnClickedLinkForest(_ sender: AnyObject) {
@@ -641,8 +653,6 @@ class VCCountDown: NSViewController {
         menuControllerSync!.contentMenu.popUp(positioning: nil, at: p, in: sender.superview)
         //self.menuLink.popUp(positioning: nil, at: p, in: sender.superview)
     }
-    
-
     
     @IBAction func btnClickedConfig(_ sender: AnyObject) {
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
@@ -669,10 +679,10 @@ class VCCountDown: NSViewController {
             print("update tag \(tag)")
             
         }
-        
-        
   
-        wndTagEditor?.showWindow(self)
+        wndTagEditor?.window?.level = .modalPanel
+        //NSApp.activate(ignoringOtherApps: true)
+        wndTagEditor?.showWindow(nil)
         //wndTagEditor?.showWindow(self)
         
     }
@@ -769,64 +779,75 @@ class VCCountDown: NSViewController {
             if (repo == .alertSecondButtonReturn) {
                 sendStopMessage()
                 
-                self.btnPlantLeftArrow.isHidden = false
-                self.btnPlantRightArrow.isHidden = false
+                
+                self.btnPlantLeftArrow.isHidden = true
+                self.btnPlantRightArrow.isHidden = true
             }
 
         } else {
+            let storage = LFStorage()
             
-            // 回到主界面与上传准备
-            var start_time = treeUtil.getUTCDate(date: forestRecordStartTime!)
-            let end_time = treeUtil.getUTCDate(date: forestRecordEndTime!)
-            let update_time = treeUtil.getUTCDate(date: Date())
-            
-            // 如果是正计时：进行时间修正
-            
-            var duration = 0
-            if (statusCountDownMode == .countup) {
-                // 正计时
-                duration = focusRecordCountUpTime
+            if (storage.getUserToken().isEmpty) {
+                // 用户未登录，不进行上传操作
+                print("User not logged in, skip upload.")
+                
             } else {
-                duration = sync_setM
-            }
-            
-            if statusCountDownMode == .countup {
+                // 用户已经登陆
+                // 回到主界面与上传准备
+                var start_time = treeUtil.getUTCDate(date: forestRecordStartTime!)
+                let end_time = treeUtil.getUTCDate(date: forestRecordEndTime!)
+                let update_time = treeUtil.getUTCDate(date: Date())
                 
-                // 正计时的时间修正，转换为 5 的倍数
-                let forest_manager = LFManager()
-                let fix_focustime = forest_manager.countUpFocusTimeAdjust(focusTime: duration)
-                let fixed_start_time = Date(timeInterval: -60 * Double(fix_focustime), since: forestRecordEndTime!)
-                duration = fix_focustime
-                start_time = treeUtil.getUTCDate(date: fixed_start_time)
-            }
-            
-            
-            print("Tree Information: \n")
-            print("Start time : \(start_time)")
-            print("End time : \(end_time))")
-            print("Update time : \(update_time)")
-            print("Duration : \(duration)")
-            print("Tree type : \(forestRecordTreeType)")
-            print("Is Success : \(statusIsSuccess)")
-            print("Note : \(forestRecordInfo)")
-            print("Tag : \(forestRecordTag)")
-            
-            
-            let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
-            queue.async { [self]  in
-                let mgr = LFRequest()
-                _ = mgr.updateTree(startTime: start_time, endTime: end_time, duration: duration, tree_type: self.forestRecordTreeType, is_success: self.statusIsSuccess, tag: self.forestRecordTag, note_content: self.forestRecordInfo)
+                // 如果是正计时：进行时间修正
+                
+                var duration = 0
+                if (statusCountDownMode == .countup) {
+                    // 正计时
+                    duration = focusRecordCountUpTime
+                } else {
+                    duration = sync_setM
+                }
+                
+                if statusCountDownMode == .countup {
+                    
+                    // 正计时的时间修正，转换为 5 的倍数
+                    let forest_manager = LFManager()
+                    let fix_focustime = forest_manager.countUpFocusTimeAdjust(focusTime: duration)
+                    let fixed_start_time = Date(timeInterval: -60 * Double(fix_focustime), since: forestRecordEndTime!)
+                    duration = fix_focustime
+                    start_time = treeUtil.getUTCDate(date: fixed_start_time)
+                }
+                
+                print("Tree Information: \n")
+                print("Start time : \(start_time)")
+                print("End time : \(end_time))")
+                print("Update time : \(update_time)")
+                print("Duration : \(duration)")
+                print("Tree type : \(forestRecordTreeType)")
+                print("Is Success : \(statusIsSuccess)")
+                print("Note : \(forestRecordInfo)")
+                print("Tag : \(forestRecordTag)")
+                
+                
+                let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
+                queue.async { [self]  in
+                    let mgr = LFRequest()
+                    let result_tree = LFTree(startTime: start_time, endTime: end_time, duration: duration, tree_type: self.forestRecordTreeType, is_success: self.statusIsSuccess, tag: self.forestRecordTag, note_content: self.forestRecordInfo)
+                    _ = mgr.updateTree(tree: result_tree)
+                    
+                }
+                
+                if (statusIsSuccess) {
+                    // 只有成功的记录才会被计入
+                    let record = LDRecord()
+                    record.addTimeData(timerM: duration)
+                }
                 
             }
             
-            if (statusIsSuccess) {
-                // 只有成功的记录才会被计入
-                let record = LDRecord()
-                record.addTimeData(timerM: duration)
-            }
+            //self.btnPlantLeftArrow.isHidden = false
+            //self.btnPlantRightArrow.isHidden = false
             
-            self.btnPlantLeftArrow.isHidden = false
-            self.btnPlantRightArrow.isHidden = false
             
             uiStatusSetCurrentFocusFalse()
             uiSetRecordFocusTime()

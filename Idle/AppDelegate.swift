@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func menuClickedAbout(_ sender: Any) {
         
-        wndAbout.showWindow(self)
+        wndAbout.showWindow(nil)
     }
     
     

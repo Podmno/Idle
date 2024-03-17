@@ -38,6 +38,7 @@ class LDMenuIcon : NSObject {
     
     
     let popover = NSPopover()
+    var popoverNew: NSWindow? = nil
     
     var coreTimer: LDCoreTimer!
     let notificationUtil = LDNotification()
@@ -53,6 +54,7 @@ class LDMenuIcon : NSObject {
         //popover.contentSize = NSSize(width: 500, height: 300)
         popover.contentViewController = vcCountDown
 
+        
 
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStart), name: NSNotification.Name("countDownStart"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStop), name: NSNotification.Name("countDownStop"), object: nil)
@@ -340,11 +342,13 @@ class LDMenuIcon : NSObject {
     }
     
     @objc func toggleMenuIcon(_sender: AnyObject) {
-
-        NSApplication.shared.activate(ignoringOtherApps: true)
         
+
         
         if let button = self.statusItem.button {
+            
+            
+
             if self.popover.isShown {
                 self.popover.performClose(self)
                 
@@ -352,6 +356,7 @@ class LDMenuIcon : NSObject {
                 self.popover.show(relativeTo: button.bounds, of: button, preferredEdge:NSRectEdge.minY)
             }
         }
+         
     }
     
     /// 接收到传递的时钟启动消息

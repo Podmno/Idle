@@ -35,15 +35,16 @@ public class WDTreeEdit: NSWindowController, NSWindowDelegate {
         isOpened = true
         
 
-        // TODO: BUG 修复：在应用程序在非焦点的情况下弹出窗口，窗口无法被聚焦
-        if (!NSApp.isActive) {
-            NSApp.activate(ignoringOtherApps: true)
-        }
+        // BUG 修复：在应用程序在非焦点的情况下弹出窗口，窗口无法被聚焦
+        // FIXED: 无法被聚焦的问题仅会出现在 Xcode 窗口与 Forest 窗口之间。或许是因为 Debug 环境的关系
+        // 实际的用户体验不会出现此问题。已解决。
+
+        // print("macOS 14: Current App Active Status: \(NSApp.isActive)")
+
         
         
     }
-    
-    
+
     
     public func windowWillClose(_ notification: Notification) {
         print("window will close!")
@@ -58,9 +59,11 @@ public class WDTreeEdit: NSWindowController, NSWindowDelegate {
         
         let tags_json_string = storage.dataGetTags()
         
+        /* 修复：在未登录的情况下直接显示「未设置」
         if (tags_json_string.isEmpty) {
             return
         }
+         */
         
         let tags_json = JSON(parseJSON: tags_json_string)
         

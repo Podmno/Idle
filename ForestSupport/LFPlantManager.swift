@@ -36,7 +36,7 @@ public class LFPlantManager: NSObject {
         let bundle = Bundle(path: load_path!)
         let plant_resource_dir = (bundle?.resourcePath ?? "") + "/plants"
         print("Plant Service > plant Folder supposed to locate at \(plant_resource_dir)")
-        loadTreeList(plantDirPath: plant_resource_dir)
+        //loadTreeList(plantDirPath: plant_resource_dir)
     }
     
     /// 载入 plantResourcePath
@@ -54,9 +54,6 @@ public class LFPlantManager: NSObject {
     
     // MARK: - 内部工具
     
-    /// 从 plant 文件夹加载导入树种文件
-    private func loadTreeList(plantDirPath: String) {
-        
-    }
+
 
 }
