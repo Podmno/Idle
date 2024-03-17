@@ -77,7 +77,7 @@ extension NSBezierPath {
 
 
 final class ProgressSquircleShapeLayer: CAShapeLayer {
-	convenience init(rect: CGRect) {
+	convenience init(rect: CGRect) { 
 		self.init()
 		fillColor = nil
 		lineCap = .round
@@ -190,7 +190,11 @@ extension NSBezierPath {
 				path.addCurve(to: points[2], control1: points[0], control2: points[1])
 			case .closePath:
 				path.closeSubpath()
-			@unknown default:
+            case .cubicCurveTo:
+                print("Not Supported.")
+            case .quadraticCurveTo:
+                print("Not Supported.")
+			default:
 				assertionFailure("NSBezierPath received a new enum case. Please handle it.")
 			}
 		}

@@ -7,31 +7,36 @@
 
 import Cocoa
 import UserNotifications
+import ForestSupport
 
 class LDNotification : NSObject, UNUserNotificationCenterDelegate {
     
+    let forest_helper = LFManager()
+    
     
     public func sendTimeUpNotification(timerM: Int) {
-        
 
-        let title = NSLocalizedString("Timer Stopped", comment: "")
-        let body = String.localizedStringWithFormat(NSLocalizedString("%lld minutes countdown is over.", comment: ""), timerM)
+        let title = "你的树长大了！"
+        let coins = forest_helper.countForCoins(focusTime: timerM)
+        let body = "你得到了 \(coins) 枚金币。"
 
         sendGeneralNotification(title: title, message: body)
     }
     
     public func sendTimeNotRecordNotification() {
-        let title = NSLocalizedString("The duration is not recorded", comment: "")
-        let body = NSLocalizedString("Focus duration is less than 15 minutes and will not be recorded.", comment: "")
+        return
+        //let title = "时长未被记录"
+        //let body = "小于 10 分钟的专注时长不会被记录。"
 
-        sendGeneralNotification(title: title, message: body)
+        //sendGeneralNotification(title: title, message: body)
         
     }
     
     public func sendCountupTimeStopNotification(timerM: Int) {
         
-        let title = NSLocalizedString("Timer Stopped", comment: "")
-        let body = String.localizedStringWithFormat(NSLocalizedString("%lld minutes are included in the total focus time.", comment: ""), timerM)
+        let title = "你的树长大了！"
+        let coins = forest_helper.countForCoins(focusTime: timerM)
+        let body = "你得到了 \(coins) 枚金币。"
 
         sendGeneralNotification(title: title, message: body)
     }
@@ -68,6 +73,7 @@ class LDNotification : NSObject, UNUserNotificationCenterDelegate {
     public func userAuthNotificationPermission() {
         
         let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+        
         
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (success, error) in
             if let error = error {

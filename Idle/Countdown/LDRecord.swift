@@ -7,6 +7,9 @@
 
 import Cocoa
 
+
+// TODO: 更新：记录部分使用 CoreData 重写，非常容易触发时间重置 / 时间计算是按照 UTC 来的，需要修正为当地的时间
+
 class LDRecord : NSObject {
     
     let defaults = UserDefaults.standard
@@ -30,7 +33,7 @@ class LDRecord : NSObject {
             defaults.set(0, forKey: "IDLE_TOTAL_MINUTES")
             defaults.set(0, forKey: "IDLE_DAY_MINUTES")
             defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
-            defaults.set(15, forKey: "IDLE_LAST_FOCUS_TIME")
+            defaults.set(10, forKey: "IDLE_LAST_FOCUS_TIME")
             
             let now = Date()
             let timeInterval = now.timeIntervalSince1970
@@ -38,28 +41,40 @@ class LDRecord : NSObject {
             let clocks = [15, 30, 45, 60, 120]
             defaults.set(clocks, forKey: "IDLE_CLOCKS")
             defaults.set(0, forKey: "IDLE_LAST_SELECT_CLOCK")
+            
+            // IDLE_FOCUS_RECORD: JSON 格式的专注记录保存，最多保存 1500 条记录，
+            defaults.set("", forKey: "IDLE_FOCUS_RECORD")
+            
         } else {
             
             
             // 并不是第一次打开了
             
             let last_record_date = defaults.integer(forKey: "IDLE_LAST_OPEN")
+            print("IDLE_LAST_OPEN Updated: \(last_record_date)")
             let last_time_interval = TimeInterval(last_record_date)
             let last_time_date = Date(timeIntervalSince1970: last_time_interval)
             
+            // 日期重置
             if (!Calendar.current.isDateInThisWeek(last_time_date)) {
+                print("Record > Update Week Record")
                 defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
             }
             
             if (!Calendar.current.isDateInToday(last_time_date)) {
+                print("Record > Update DAY Record")
                 defaults.set(0, forKey: "IDLE_DAY_MINUTES")
             }
             let now = Date()
             let timeInterval = now.timeIntervalSince1970
             defaults.set(Int(timeInterval), forKey: "IDLE_LAST_OPEN")
+            
+            print("IDLE_LAST_OPEN Updated: \(timeInterval)")
         }
         
-
+        print("IDLE_DAY_MINUTES: \(getDayMinutes())")
+        print("IDLE_WEEK_MINUTES: \(getWeekMinutes())")
+        
         
     }
     
@@ -88,6 +103,16 @@ class LDRecord : NSObject {
         
         defaults.set(timesave_week, forKey: "IDLE_WEEK_MINUTES")
         defaults.set(timesave_day, forKey: "IDLE_DAY_MINUTES")
+    }
+    
+    func addStorageTimeData(timerM: Int) {
+        
+    }
+    
+    func resetTimeData() {
+        defaults.set(0, forKey: "IDLE_WEEK_MINUTES")
+        defaults.set(0, forKey: "IDLE_DAY_MINUTES")
+        defaults.set(0, forKey: "IDLE_TOTAL_MINUTES")
     }
     
     func getTotalMinutes() -> Int {
@@ -127,7 +152,26 @@ class LDRecord : NSObject {
         return defaults.integer(forKey: "IDLE_LAST_SELECT_CLOCK")
     }
     
+    func getFocusTimeDayStringDescribing() -> String {
+        let d_total_minutes = getDayMinutes()
+        return convertMinutesToStringDescribing(min: d_total_minutes)
+    }
     
+    func getFocusTimeWeekStringDescribing() -> String {
+        let w_total_minutes = getWeekMinutes()
+        return convertMinutesToStringDescribing(min: w_total_minutes)
+    }
+    
+    func convertMinutesToStringDescribing(min: Int) -> String {
+        let hours = min / 60
+        let minutes = min - hours * 60
+        
+        if (hours == 0) {
+            return "\(minutes) 分钟"
+        } else {
+            return "\(hours) 小时 \(minutes) 分钟"
+        }
+    }
     
 }
 

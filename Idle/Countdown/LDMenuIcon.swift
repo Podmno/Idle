@@ -6,6 +6,10 @@
 //
 
 import Cocoa
+import SwiftUI
+
+// FLAG: 开启 MenuIcon 的 SwiftUI 视图
+let flagEnableSwiftUIMenuIcon = false
 
 
 class LDMenuIcon : NSObject {
@@ -19,7 +23,8 @@ class LDMenuIcon : NSObject {
     
     var setM: Int = 0
     
-    let statusItem = NSStatusBar.system.statusItem(withLength: 60)
+    // 默认 65
+    let statusItem = NSStatusBar.system.statusItem(withLength: 65)
     
     let numberFormatterSecond = NumberFormatter()
     
@@ -27,11 +32,17 @@ class LDMenuIcon : NSObject {
     let vcCountDown = VCCountDown(nibName: "VCCountDown", bundle: Bundle.main)
     let vcMenuBarIcon = VCMenuIcon(nibName: "VCMenuIcon", bundle: Bundle.main)
     
+
+    var swiftuiMenuBarIcon: Any? = nil
+    var swiftuiHostingView: Any? = nil
+    
+    
     let popover = NSPopover()
+    var popoverNew: NSWindow? = nil
     
     var coreTimer: LDCoreTimer!
     let notificationUtil = LDNotification()
-    let recordUtil = LDRecord()
+    lazy var recordUtil = LDRecord()
     
     override init() {
         super.init()
@@ -42,20 +53,44 @@ class LDMenuIcon : NSObject {
         popover.behavior = .transient
         //popover.contentSize = NSSize(width: 500, height: 300)
         popover.contentViewController = vcCountDown
+
         
 
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStart), name: NSNotification.Name("countDownStart"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveStop), name: NSNotification.Name("countDownStop"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(timerReceiveUserChange), name: NSNotification.Name("countDownUserChange"), object: nil)
+        
+        if #available(macOS 14, *) {
+            if (flagEnableSwiftUIMenuIcon) {
+                swiftuiMenuBarIcon = SUMenuIcon(model: SUMenuIconModel(currentTime: "120:00"))
+                swiftuiHostingView = NSHostingView(rootView: swiftuiMenuBarIcon as! SUMenuIcon)
+            }
+            
+            
+        }
         
     }
         
     func initCreateIcon() {
 
-        
-        
         if let button = statusItem.button {
             //statusItem.button?.window?.contentViewController = vcMenuBarIcon
-            button.addSubview(vcMenuBarIcon.view)
+            
+            if #available(macOS 14, *) {
+                
+                if (flagEnableSwiftUIMenuIcon) {
+                    let s_view = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+                    s_view.frame = button.frame
+                    button.addSubview(s_view)
+                } else {
+                    button.addSubview(vcMenuBarIcon.view)
+                }
+                
+            } else {
+                button.addSubview(vcMenuBarIcon.view)
+            }
+            
+            
             print("Already set button action")
             // 重要！！ 没有这一句没有反应的
             button.target = self
@@ -63,10 +98,15 @@ class LDMenuIcon : NSObject {
             
             
             let last_focus_time = recordUtil.getLastFocusTime()
+            print("Menu_Last_Time \(last_focus_time)")
             if (last_focus_time <= 0) {
-                setMenuBarIconText(text: "00:00")
+                setMenuBarIconText(text: "0:00")
+                
+                
             } else {
                 setMenuBarIconText(text: "\(last_focus_time):00")
+                
+
             }
             
         }
@@ -74,8 +114,22 @@ class LDMenuIcon : NSObject {
     
     func setMenuBarIconText(text: String) {
         
+        if #available(macOS 14, *) {
+            if flagEnableSwiftUIMenuIcon {
+                let s = swiftuiMenuBarIcon as! SUMenuIcon
+                s.model.currentTime = text
+                let s_v = swiftuiHostingView as! NSHostingView<SUMenuIcon>
+                s_v.rootView = s
+            } else {
+                vcMenuBarIcon.setMenuBarText(string: text)
+            }
+            
+            
+        } else {
+            vcMenuBarIcon.setMenuBarText(string: text)
+        }
 
-        vcMenuBarIcon.setMenuBarText(string: text)
+        
         return
         
         //if let button = statusItem.button {
@@ -85,6 +139,10 @@ class LDMenuIcon : NSObject {
     }
     
     func updateMenuBarIcon() {
+        let post_obj = [0 : self.timerM, 1: self.timerS, 2: self.setM]
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "count"), object: post_obj)
+        
         if(timerM == 0 && timerS == 0) {
             if(setM < 0) {
                 setMenuBarIconText(text: "0:00")
@@ -99,7 +157,7 @@ class LDMenuIcon : NSObject {
             return
         }
        
-        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "Idle")"
+        let timer_string = "\(timerM):\(numberFormatterSecond.string(from: NSNumber(value: timerS)) ?? "0:00")"
         setMenuBarIconText(text: timer_string)
         DispatchQueue.main.async {
             self.updateDockProgress()
@@ -114,7 +172,11 @@ class LDMenuIcon : NSObject {
             let progress: Double = Double(timerM + 1) / 120
             DockProgress.progress = progress
             
-            if (timerM == 0) {
+            //if (timerM == 0) {
+            //    print("Countup: Reset Dock Progress")
+            //    DockProgress.resetProgress()
+            //}
+            if (timerM == 0 && timerS == 0) {
                 print("Countup: Reset Dock Progress")
                 DockProgress.resetProgress()
             }
@@ -194,22 +256,19 @@ class LDMenuIcon : NSObject {
         
         if (setM < 0) {
             sendTimerStopNotification()
-            userDefaultsAddTime()
+            //userDefaultsAddTime()
         }
     }
     
     
     func sendTimerStopNotification() {
         
-        
-        
-        
         // 向 macOS 通知中心发送通知
         if (setM <= 0) {
             // 正计时逻辑
             print("CountUpMLog \(countUpMLog)")
             
-            if (countUpMLog >= 15) {
+            if (countUpMLog >= 10) {
                 notificationUtil.sendCountupTimeStopNotification(timerM: countUpMLog)
             } else {
                 notificationUtil.sendTimeNotRecordNotification()
@@ -225,7 +284,7 @@ class LDMenuIcon : NSObject {
             return
         }
         
-        if (setM < 15) {
+        if (setM < 10) {
             notificationUtil.sendTimeNotRecordNotification()
             return
         }
@@ -233,35 +292,7 @@ class LDMenuIcon : NSObject {
         notificationUtil.sendTimeUpNotification(timerM: setM)
         
     }
-    
-    func userDefaultsAddTime() {
-        
-        // 向 UserDefaults 追加时间信息
-        
-        
-        
-        
-        if (setM <= 0) {
-            
-            if (countUpMLog >= 15) {
-                recordUtil.addTimeData(timerM: countUpMLog)
-            }
-            
-            return
-        }
-        
-        if (timerM > 0 || timerS > 3) {
-            // 自己手动停止不计入
-            return
-        }
-        
-        if (setM < 15) {
-            return
-        }
-        
-        recordUtil.addTimeData(timerM: setM)
-        
-    }
+
     
     @objc func timerChangeAction() {
         if(setM <= 0) {
@@ -282,6 +313,8 @@ class LDMenuIcon : NSObject {
             self.updateMenuBarIcon()
             //print("update countUpMLog \(countUpMLog)")
             self.countUpMLog = timerM
+            
+            
             return
         }
         
@@ -291,9 +324,10 @@ class LDMenuIcon : NSObject {
             print("timer stoped.")
            
             sendTimerStopNotification()
-            userDefaultsAddTime()
+            //userDefaultsAddTime()
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownStop"), object: nil)
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "countDownStop"), object: 0)
             return
         }
         
@@ -308,8 +342,13 @@ class LDMenuIcon : NSObject {
     }
     
     @objc func toggleMenuIcon(_sender: AnyObject) {
+        
 
+        
         if let button = self.statusItem.button {
+            
+            
+
             if self.popover.isShown {
                 self.popover.performClose(self)
                 
@@ -317,13 +356,22 @@ class LDMenuIcon : NSObject {
                 self.popover.show(relativeTo: button.bounds, of: button, preferredEdge:NSRectEdge.minY)
             }
         }
+         
     }
     
     /// 接收到传递的时钟启动消息
     @objc func timerReceiveStart(sender: Notification) {
         
         let info = sender.object as! Dictionary<String, Any>
-
+        let mode = info["mode"] as! LDCountDownMode
+        if (mode == .countup) {
+            setCountDownTime(minutes: -1)
+            debugPrint("LDMenuIcon > Started as Count Up")
+            self.countUpMLog = 0
+            startTimer()
+            return
+        }
+        
         setCountDownTime(minutes: info["time"] as! Int)
         debugPrint("LDMenuIcon > Started ! Param : \(info["time"] as! Int)")
         self.countUpMLog = 0
@@ -333,4 +381,53 @@ class LDMenuIcon : NSObject {
     @objc func timerReceiveStop(sender: Notification) {
         stopTimer()
     }
+    
+    @objc func timerReceiveUserChange(sender: Notification) {
+        let info = sender.object as! Dictionary<String, Any>
+        let minutes = info["time"] as! Int
+        let mode = info["mode"] as! LDCountDownMode
+        debugPrint("LDMenuIcon > Receive UI Change \(minutes)")
+        if (mode == .countup) {
+            let text = "0:00"
+            setMenuBarIconText(text: text)
+        } else {
+            let text = String(minutes) + ":00"
+            setMenuBarIconText(text: text)
+        }
+        
+        
+        
+        
+    }
 }
+
+/*
+ 
+ 
+ @available(*, deprecated, message: "不再由 MenuIcon 增加 recordTime，单独使用 LDRecord 增加时间。")
+ func userDefaultsAddTime() {
+     
+     // 向 UserDefaults 追加时间信息
+     
+     if (setM <= 0) {
+         
+         if (countUpMLog >= 15) {
+             recordUtil.addTimeData(timerM: countUpMLog)
+         }
+         
+         return
+     }
+     
+     if (timerM > 0 || timerS > 3) {
+         // 自己手动停止不计入
+         return
+     }
+     
+     if (setM < 15) {
+         return
+     }
+     
+     recordUtil.addTimeData(timerM: setM)
+     
+ }
+ */

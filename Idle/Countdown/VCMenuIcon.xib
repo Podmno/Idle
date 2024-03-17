@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="VCMenuIcon" customModule="Focus_100" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="VCMenuIcon" customModule="Forest" customModuleProvider="target">
             <connections>
                 <outlet property="menuBarIcon" destination="rKy-Xh-54z" id="IWf-zZ-r1i"/>
                 <outlet property="menuBarText" destination="CtB-II-OEe" id="HSx-3o-j7H"/>
@@ -17,45 +17,45 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="59" height="28"/>
+            <rect key="frame" x="0.0" y="0.0" width="66" height="28"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKy-Xh-54z">
-                    <rect key="frame" x="0.0" y="10" width="14" height="14"/>
+                    <rect key="frame" x="0.0" y="8" width="18" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="14" id="7Qx-Ps-LYL"/>
-                        <constraint firstAttribute="height" constant="14" id="XMg-xf-WoM"/>
+                        <constraint firstAttribute="width" constant="18" id="7Qx-Ps-LYL"/>
+                        <constraint firstAttribute="height" constant="18" id="XMg-xf-WoM"/>
                     </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="6Ub-ZV-Wbx">
-                        <imageReference key="image" image="clock.fill" symbolScale="medium"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="6Ub-ZV-Wbx">
+                        <imageReference key="image" image="forest_title_bar" symbolScale="medium"/>
                     </imageCell>
                     <color key="contentTintColor" name="textColor" catalog="System" colorSpace="catalog"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtB-II-OEe">
-                    <rect key="frame" x="18" y="5" width="46" height="20"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtB-II-OEe">
+                    <rect key="frame" x="20" y="5" width="48" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="42" id="HFN-8t-ApV"/>
+                        <constraint firstAttribute="width" constant="44" id="HFN-8t-ApV"/>
                         <constraint firstAttribute="height" constant="20" id="mhv-Uy-onu"/>
                     </constraints>
                     <textFieldCell key="cell" alignment="center" title="120:00" usesSingleLineMode="YES" id="k9r-FE-oaG">
-                        <font key="font" size="12" name="HelveticaNeue-Medium"/>
+                        <font key="font" metaFont="systemMedium" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="6" id="8eb-hH-0t2"/>
-                <constraint firstAttribute="trailing" secondItem="CtB-II-OEe" secondAttribute="trailing" constant="-3" id="Baw-3J-boJ"/>
+                <constraint firstItem="CtB-II-OEe" firstAttribute="leading" secondItem="rKy-Xh-54z" secondAttribute="trailing" constant="4" id="8eb-hH-0t2"/>
+                <constraint firstAttribute="trailing" secondItem="CtB-II-OEe" secondAttribute="trailing" id="Baw-3J-boJ"/>
                 <constraint firstAttribute="bottom" secondItem="CtB-II-OEe" secondAttribute="bottom" constant="5" id="Pkt-FJ-64l"/>
-                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="4" id="bPA-G6-lTN"/>
+                <constraint firstItem="rKy-Xh-54z" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="2" id="bPA-G6-lTN"/>
                 <constraint firstItem="rKy-Xh-54z" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="rbg-6P-8aZ"/>
                 <constraint firstItem="CtB-II-OEe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="yW1-7g-HOH"/>
             </constraints>
-            <point key="canvasLocation" x="-48" y="0.5"/>
+            <point key="canvasLocation" x="-47" y="0.0"/>
         </customView>
     </objects>
     <resources>
-        <image name="clock.fill" width="20" height="20"/>
+        <image name="forest_title_bar" width="50" height="50"/>
     </resources>
 </document>

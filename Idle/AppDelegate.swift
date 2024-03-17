@@ -6,6 +6,9 @@
 //
 
 import Cocoa
+import ForestSupport
+
+let GLOBAL_APP_VERSION = "1.1 (24)"
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,16 +18,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let notificationUtil = LDNotification()
     
     let menuIcon = LDMenuIcon()
+    let wndAbout = WDAbout(windowNibName: "WDAbout")
+    
+    let wndDemo = WDForestViewer(windowNibName: "WDForestViewer")
 
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        let mgr_storage = LFStorage()
+        mgr_storage.setLock(lock: false)
+        
         // Insert code here to initialize your application
         menuIcon.initCreateIcon()
         
         let style = DockProgress.Style.pie(color: .controlAccentColor)
         DockProgress.style = style
-        
+
         
         notificationUtil.userAuthNotificationPermission()
+        
+        //wndDemo.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
     }
 
@@ -35,7 +48,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
-
-
+    
+    
+    @IBAction func menuClickedAbout(_ sender: Any) {
+        
+        wndAbout.showWindow(nil)
+    }
+    
+    
 }
 
