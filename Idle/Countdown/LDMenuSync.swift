@@ -9,7 +9,8 @@ import Cocoa
 import SwiftyJSON
 import ForestSupport
 
-let flagEnableForestViewer = true
+/// 开启种植记录选项
+let flagEnableForestViewer = false
 
 public class LDMenuSync : NSObject {
     
