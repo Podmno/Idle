@@ -6,7 +6,7 @@
 //
 
 import Cocoa
-
+import Alamofire
 
 // TODO: 更新：记录部分使用 CoreData 重写，非常容易触发时间重置 / 时间计算是按照 UTC 来的，需要修正为当地的时间
 

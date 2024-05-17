@@ -828,7 +828,8 @@ class VCCountDown: NSViewController {
                 print("Note : \(forestRecordInfo)")
                 print("Tag : \(forestRecordTag)")
                 
-                
+               
+                // Upload Tree
                 let queue = DispatchQueue(label: "studio.tri.idle.uploadTree")
                 queue.async { [self]  in
                     let mgr = LFRequest()
@@ -855,6 +856,9 @@ class VCCountDown: NSViewController {
     }
     
     
+    func uploadTree() {
+        
+    }
     
     @IBAction func btnClickedTree(_ sender: Any) {
         uiReadyStart()

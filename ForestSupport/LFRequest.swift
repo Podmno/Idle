@@ -32,6 +32,29 @@ public class LFTree : NSObject {
     public override init() {
         super.init()
     }
+    
+    public func toJson() -> JSON {
+        var json = JSON()
+        json["startTime"].string = startTime
+        json["endTime"].string = endTime
+        json["duration"].int = duration
+        json["tree_type"].int = tree_type
+        json["is_success"].bool = is_success
+        json["tag"].int = tag
+        json["note_content"].string = note_content
+        return json
+    }
+    
+    public func loadJson(json: JSON) {
+        startTime = json["startTime"].string ?? ""
+        endTime = json["endTime"].string ?? ""
+        duration = json["duration"].int ?? 0
+        tree_type = json["tree_type"].int ?? 0
+        is_success = json["is_success"].bool ?? true
+        tag = json["tag"].int ?? 0
+        note_content = json["note_content"].string ?? ""
+    }
+    
 }
 
 public class LFRequest : NSObject {
@@ -47,6 +70,8 @@ public class LFRequest : NSObject {
     public let domainUnlocked = "/tree_types/unlocked"
     public let domainAllTrees = "/plants"
     public let domainBoost = "/boost"
+    
+    public var domainExtensionVersion = "6.1.0"
     
     public let forestHeaderUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
     public var forestHeaderGeneral: HTTPHeaders!

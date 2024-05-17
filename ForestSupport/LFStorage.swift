@@ -7,6 +7,7 @@
 
 import Cocoa
 import SwiftyJSON
+import Alamofire
 
 public class LFStorage : NSObject {
     
@@ -177,21 +178,32 @@ public class LFStorage : NSObject {
         return defaults.string(forKey: "IDLE_FOREST_TMP_NOTE") ?? ""
     }
     
-    // New: 保存
-    public func storageTempTreeAdd() {
+    public func addStorageTree(tree: LFTree) {
+        print("Add Storage Tree \(tree.hash) to storage.")
+       
+        let mgr = FileManager.default
+        let filePath = NSHomeDirectory() + "/Documents/tree_upload.json"
+        print(filePath)
+        let data = tree.toJson().string
+        do {
+            try data?.write(to: URL(fileURLWithPath: filePath), atomically: true, encoding: .utf8)
+        } catch {
+            print("Error Saving Storage Tree.")
+        }
         
         
     }
     
-    // New: 获取
-    public func storageTempTreeGet() {
+    public func getStorageTreeCount() {
         
     }
     
-}
-
-
-public struct LFTreeData {
+    public func getStorageTreeInfo() {
+        
+    }
     
+    public func toggleStorageTreeUpload() {
+        
+    }
     
 }

@@ -37,6 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         notificationUtil.userAuthNotificationPermission()
         
+        wndDemo.showWindow(nil)
         //wndDemo.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
     }
