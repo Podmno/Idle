@@ -71,7 +71,7 @@ public class LFRequest : NSObject {
     public let domainAllTrees = "/plants"
     public let domainBoost = "/boost"
     
-    public var domainExtensionVersion = "6.1.0"
+    public var domainExtensionVersion = "6.2.0"
     
     public let forestHeaderUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
     public var forestHeaderGeneral: HTTPHeaders!
@@ -157,7 +157,7 @@ public class LFRequest : NSObject {
         let queue = DispatchQueue.init(label: "studio.tri.idle.forest.userlogin")
         
         let login_text_json: JSON = [ "session": ["email": username, "password": password] ]
-        let post_url = forestAPIBaseURL + domainSignin + "?seekrua=extension_chrome-6.1.0"
+        let post_url = forestAPIBaseURL + domainSignin + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         
         let header = HTTPHeaders(getForestHeader())
         
@@ -227,7 +227,7 @@ public class LFRequest : NSObject {
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.userAccountGet")
         
-        let target_url = forestAPIBaseURL + domainUser + "/" + user_id + "?seekrua=extension_chrome-6.1.0"
+        let target_url = forestAPIBaseURL + domainUser + "/" + user_id + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         let header = HTTPHeaders(getForestHeader())
         
         print("getAccountInfo > \(target_url)")
@@ -274,7 +274,7 @@ public class LFRequest : NSObject {
 
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.getBoost")
-        let boost_domain = forestAPIBaseURL + domainUser + "/" + user_id + domainBoost + "?seekrua=extension_chrome-6.1.0"
+        let boost_domain = forestAPIBaseURL + domainUser + "/" + user_id + domainBoost + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         let header = HTTPHeaders(getForestHeader())
         queue.async {
             
@@ -302,7 +302,7 @@ public class LFRequest : NSObject {
         
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.getTags")
-        let boost_domain = forestAPIBaseURL + "/" + domainTags + "?seekrua=extension_chrome-6.1.0"
+        let boost_domain = forestAPIBaseURL + "/" + domainTags + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         print("getTags > \(boost_domain)")
         let header = HTTPHeaders(getForestHeader())
         queue.async {
@@ -330,7 +330,7 @@ public class LFRequest : NSObject {
         
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.getUnlockTrees")
-        let boost_domain = forestAPIBaseURL + "/" + domainUnlocked + "?seekrua=extension_chrome-6.1.0"
+        let boost_domain = forestAPIBaseURL + "/" + domainUnlocked + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         print("getUnlockedTrees > \(boost_domain)")
         let header = HTTPHeaders(getForestHeader())
         queue.async {
@@ -357,7 +357,7 @@ public class LFRequest : NSObject {
         
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.getAllTrees")
-        let boost_domain = forestAPIBaseURL + "/" + domainAllTrees + "?seekrua=extension_chrome-6.1.0"
+        let boost_domain = forestAPIBaseURL + "/" + domainAllTrees + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         print("getAllTrees > \(boost_domain)")
         let header = HTTPHeaders(getForestHeader())
         queue.async {
@@ -446,7 +446,7 @@ public class LFRequest : NSObject {
         self.storage.setLock(lock: true)
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue(label: "studio.tri.idle.forest.postTree")
-        let url_post = forestAPIBaseURL + "/" + domainAllTrees + "?seekrua=extension_chrome-6.1.0"
+        let url_post = forestAPIBaseURL + "/" + domainAllTrees + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         print("<!> postTree > \(url_post)")
         let header = HTTPHeaders(getForestHeader())
         queue.async {
@@ -526,7 +526,7 @@ public class LFRequest : NSObject {
         let semaphore = DispatchSemaphore.init(value: 0)
         let queue = DispatchQueue.init(label: "studio.tri.idle.forest.usersignout")
         
-        let remote_address = forestAPIBaseURL + domainSignout + "?seekrua=extension_chrome-6.1.0"
+        let remote_address = forestAPIBaseURL + domainSignout + "?seekrua=extension_chrome-\(domainExtensionVersion)"
         
         var remote_result = false
         let header = HTTPHeaders(getForestHeader())
