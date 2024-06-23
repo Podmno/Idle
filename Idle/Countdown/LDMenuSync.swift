@@ -150,7 +150,7 @@ public class LDMenuSync : NSObject {
     }
     
     func uploadTreeFromTemp() {
-        let treeUtil = LFManager()
+        let treeUtil = LFUtility()
         let startDate = storage.getTempTreeRecordStartTime()
         let endDate = storage.getTempTreeRecordEndTime()
         let duration = storage.getTempTreeRecordDuration()

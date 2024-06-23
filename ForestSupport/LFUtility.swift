@@ -7,7 +7,7 @@
 
 import Cocoa
 
-public class LFManager : NSObject {
+public class LFUtility : NSObject {
     
     public var treeTypePictureName = [0 : "t"]
     

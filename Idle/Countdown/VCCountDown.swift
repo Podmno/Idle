@@ -55,7 +55,7 @@ class VCCountDown: NSViewController {
     
     var wndLinkForest: WDLinkForest?
     lazy var recordUtil = LDRecord()
-    let treeUtil = LFManager()
+    let treeUtil = LFUtility()
     
     let plantResources = LFPlantResource()
     var plantResourcesData: [Int:LFPlantResourceInfo] = [:]
@@ -811,7 +811,7 @@ class VCCountDown: NSViewController {
                 if statusCountDownMode == .countup {
                     
                     // 正计时的时间修正，转换为 5 的倍数
-                    let forest_manager = LFManager()
+                    let forest_manager = LFUtility()
                     let fix_focustime = forest_manager.countUpFocusTimeAdjust(focusTime: duration)
                     let fixed_start_time = Date(timeInterval: -60 * Double(fix_focustime), since: forestRecordEndTime!)
                     duration = fix_focustime

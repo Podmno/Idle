@@ -11,7 +11,7 @@ import ForestSupport
 
 class LDNotification : NSObject, UNUserNotificationCenterDelegate {
     
-    let forest_helper = LFManager()
+    let forest_helper = LFUtility()
     
     
     public func sendTimeUpNotification(timerM: Int) {

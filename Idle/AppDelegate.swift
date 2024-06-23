@@ -12,16 +12,16 @@ let GLOBAL_APP_VERSION = "1.1 (24)"
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     @IBOutlet var window: NSWindow!
-
+    
     let notificationUtil = LDNotification()
     
     let menuIcon = LDMenuIcon()
     let wndAbout = WDAbout(windowNibName: "WDAbout")
     
     let wndDemo = WDForestViewer(windowNibName: "WDForestViewer")
-
+    
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let style = DockProgress.Style.pie(color: .controlAccentColor)
         DockProgress.style = style
-
+        
         
         notificationUtil.userAuthNotificationPermission()
         
@@ -41,11 +41,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //wndDemo.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
@@ -57,5 +57,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     
+    // CoreData: - 
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "FSD")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                NSLog("Failed to load Core Data stack: %@", error);
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    
 }
-

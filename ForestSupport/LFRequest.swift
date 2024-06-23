@@ -420,7 +420,7 @@ public class LFRequest : NSObject {
         
         print("data note \(note_content)")
         
-        let manager = LFManager()
+        let manager = LFUtility()
         var postJson = JSON()
 
         postJson["end_time"].string = endTime

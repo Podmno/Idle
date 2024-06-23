@@ -60,8 +60,10 @@ class WDForestViewer: NSWindowController {
             //let mgr = LFStorage()
             //mgr.addStorageTree(tree: LFTree())
             
-            let sql = LFSQL()
-            sql.initializeV1()
+            let db = LDDB2()
+            db.updateAppTable()
+            
+            
             
         }
     }
