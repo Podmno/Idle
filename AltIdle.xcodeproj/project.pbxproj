@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2C365D2C02E8AC008BAA65 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2C365C2C02E8AC008BAA65 /* SQLite */; };
 		5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */; };
 		5D4B3C902B739226000B9DAE /* WDForestViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */; };
 		5D4B3C922B73A26D000B9DAE /* SUForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C912B73A26C000B9DAE /* SUForest.swift */; };
@@ -22,6 +23,7 @@
 		5D9BA9342B4E28DB00675DA8 /* VCMenuIcon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */; };
 		5D9C8ED52B52F42A00FC904E /* LDMenuSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */; };
 		5D9E82032B7628660075F681 /* SUForestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9E82022B7628660075F681 /* SUForestUtil.swift */; };
+		5DA0831D2C270934001E7C08 /* LFSQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0831C2C270934001E7C08 /* LFSQL.swift */; };
 		5DA4C6C62BA5879E00A8051D /* PlantResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DBFE62B2B6A530A0023818B /* PlantResource.bundle */; };
 		5DACE94A2B4C4A75009BA82C /* DockProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9482B4C4A75009BA82C /* DockProgress.swift */; };
 		5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DACE9492B4C4A75009BA82C /* Utilities.swift */; };
@@ -111,6 +113,7 @@
 		5D9BA9322B4E28DB00675DA8 /* VCMenuIcon.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCMenuIcon.xib; sourceTree = "<group>"; };
 		5D9C8ED42B52F42A00FC904E /* LDMenuSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDMenuSync.swift; sourceTree = "<group>"; };
 		5D9E82022B7628660075F681 /* SUForestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUForestUtil.swift; sourceTree = "<group>"; };
+		5DA0831C2C270934001E7C08 /* LFSQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFSQL.swift; sourceTree = "<group>"; };
 		5DACE9482B4C4A75009BA82C /* DockProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockProgress.swift; sourceTree = "<group>"; };
 		5DACE9492B4C4A75009BA82C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5DAF8B012BE5C4BD000D081B /* VCForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCForest.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2C365D2C02E8AC008BAA65 /* SQLite in Frameworks */,
 				5DF502AC2B638A0B00A33CE8 /* ForestSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +264,7 @@
 				5D85BF142B527D900041AFDA /* LFStorage.swift */,
 				5DBFE6252B6A51AC0023818B /* LFPlantManager.swift */,
 				5D94730C2B9C39AA00AE1A5B /* LFPlantResource.swift */,
+				5DA0831C2C270934001E7C08 /* LFSQL.swift */,
 				5DDC7B152B66891B00D75063 /* WDLinkForest.xib */,
 				5DC3DE702B51462A00428760 /* WDLinkForest.swift */,
 				5D853AE32B5413FB00A018C4 /* WDTreeEdit.swift */,
@@ -309,6 +314,7 @@
 			);
 			name = Idle;
 			packageProductDependencies = (
+				5D2C365C2C02E8AC008BAA65 /* SQLite */,
 			);
 			productName = Idle;
 			productReference = 5DB12B322B3C87E900224244 /* Forest.app */;
@@ -387,6 +393,7 @@
 			packageReferences = (
 				5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				5D8C97312B3D0205009D142D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				5D2C365B2C02E8AC008BAA65 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 5DB12B332B3C87E900224244 /* Products */;
 			projectDirPath = "";
@@ -444,6 +451,7 @@
 				5DAF8B042BE5C4BD000D081B /* VCForest.swift in Sources */,
 				5DB12B362B3C87E900224244 /* AppDelegate.swift in Sources */,
 				5D9C8ED52B52F42A00FC904E /* LDMenuSync.swift in Sources */,
+				5DA0831D2C270934001E7C08 /* LFSQL.swift in Sources */,
 				5D8C973B2B3D0C95009D142D /* VCCountDown.swift in Sources */,
 				5D8C97372B3D0505009D142D /* LDMenuIcon.swift in Sources */,
 				5D97DDF92B4D5B6F00B2E3AE /* LDRecord.swift in Sources */,
@@ -877,6 +885,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5D2C365B2C02E8AC008BAA65 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.3;
+			};
+		};
 		5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -896,6 +912,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5D2C365C2C02E8AC008BAA65 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D2C365B2C02E8AC008BAA65 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
 		5DF502B32B638A2E00A33CE8 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D8C972E2B3D01D3009D142D /* XCRemoteSwiftPackageReference "Alamofire" */;

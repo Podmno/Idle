@@ -834,7 +834,11 @@ class VCCountDown: NSViewController {
                 queue.async { [self]  in
                     let mgr = LFRequest()
                     let result_tree = LFTree(startTime: start_time, endTime: end_time, duration: duration, tree_type: self.forestRecordTreeType, is_success: self.statusIsSuccess, tag: self.forestRecordTag, note_content: self.forestRecordInfo)
+                    // TODO: Update Tree > Toggle Update
                     _ = mgr.updateTree(tree: result_tree)
+                    
+                    print("> LFStorage.addStorageTree")
+                    storage.addStorageTree(tree: result_tree)
                     
                 }
                 

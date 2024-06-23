@@ -57,6 +57,11 @@ class WDForestViewer: NSWindowController {
             // 载入用户资料
             
         
+            //let mgr = LFStorage()
+            //mgr.addStorageTree(tree: LFTree())
+            
+            let sql = LFSQL()
+            sql.initializeV1()
             
         }
     }

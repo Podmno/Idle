@@ -179,18 +179,10 @@ public class LFStorage : NSObject {
     }
     
     public func addStorageTree(tree: LFTree) {
-        print("Add Storage Tree \(tree.hash) to storage.")
-       
-        let mgr = FileManager.default
-        let filePath = NSHomeDirectory() + "/Documents/tree_upload.json"
-        print(filePath)
-        let data = tree.toJson().string
-        do {
-            try data?.write(to: URL(fileURLWithPath: filePath), atomically: true, encoding: .utf8)
-        } catch {
-            print("Error Saving Storage Tree.")
-        }
-        
+    
+    }
+    
+    public func createStorageTreeFile() {
         
     }
     
@@ -207,3 +199,57 @@ public class LFStorage : NSObject {
     }
     
 }
+
+/*
+ Deprecated Version of JSON File Struct
+ let filePath = NSHomeDirectory() + "/Documents/tree_upload.json"
+ print("Create at: \(filePath)")
+ var empty_json_obj = JSON()
+ empty_json_obj["version"].int = 1
+ print(empty_json_obj["version"])
+ empty_json_obj["array"] = []
+ let empty_file = empty_json_obj.rawString() ?? ""
+ print("File: \(empty_file)")
+ do {
+     try empty_file.write(to: URL(fileURLWithPath: filePath), atomically: true, encoding: .utf8)
+ } catch {
+     print("Error Saving. Exit.")
+     return
+ }
+ 
+print("Add Storage Tree \(tree.hash) to storage.")
+
+let mgr = FileManager.default
+let filePath = NSHomeDirectory() + "/Documents/tree_upload.json"
+print("Temp Storage Tree File: \(filePath)")
+
+createStorageTreeFile()
+
+if !mgr.fileExists(atPath: filePath) {
+    print("Temp File does note exist.")
+    
+}
+
+
+// file Exists
+
+do {
+    createStorageTreeFile()
+    let str_content = try String(contentsOfFile: filePath)
+    var original_content_json = JSON(str_content)
+    
+    print("arrayValue:")
+    var ar = original_content_json["array"].arrayValue
+    //ar.append(tree.toJson().stringValue)
+    original_content_json["array"] = JSON(ar)
+    
+    //original_content_json["array"] = JSON(data)
+
+    
+    print("Append JSON: \(original_content_json)")
+    try original_content_json.rawString()?.write(to: URL(fileURLWithPath: filePath), atomically: true, encoding: .utf8)
+} catch {
+    print("Error Saving. Exit.")
+}
+
+*/

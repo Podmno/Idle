@@ -9,6 +9,9 @@ import Cocoa
 import Alamofire
 import SwiftyJSON
 
+// When turned on, record will not upload.
+let FOREST_REQUEST_DEMO = true
+
 public class LFTree : NSObject {
     var startTime: String = ""
     var endTime: String = ""
@@ -53,6 +56,14 @@ public class LFTree : NSObject {
         is_success = json["is_success"].bool ?? true
         tag = json["tag"].int ?? 0
         note_content = json["note_content"].string ?? ""
+    }
+    
+    public override var description: String {
+        return "LFTree: startTime: \(startTime), endTime: \(endTime), duration: \(duration), tree_type: \(tree_type), is_success: \(is_success), tag: \(tag), note_content: \(note_content)"
+    }
+    
+    public override var debugDescription: String {
+        return "LFTree: startTime: \(startTime), endTime: \(endTime), duration: \(duration), tree_type: \(tree_type), is_success: \(is_success), tag: \(tag), note_content: \(note_content)"
     }
     
 }
@@ -381,6 +392,12 @@ public class LFRequest : NSObject {
     // TODO: 累次数据的同步：分多次请求进行同步
     /// POST：更新植树信息
     public func updateTree(tree: LFTree) -> Int {
+        
+        if (FOREST_REQUEST_DEMO) {
+            print("<! FOREST_REQUEST_DEMO> Upload: \(tree)")
+            print("FOREST_REQUEST_DEMO is on, upload skipped.")
+            return 0
+        }
 
         let startTime = tree.startTime
         let endTime = tree.endTime
