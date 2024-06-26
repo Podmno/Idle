@@ -25,6 +25,18 @@ public class LDDB2: NSObject {
         } catch {
             fatalError("Failed to fetch. \(error)")
         }
+        
+        let saveBool = LDKeychainManager.keyChainSaveData(data: "Test" as Any, withIdentifier: "studio.tri.Idle.keychainAccess.deviceKey")
+        if saveBool {
+            print("keychain Access > PASSED")
+        } else {
+            print("keychain Access > FAILURE")
+        }
+        // 获取数据
+        let getString = LDKeychainManager.keychainReadData(identifier: "studio.tri.Idle.keychainAccess.deviceKey") as! String
+        print(getString)
+
+
        
     }
     

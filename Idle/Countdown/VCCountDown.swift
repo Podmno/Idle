@@ -368,7 +368,7 @@ class VCCountDown: NSViewController {
             return
         }
         
-        let index = arc4random() % 13
+        let index = arc4random() % UInt32(focusQuote.count)
         self.lbMainInfo.stringValue = focusQuote[Int(index)]
         
     }

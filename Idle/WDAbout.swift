@@ -9,7 +9,6 @@ import Cocoa
 
 class WDAbout: NSWindowController {
     
-    let wndVersion = WDExtensionVersion(windowNibName: "WDExtensionVersion")
 
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -28,6 +27,5 @@ class WDAbout: NSWindowController {
         print(GLOBAL_APP_VERSION)
          */
         
-        wndVersion.showWindow(self)
     }
 }

@@ -4,11 +4,27 @@
         <attribute name="version" optional="YES" attributeType="String"/>
     </entity>
     <entity name="DBRecord" representedClassName="DBRecord" syncable="YES" codeGenerationType="class">
-        <attribute name="commet" optional="YES" attributeType="String"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="success" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
-    <entity name="DBUser" representedClassName="DBUser" syncable="YES" codeGenerationType="class"/>
+    <entity name="DBTempStorage" representedClassName="DBTempStorage" syncable="YES" codeGenerationType="class">
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="String"/>
+        <attribute name="isSuccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="noteContent" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="treeType" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DBUser" representedClassName="DBUser" syncable="YES" codeGenerationType="class">
+        <attribute name="frDataAccount" optional="YES" attributeType="String"/>
+        <attribute name="frDataAll" optional="YES" attributeType="String"/>
+        <attribute name="frDataTags" optional="YES" attributeType="String"/>
+        <attribute name="frDataUnlock" optional="YES" attributeType="String"/>
+        <attribute name="frUserID" optional="YES" attributeType="String"/>
+        <attribute name="frUserName" optional="YES" attributeType="String"/>
+        <attribute name="frUserToken" optional="YES" attributeType="String"/>
+    </entity>
 </model>
