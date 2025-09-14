@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D2C365D2C02E8AC008BAA65 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2C365C2C02E8AC008BAA65 /* SQLite */; };
-		5D39AF0C2C284D8900D3AAAC /* FSD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D39AF0A2C284D8900D3AAAC /* FSD.xcdatamodeld */; };
 		5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */; };
 		5D4B3C902B739226000B9DAE /* WDForestViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */; };
 		5D4B3C922B73A26D000B9DAE /* SUForest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B3C912B73A26C000B9DAE /* SUForest.swift */; };
@@ -41,6 +40,7 @@
 		5DC2D38C2B55311E004103E9 /* WDAbout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DC2D38A2B55311E004103E9 /* WDAbout.xib */; };
 		5DC9AEAA2C28399D00C9C00C /* LDDB2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9AEA92C28399D00C9C00C /* LDDB2.swift */; };
 		5DC9AEB02C28408300C9C00C /* LDKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9AEAF2C28408300C9C00C /* LDKeychain.swift */; };
+		5DD02DF12E7715E500B5DA8E /* FSD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DD02DEF2E7715E500B5DA8E /* FSD.xcdatamodeld */; };
 		5DD24C8E2B62AA7900D23F6A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD24C902B62AA7900D23F6A /* MainMenu.xib */; };
 		5DD24C962B62AB6800D23F6A /* VCCountDown.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD24C952B62AB6800D23F6A /* VCCountDown.xib */; };
 		5DDC7B162B66891B00D75063 /* WDLinkForest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDC7B152B66891B00D75063 /* WDLinkForest.xib */; };
@@ -100,7 +100,6 @@
 
 /* Begin PBXFileReference section */
 		5D2F39DA2B511E2A00C3D391 /* LFRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFRequest.swift; sourceTree = "<group>"; };
-		5D39AF0B2C284D8900D3AAAC /* FSD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSD.xcdatamodel; sourceTree = "<group>"; };
 		5D4B3C8D2B739226000B9DAE /* WDForestViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDForestViewer.swift; sourceTree = "<group>"; };
 		5D4B3C8E2B739226000B9DAE /* WDForestViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WDForestViewer.xib; sourceTree = "<group>"; };
 		5D4B3C912B73A26C000B9DAE /* SUForest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUForest.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		5DC3DE7E2B515A7300428760 /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
 		5DC9AEA92C28399D00C9C00C /* LDDB2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDDB2.swift; sourceTree = "<group>"; };
 		5DC9AEAF2C28408300C9C00C /* LDKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDKeychain.swift; sourceTree = "<group>"; };
+		5DD02DF02E7715E500B5DA8E /* FSD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSD.xcdatamodel; sourceTree = "<group>"; };
 		5DD24C922B62AAE200D23F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5DD24C952B62AB6800D23F6A /* VCCountDown.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VCCountDown.xib; sourceTree = "<group>"; };
 		5DDC7B152B66891B00D75063 /* WDLinkForest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WDLinkForest.xib; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		5DC9AEA12C28382900C9C00C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				5D39AF0A2C284D8900D3AAAC /* FSD.xcdatamodeld */,
+				5DD02DEF2E7715E500B5DA8E /* FSD.xcdatamodeld */,
 				5DC9AEA92C28399D00C9C00C /* LDDB2.swift */,
 				5DC9AEAF2C28408300C9C00C /* LDKeychain.swift */,
 			);
@@ -477,7 +477,7 @@
 				5D9E82032B7628660075F681 /* SUForestUtil.swift in Sources */,
 				5D94730D2B9C39AA00AE1A5B /* LFPlantResource.swift in Sources */,
 				5D9BA9332B4E28DB00675DA8 /* VCMenuIcon.swift in Sources */,
-				5D39AF0C2C284D8900D3AAAC /* FSD.xcdatamodeld in Sources */,
+				5DD02DF12E7715E500B5DA8E /* FSD.xcdatamodeld in Sources */,
 				5D4B3C8F2B739226000B9DAE /* WDForestViewer.swift in Sources */,
 				5DACE94B2B4C4A75009BA82C /* Utilities.swift in Sources */,
 				5D97DDF72B4D5B4E00B2E3AE /* LDNotification.swift in Sources */,
@@ -950,14 +950,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		5D39AF0A2C284D8900D3AAAC /* FSD.xcdatamodeld */ = {
+		5DD02DEF2E7715E500B5DA8E /* FSD.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5D39AF0B2C284D8900D3AAAC /* FSD.xcdatamodel */,
+				5DD02DF02E7715E500B5DA8E /* FSD.xcdatamodel */,
 			);
-			currentVersion = 5D39AF0B2C284D8900D3AAAC /* FSD.xcdatamodel */;
-			name = FSD.xcdatamodeld;
-			path = /Users/kimno/Documents/ForestDesktop/port_idle/Idle/Idle/Database/FSD.xcdatamodeld;
+			currentVersion = 5DD02DF02E7715E500B5DA8E /* FSD.xcdatamodel */;
+			path = FSD.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24127" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24127"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="495" height="261"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="922"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="495" height="261"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -26,11 +26,11 @@
                         <rect key="frame" x="17" y="128" width="461" height="113"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="oOc-hE-8N3">
-                            <rect key="frame" x="4" y="5" width="453" height="94"/>
+                            <rect key="frame" x="0.0" y="0.0" width="461" height="101"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-8b-jlV">
-                                    <rect key="frame" x="18" y="13" width="401" height="33"/>
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rI-8b-jlV">
+                                    <rect key="frame" x="18" y="20" width="401" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" id="jTu-nt-YDm">
                                         <font key="font" metaFont="smallSystem"/>
@@ -41,15 +41,15 @@
                                     </textFieldCell>
                                 </textField>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0as-83-Ybh">
-                                    <rect key="frame" x="13" y="47" width="122" height="32"/>
+                                    <rect key="frame" x="13" y="54" width="122" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="恢复至默认" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JFn-Sf-qhe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
-                                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KQ-P5-fOm">
-                                    <rect key="frame" x="146" y="56" width="289" height="16"/>
+                                <textField hidden="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KQ-P5-fOm">
+                                    <rect key="frame" x="146" y="63" width="289" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="当前版本：默认" id="0yl-ZC-ons">
                                         <font key="font" metaFont="system"/>
@@ -59,25 +59,24 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <font key="titleFont" size="11" name=".PingFangSC-Regular"/>
                     </box>
                     <box fixedFrame="YES" title="数据管理" translatesAutoresizingMaskIntoConstraints="NO" id="l5s-n1-3Wh">
                         <rect key="frame" x="17" y="16" width="461" height="95"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="mRK-nL-sJT">
-                            <rect key="frame" x="4" y="5" width="453" height="75"/>
+                            <rect key="frame" x="0.0" y="0.0" width="461" height="83"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83m-dF-9Vq">
-                                    <rect key="frame" x="13" y="35" width="122" height="32"/>
+                                    <rect key="frame" x="13" y="43" width="122" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="重置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xf3-QH-sAz">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFL-xF-zLl">
-                                    <rect key="frame" x="20" y="13" width="415" height="16"/>
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IFL-xF-zLl">
+                                    <rect key="frame" x="20" y="21" width="415" height="16"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="清除所有的使用记录，将软件恢复到最初的状态。此操作不能撤销。" id="WaS-93-2hr">
                                         <font key="font" metaFont="smallSystem"/>
@@ -87,7 +86,6 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <font key="titleFont" size="11" name=".PingFangSC-Regular"/>
                     </box>
                 </subviews>
             </view>
